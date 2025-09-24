@@ -1,0 +1,26 @@
+// File: src/styles/_theme.scss
+
+// 1. Your Base Color Palette
+$seasalt: #f8f9faff;
+$antiflash-white: #e9ecefff;
+$platinum: #dee2e6ff;
+$french-gray: #ced4daff;
+$french-gray-2: #adb5bdff;
+$slate-gray: #6c757dff;
+$outer-space: #495057ff;
+$onyx: #343a40ff;
+$eerie-black: #212529ff;
+
+// 2. Semantic Mapping (How we'll use the colors)
+$body-bg: $eerie-black;
+$text-color: $antiflash-white;
+$text-color-muted: $slate-gray;
+$heading-color: $seasalt; // The brightest white for important elements
+
+// Glassmorphism & Borders
+$glass-bg: rgba($onyx, 0.5);
+$glass-border: rgba($outer-space, 0.3);
+
+// Component-specific colors
+$footer-bg: $onyx;
+$link-hover-color: $seasalt;

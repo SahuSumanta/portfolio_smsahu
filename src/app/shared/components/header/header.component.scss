@@ -1,0 +1,45 @@
+/* File: src/app/shared/components/header/header.component.scss */
+
+// Import the theme file using a relative path
+@import '../../../../styles/theme';
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 5%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background: $glass-bg; // Use variable
+  backdrop-filter: blur(5px);
+  border-bottom: 1px solid $glass-border; // Add a subtle border
+}
+
+.logo a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: $heading-color; // Use variable
+  text-decoration: none;
+}
+
+.nav-links ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: $text-color; // Use variable
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: $link-hover-color; // Use variable
+  }
+}

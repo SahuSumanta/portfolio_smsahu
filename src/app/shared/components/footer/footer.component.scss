@@ -1,0 +1,10 @@
+/* File: src/app/shared/components/footer/footer.component.scss */
+
+@import '../../../../styles/theme';
+
+.footer-container {
+  text-align: center;
+  padding: 2rem 5%;
+  color: $text-color-muted; // Use variable
+  background-color: $footer-bg;   // Use variable
+}

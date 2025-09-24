@@ -1,0 +1,307 @@
+/* File: src/styles.scss */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* File: src/app/pages/home/home.component.scss */
+
+@import '../../../styles/theme'; // Import your theme variables
+
+.hero-section {
+  // Layout: Center content vertically and fill the screen's height
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5%;
+  text-align: center;
+}
+
+.hero-content {
+  // The Glassmorphism Card
+  padding: 3rem 4rem;
+  background: $glass-bg;
+  border: 1px solid $glass-border;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 1rem;
+  max-width: 800px; // Prevents it from getting too wide on large screens
+}
+
+.hero-title {
+  font-size: 3.5rem; // Large and impactful
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: $heading-color;
+
+  .highlight {
+    // A nice accent color for your name
+    color: #38bdf8; // Example: A bright sky blue
+  }
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: $text-color;
+  margin-bottom: 1.5rem;
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  color: $text-color-muted;
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-cta-button {
+  background: transparent;
+  border: 2px solid #38bdf8; // Same as highlight color
+  color: #38bdf8;
+  padding: 0.75rem 2rem;
+  border-radius: 50px; // Pill-shaped button
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: #38bdf8;
+    color: $body-bg;
+  }
+}
+// ... your other styles like body, main, etc.
+
+.projects-section {
+  padding: 6rem 5%;
+  text-align: center;
+      display: grid
+;
+    gap: 3em;
+
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: $heading-color;
+  margin-bottom: 3rem;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  text-align: left;
+}
+
+.about-section {
+  padding: 6rem 5%;
+  background-color: rgba($onyx, 0.3); // A slightly different background to separate it
+}
+
+.about-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  // On smaller screens, stack the items
+  @media (max-width: 900px) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.about-image {
+  flex-basis: 30%; // Image takes up about 30% of the container width
+  
+  img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 50%; // Makes the image circular
+    border: 5px solid $glass-border;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+  }
+}
+
+.about-text {
+  flex-basis: 70%;
+
+  h3 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: $heading-color;
+    margin-bottom: 1.5rem;
+  }
+
+  p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: $text-color;
+    margin-bottom: 2.5rem;
+  }
+}
+
+.skills-showcase {
+  h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: $antiflash-white;
+  }
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+
+  @media (max-width: 900px) {
+    justify-content: center;
+  }
+
+  span {
+    background-color: rgba($slate-gray, 0.3);
+    color: $antiflash-white;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+
+    &:hover {
+      border-color: $glass-border;
+      background-color: rgba($slate-gray, 0.5);
+    }
+  }
+}
+
+
+.contact-section {
+  padding: 6rem 5%;
+  text-align: center;
+}
+
+.section-subtitle {
+  max-width: 600px;
+  margin: 0 auto 3rem auto;
+  font-size: 1.1rem;
+  color: $text-color-muted;
+}
+
+.contact-form {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 3rem;
+  text-align: left;
+
+  // Use the glass-card styles we already defined
+  background: $glass-bg;
+  border: 1px solid $glass-border;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 1rem;
+}
+
+.form-group {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+
+  label {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: $antiflash-white;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-family: inherit;
+    background-color: rgba($onyx, 0.5);
+    border: 2px solid $glass-border;
+    color: $text-color;
+    transition: border-color 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: #38bdf8; // Use an accent color for focus
+    }
+  }
+
+  textarea {
+    resize: vertical;
+  }
+}
+
+.submit-button {
+  width: 100%;
+  background: #38bdf8;
+  color: $eerie-black;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  border: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover:not(:disabled) {
+    opacity: 0.8;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background: $slate-gray;
+  }
+}
+
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem; // Adds space between the buttons
+  margin-top: 2.5rem; // Replaces margin-bottom on .hero-description
+}
+
+// Update the existing button style (just remove margin-bottom if you had it)
+.hero-cta-button {
+  background: transparent;
+  border: 2px solid #38bdf8;
+  color: #38bdf8;
+  padding: 0.75rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: #38bdf8;
+    color: $body-bg;
+  }
+
+  // New style for the secondary button
+  &.secondary {
+    background-color: transparent;
+    color: $antiflash-white;
+    border-color: $antiflash-white;
+
+    &:hover {
+      background-color: $antiflash-white;
+      color: $body-bg;
+    }
+  }
+}

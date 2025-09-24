@@ -1,1 +1,56 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'styles/theme';
+
+/* File: src/styles.scss */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+//   background-color: $body-bg; // Use variable
+  color: $text-color;       // Use variable
+
+
+   // Animated Gradient Background
+  background: linear-gradient(-45deg, #0f172a, #1e293b, #334155, #0f172a);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+main {
+  /* Add padding to the top to prevent content from hiding under the fixed header */
+  padding-top: 80px;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.glass-card {
+  /* The semi-transparent background color */
+  background: rgba(255, 255, 255, 0.1); /* Use a low-opacity white for a light theme */
+
+  /* The magic blur effect */
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+
+  /* A subtle border to catch the light */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  /* A soft shadow for depth */
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+
+  /* Rounded corners */
+  border-radius: 1rem; /* 16px */
+}
