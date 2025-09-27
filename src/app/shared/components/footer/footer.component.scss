@@ -8,3 +8,36 @@
   color: $text-color-muted; // Use variable
   background-color: $footer-bg;   // Use variable
 }
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+
+  a {
+    color: $text-color-muted;
+    // Add a transition to the SVG's filter property
+    transition: all 0.3s ease;
+
+    svg {
+      width: 28px;
+      height: 28px;
+      // Add a transition to the filter property for the SVG
+      transition: filter 0.3s ease;
+    }
+
+    &:hover {
+      color: #38bdf8; // The accent color for the icon itself
+      transform: translateY(-3px);
+
+      // The Neon Glow Effect
+      img {
+        filter: drop-shadow(0 0 2px #38bdf8)
+                drop-shadow(0 0 5px #38bdf8)
+                drop-shadow(0 0 10px #38bdf8);
+      }
+    }
+  }
+
+}

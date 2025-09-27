@@ -1,0 +1,6 @@
+# File: netlify.toml
+
+[build]
+  command = "ng build"
+  publish = "dist/portfolio/browser"
+  functions = "netlify/functions"

@@ -12,12 +12,21 @@ import {
 } from '@angular/forms';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { WebglBackgroundComponent } from '../../shared/components/webgl-background/webgl-background.component';
+import TypeIt from 'typeit';
+import { CertificationsComponent } from '../../shared/components/certifications/certifications.component';
 
 // Registered the plugin with GSAP
 gsap.registerPlugin(ScrollTrigger);
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, ProjectCardComponent, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    ProjectCardComponent,
+    ReactiveFormsModule,
+    WebglBackgroundComponent,
+    CertificationsComponent
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -43,14 +52,32 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   onSubmit(): void {
     if (this.contactForm.valid) {
-      this.contactForm.reset();
-      alert('Thank you for reaching out! I will get back to you soon.');
-    } else {
-      alert('Please fill out the form correctly before submitting.');
+      console.log('Sending form data...', this.contactForm.value);
+      this.apiService.sendContactForm(this.contactForm.value).subscribe({
+        next: (response) => {
+          alert('Message sent successfully!');
+          this.contactForm.reset();
+        },
+        error: (error) => {
+          console.error('Failed to send message', error);
+          alert('Sorry, there was an error sending your message. Please try again later.');
+        }
+      });
     }
   }
 
   ngAfterViewInit(): void {
+
+    // 2. Add the TypeIt animation logic
+    new (TypeIt as any)('#typing-name', {
+      strings: "Sumanta Sahu",
+      speed: 100,
+      lifeLike: true,
+      waitUntilVisible: true,
+      cursorChar: '_',
+    }).go();
+
+    
     // Animate Section Titles
     gsap.utils.toArray('.section-title').forEach((title: any) => {
       gsap.from(title, {
@@ -87,6 +114,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
         start: 'top 70%',
       },
     });
+
     gsap.from('.about-text', {
       x: 100, // Slide in from the right
       opacity: 0,
@@ -94,6 +122,19 @@ export class HomeComponent implements OnInit, AfterViewInit {
       scrollTrigger: {
         trigger: '.about-section',
         start: 'top 70%',
+      },
+    });
+
+    gsap.from('.projects-grid app-project-card', {
+      y: 100,
+      opacity: 0,
+      duration: 0.8,
+      stagger: 0.2,
+      scrollTrigger: {
+        trigger: '.projects-grid',
+        start: 'top 80%',
+        // This tells the animation to play, reverse, play again, and reverse again
+        toggleActions: 'play reverse play reverse',
       },
     });
   }

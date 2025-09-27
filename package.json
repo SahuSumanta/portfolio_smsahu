@@ -17,12 +17,15 @@
     "@angular/platform-browser": "^19.2.0",
     "@angular/platform-browser-dynamic": "^19.2.0",
     "@angular/router": "^19.2.0",
+    "@netlify/functions": "^4.2.6",
     "@types/three": "^0.180.0",
     "contentful": "^11.7.19",
     "gsap": "^3.13.0",
+    "resend": "^6.1.0",
     "rxjs": "~7.8.0",
     "three": "^0.180.0",
     "tslib": "^2.3.0",
+    "typeit": "^8.8.7",
     "zone.js": "~0.15.0"
   },
   "devDependencies": {

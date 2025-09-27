@@ -1,0 +1,16 @@
+<section class="certifications-section">
+  <h2 class="section-title">Certifications</h2>
+  <div class="cert-list" *ngIf="certifications$ | async as certifications">
+    @for (cert of certifications; track cert.name) {
+      <a [href]="cert.credentialUrl" target="_blank" rel="noopener noreferrer" class="cert-item-link">
+        <div class="cert-item glass-card">
+          <img [src]="cert.issuerLogoUrl" [alt]="cert.issuer" class="issuer-logo">
+          <div class="cert-details">
+            <h3>{{ cert.name }}</h3>
+            <p>{{ cert.issuer }}</p>
+          </div>
+        </div>
+      </a>
+    }
+  </div>
+</section>

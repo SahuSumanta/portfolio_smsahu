@@ -1,0 +1,43 @@
+/* In src/styles.scss */
+
+
+body {
+  cursor: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.custom-cursor {
+  position: fixed; // Stays in place when scrolling
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #ced4daff; // A color from your palette
+  border-radius: 50%;
+  pointer-events: none; // Allows you to click "through" it
+  transform: translate(-50%, -50%); // Centers the div on the mouse pointer
+  transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+  z-index: 9999; // Ensures it's on top of everything
+
+  // This class will be added on hover
+  &.grow {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(206, 212, 218, 0.2);
+  }
+}
+
+.aurora-glow {
+  position: fixed;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.2) 0%, rgba(56, 189, 248, 0) 60%);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  filter: blur(100px);
+  z-index: -1; // Sits behind content but on top of the main background
+}

@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { createClient, Entry, EntryCollection } from 'contentful';
 import { from, map, Observable } from 'rxjs';
 import { Project } from '../../shared/models/project.model';
+import { HttpClient } from '@angular/common/http';
+import { Certification } from '../../shared/models/certification.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +14,7 @@ export class ApiService {
     space: '3p1nh43dylrx',
     accessToken: 'rL7H1x088Q3xR7a6quQYG6xhpTJ_ebCt5WO3AgJqBbw'
   });
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
 
   /**
@@ -28,12 +30,17 @@ export class ApiService {
   //       content_type: 'project' // <-- Paste your Project's Content Type ID here
   //     });
 
-  //     console.log('✅ SUCCESS! Raw response from Contentful:', entries);
+  //     console.log('✅ SUCCESS!', entries);
 
-  //   } catch (error) {
-  //     console.error('❌ ERROR! Failed to fetch data from Contentful:', error);
-  //   }
+  //   
   // }
+
+  sendContactForm(formData: { name: string, email: string, message: string }) {
+    // Netlify automatically exposes functions at this endpoint
+    const functionUrl = '/.netlify/functions/send-email';
+    return this.http.post(functionUrl, formData);
+  }
+
 
 
   getProjects(): Observable<Project[]> {
@@ -55,4 +62,24 @@ export class ApiService {
       })
     );
   }
+
+
+  getCertifications(): Observable<Certification[]> {
+  const promise = this.client.getEntries<any>({ content_type: 'certification' });
+
+  return from(promise).pipe(
+    map(entries => {
+      return entries.items.map(item => {
+        return {
+          name: item.fields['name'] as string,
+          issuer: item.fields['issuer'] as string,
+          credentialUrl: item.fields['credentialUrl'] as string,
+          issuerLogoUrl: item.fields['issuerLogo'] as string
+        };
+      });
+    })
+  );
+}
+
+
 }
