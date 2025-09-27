@@ -1,12 +1,5 @@
-/* File: src/styles.scss */
-
-html {
-  scroll-behavior: smooth;
-}
-
-/* File: src/app/pages/home/home.component.scss */
-
 @import '../../../styles/theme'; // Import your theme variables
+
 
 .hero-section {
   // Layout: Center content vertically and fill the screen's height
@@ -257,32 +250,6 @@ html {
   }
 }
 
-// .about-skills {
-//   grid-column: 1 / span 12; // Spans the full width on the next row
-//   grid-row: 2;
-//   padding: 2rem;
-//   margin-top: -3rem; // Pulls it up slightly under the image
-//   z-index: 3;
-  
-//   h4 {
-//     margin-bottom: 1.5rem;
-//     font-weight: 600;
-//   }
-//   .skills-grid {
-//     // Uses the same styles as your previous skills section
-//     display: flex;
-//     flex-wrap: wrap;
-//     gap: 0.75rem;
-//   }
-//   span {
-//     background-color: rgba($slate-gray, 0.3);
-//     color: $antiflash-white;
-//     padding: 0.5rem 1rem;
-//     border-radius: 50px;
-//     font-size: 0.9rem;
-//   }
-// }
-
 
 
 .about-container {
@@ -339,31 +306,31 @@ html {
   }
 }
 
-.skills-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
+// .skills-grid {
+//   display: flex;
+//   flex-wrap: wrap;
+//   gap: 0.75rem;
 
-  @media (max-width: 900px) {
-    justify-content: center;
-  }
+//   @media (max-width: 900px) {
+//     justify-content: center;
+//   }
 
-  span {
-    background-color: rgba($slate-gray, 0.3);
-    color: $antiflash-white;
-    padding: 0.5rem 1rem;
-    border-radius: 50px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    border: 1px solid transparent;
-    transition: all 0.3s ease;
+//   span {
+//     background-color: rgba($slate-gray, 0.3);
+//     color: $antiflash-white;
+//     padding: 0.5rem 1rem;
+//     border-radius: 50px;
+//     font-size: 0.9rem;
+//     font-weight: 500;
+//     border: 1px solid transparent;
+//     transition: all 0.3s ease;
 
-    &:hover {
-      border-color: $glass-border;
-      background-color: rgba($slate-gray, 0.5);
-    }
-  }
-}
+//     &:hover {
+//       border-color: $glass-border;
+//       background-color: rgba($slate-gray, 0.5);
+//     }
+//   }
+// }
 
 
 .contact-section {

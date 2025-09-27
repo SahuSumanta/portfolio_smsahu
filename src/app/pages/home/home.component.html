@@ -1,5 +1,9 @@
 <section class="hero-section">
-  <app-webgl-background></app-webgl-background>
+
+  @defer  {
+    <app-webgl-background></app-webgl-background>
+  }
+  
   <div class="hero-content">
     <h1 class="hero-title">
       Hi, I'm <span class="highlight" id="typing-name"></span>
