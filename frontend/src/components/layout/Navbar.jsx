@@ -101,20 +101,28 @@ export const Navbar = () => {
 
           {/* Resume Button & Mobile Toggle */}
           <div className="flex items-center gap-3">
-            <Button
-              variant="hud"
-              size="sm"
-              className="hidden sm:flex items-center gap-2"
-              onClick={() => window.open('https://customer-assets.emergentagent.com/job_dbcea3da-54c8-4c46-bedd-a3456a73ed12/artifacts/6zxf2x28_Sumanta_Sahu.pdf', '_blank')}
+            <a
+              href="https://customer-assets.emergentagent.com/job_dbcea3da-54c8-4c46-bedd-a3456a73ed12/artifacts/6zxf2x28_Sumanta_Sahu.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:flex"
             >
-              <Download className="w-4 h-4" />
-              Resume
-            </Button>
+              <Button
+                variant="hud"
+                size="sm"
+                className="flex items-center gap-2"
+              >
+                <Download className="w-4 h-4" />
+                Resume
+              </Button>
+            </a>
 
             {/* Mobile Menu Toggle */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 text-foreground hover:text-primary transition-colors"
+              className="lg:hidden p-2 text-foreground hover:text-primary transition-colors z-50"
+              aria-label="Toggle mobile menu"
+              aria-expanded={isMobileMenuOpen}
             >
               {isMobileMenuOpen ? (
                 <X className="w-6 h-6" />
