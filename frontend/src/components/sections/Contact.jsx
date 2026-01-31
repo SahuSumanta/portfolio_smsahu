@@ -1,16 +1,20 @@
-import React, { useState } from 'react';
-import { Send, Mail, MapPin, Phone, Linkedin, Github, Twitter, Instagram, CheckCircle, AlertCircle } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Send, Mail, MapPin, Phone, Linkedin, Github, Twitter, Instagram, CheckCircle, AlertCircle, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 
+gsap.registerPlugin(ScrollTrigger);
+
 const socialLinks = [
-  { icon: Linkedin, href: 'https://www.linkedin.com/in/sahusumanta/', label: 'LinkedIn', color: 'hover:text-[#0A66C2]' },
-  { icon: Github, href: 'https://github.com/sahusumanta', label: 'GitHub', color: 'hover:text-foreground' },
-  { icon: Twitter, href: 'https://x.com/imsmsahu', label: 'Twitter', color: 'hover:text-[#1DA1F2]' },
-  { icon: Instagram, href: 'https://www.instagram.com/imsmsahu/', label: 'Instagram', color: 'hover:text-[#E4405F]' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/in/sahusumanta/', label: 'LinkedIn' },
+  { icon: Github, href: 'https://github.com/sahusumanta', label: 'GitHub' },
+  { icon: Twitter, href: 'https://x.com/imsmsahu', label: 'Twitter' },
+  { icon: Instagram, href: 'https://www.instagram.com/imsmsahu/', label: 'Instagram' },
 ];
 
 const contactInfo = [
@@ -28,6 +32,28 @@ export const Contact = () => {
   });
   const [status, setStatus] = useState({ type: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo('.contact-card',
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 70%',
+          }
+        }
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -47,68 +73,61 @@ export const Contact = () => {
     }
 
     setIsSubmitting(true);
-    
-    // Simulate form submission (mock functionality)
     await new Promise((resolve) => setTimeout(resolve, 1500));
     
-    setStatus({ type: 'success', message: 'Message sent successfully! I\'ll get back to you soon.' });
+    setStatus({ type: 'success', message: 'Message sent successfully! I will get back to you soon.' });
     setFormData({ name: '', email: '', message: '', consent: false });
     setIsSubmitting(false);
 
-    // Clear status after 5 seconds
     setTimeout(() => setStatus({ type: '', message: '' }), 5000);
   };
 
   return (
-    <section id="contact" className="relative py-24 lg:py-32 overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 cyber-grid opacity-30"></div>
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+    <section id="contact" ref={sectionRef} className="relative py-24 lg:py-32 overflow-hidden">
+      <div className="absolute inset-0 cyber-grid opacity-20"></div>
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
       
-      {/* Arc Reactor Glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/5 rounded-full blur-3xl"></div>
+      {/* Floating Orbs */}
+      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute top-20 right-1/4 w-64 h-64 bg-accent/5 rounded-full blur-3xl pointer-events-none"></div>
       
       <div className="relative container mx-auto px-4 lg:px-8">
-        {/* Section Header */}
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1 text-sm font-medium text-primary bg-primary/10 rounded-full border border-primary/20 mb-4">
-            // GET IN TOUCH
+          <span className="inline-block px-4 py-1.5 text-xs font-mono font-medium text-primary bg-primary/10 rounded-full border border-primary/20 mb-6 tracking-widest">
+            CONNECT
           </span>
-          <h2 className="font-orbitron text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Establish <span className="text-gradient-hud">Connection</span>
+          <h2 className="font-orbitron text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-4">
+            Establish <span className="text-gradient-cyber">Uplink</span>
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
-            I&apos;m open to corporate roles and exciting opportunities. Feel free to reach out!
+            Open to corporate roles and exciting opportunities
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full mt-4"></div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto">
           {/* Left - Contact Info */}
-          <div className="space-y-8">
+          <div className="space-y-6">
             {/* Contact Cards */}
-            <div className="space-y-4">
-              {contactInfo.map((info) => (
-                <a
-                  key={info.label}
-                  href={info.href}
-                  className={`glass-card p-5 rounded-xl flex items-center gap-4 group hover:border-primary/50 transition-all duration-300 ${
-                    info.href ? 'cursor-pointer' : 'cursor-default'
-                  }`}
-                >
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <info.icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground">{info.label}</p>
-                    <p className="text-foreground font-medium">{info.value}</p>
-                  </div>
-                </a>
-              ))}
-            </div>
+            {contactInfo.map((info) => (
+              <a
+                key={info.label}
+                href={info.href}
+                className={`contact-card glass-card p-5 rounded-xl flex items-center gap-4 group hover:border-primary/30 transition-all duration-300 ${
+                  info.href ? 'cursor-pointer' : 'cursor-default'
+                }`}
+              >
+                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <info.icon className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <p className="text-xs text-muted-foreground font-mono uppercase tracking-wider">{info.label}</p>
+                  <p className="text-foreground font-medium text-lg">{info.value}</p>
+                </div>
+              </a>
+            ))}
 
             {/* Social Links */}
-            <div className="glass-card p-6 rounded-xl">
+            <div className="contact-card glass-card p-6 rounded-xl">
               <h3 className="font-orbitron text-lg font-semibold text-foreground mb-4">
                 Social Connect
               </h3>
@@ -119,40 +138,40 @@ export const Contact = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`p-4 rounded-xl glass-card hover:border-primary/50 transition-all duration-300 group ${social.color}`}
+                    className="p-4 rounded-xl glass-card hover:border-primary/50 transition-all duration-300 group"
                     aria-label={social.label}
                   >
-                    <social.icon className="w-6 h-6 text-muted-foreground group-hover:scale-110 transition-all duration-300" />
+                    <social.icon className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors" />
                   </a>
                 ))}
               </div>
             </div>
 
-            {/* Availability Status */}
-            <div className="glass-card p-6 rounded-xl">
+            {/* Status */}
+            <div className="contact-card glass-card p-5 rounded-xl">
               <div className="flex items-center gap-3">
                 <span className="relative flex h-3 w-3">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-3 w-3 bg-success"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-green-400"></span>
                 </span>
                 <div>
-                  <p className="text-foreground font-medium">Available for Opportunities</p>
-                  <p className="text-sm text-muted-foreground">Open to full-time roles & collaborations</p>
+                  <p className="text-foreground font-medium">System Status: Online</p>
+                  <p className="text-sm text-muted-foreground font-mono">Open to opportunities</p>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Right - Contact Form */}
-          <div className="glass-card p-6 lg:p-8 rounded-2xl hud-corner">
-            <h3 className="font-orbitron text-xl font-semibold text-foreground mb-6">
+          <div className="contact-card glass-card p-8 rounded-2xl hud-corner">
+            <h3 className="font-orbitron text-xl font-semibold text-foreground mb-6 flex items-center gap-2">
+              <Zap className="w-5 h-5 text-primary" />
               Send a Message
             </h3>
 
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Name */}
               <div className="space-y-2">
-                <Label htmlFor="name" className="text-foreground">Name</Label>
+                <Label htmlFor="name" className="text-foreground font-mono text-sm">Name</Label>
                 <Input
                   id="name"
                   name="name"
@@ -161,13 +180,12 @@ export const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="bg-secondary/50 border-primary/20 focus:border-primary text-foreground placeholder:text-muted-foreground"
+                  className="bg-secondary/50 border-border/50 focus:border-primary text-foreground placeholder:text-muted-foreground"
                 />
               </div>
 
-              {/* Email */}
               <div className="space-y-2">
-                <Label htmlFor="email" className="text-foreground">Email</Label>
+                <Label htmlFor="email" className="text-foreground font-mono text-sm">Email</Label>
                 <Input
                   id="email"
                   name="email"
@@ -176,13 +194,12 @@ export const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="bg-secondary/50 border-primary/20 focus:border-primary text-foreground placeholder:text-muted-foreground"
+                  className="bg-secondary/50 border-border/50 focus:border-primary text-foreground placeholder:text-muted-foreground"
                 />
               </div>
 
-              {/* Message */}
               <div className="space-y-2">
-                <Label htmlFor="message" className="text-foreground">Message</Label>
+                <Label htmlFor="message" className="text-foreground font-mono text-sm">Message</Label>
                 <Textarea
                   id="message"
                   name="message"
@@ -191,11 +208,10 @@ export const Contact = () => {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="bg-secondary/50 border-primary/20 focus:border-primary text-foreground placeholder:text-muted-foreground resize-none"
+                  className="bg-secondary/50 border-border/50 focus:border-primary text-foreground placeholder:text-muted-foreground resize-none"
                 />
               </div>
 
-              {/* Consent Checkbox */}
               <div className="flex items-start gap-3">
                 <Checkbox
                   id="consent"
@@ -208,13 +224,12 @@ export const Contact = () => {
                 </Label>
               </div>
 
-              {/* Status Message */}
               {status.message && (
                 <div
                   className={`flex items-center gap-2 p-4 rounded-lg ${
                     status.type === 'success'
-                      ? 'bg-success/10 text-success border border-success/30'
-                      : 'bg-destructive/10 text-destructive border border-destructive/30'
+                      ? 'bg-green-500/10 text-green-400 border border-green-500/30'
+                      : 'bg-red-500/10 text-red-400 border border-red-500/30'
                   }`}
                 >
                   {status.type === 'success' ? (
@@ -226,10 +241,9 @@ export const Contact = () => {
                 </div>
               )}
 
-              {/* Submit Button */}
               <Button
                 type="submit"
-                variant="arc"
+                variant="cyber"
                 size="lg"
                 className="w-full"
                 disabled={isSubmitting}
@@ -237,7 +251,7 @@ export const Contact = () => {
                 {isSubmitting ? (
                   <>
                     <div className="w-5 h-5 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin"></div>
-                    Sending...
+                    Transmitting...
                   </>
                 ) : (
                   <>
