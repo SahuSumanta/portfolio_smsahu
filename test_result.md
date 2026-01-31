@@ -137,9 +137,9 @@ frontend:
 
   - task: "Resume Button Functionality"
     implemented: true
-    working: false
+    working: true
     file: "/app/frontend/src/components/layout/Navbar.jsx"
-    stuck_count: 1
+    stuck_count: 0
     priority: "high"
     needs_retesting: false
     status_history:
@@ -149,6 +149,9 @@ frontend:
         - working: false
           agent: "testing"
           comment: "❌ Resume button has incorrect onclick handler (noop function) - should open PDF URL but currently not functional"
+        - working: true
+          agent: "testing"
+          comment: "✅ Resume button now fully functional - found 2 resume buttons with proper PDF links (https://customer-assets.emergentagent.com/job_dbcea3da-54c8-4c46-bedd-a3456a73ed12/artifacts/6zxf2x28_Sumanta_Sahu.pdf) and target='_blank' for new tab opening"
 
   - task: "Terminal Preloader Animation"
     implemented: true
