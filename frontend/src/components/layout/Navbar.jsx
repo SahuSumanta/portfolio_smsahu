@@ -157,14 +157,20 @@ export const Navbar = () => {
               {link.name}
             </button>
           ))}
-          <Button
-            variant="hud"
-            className="w-full mt-4 flex items-center justify-center gap-2"
-            onClick={() => window.open('https://customer-assets.emergentagent.com/job_dbcea3da-54c8-4c46-bedd-a3456a73ed12/artifacts/6zxf2x28_Sumanta_Sahu.pdf', '_blank')}
+          <a
+            href="https://customer-assets.emergentagent.com/job_dbcea3da-54c8-4c46-bedd-a3456a73ed12/artifacts/6zxf2x28_Sumanta_Sahu.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full mt-4"
           >
-            <Download className="w-4 h-4" />
-            View Resume
-          </Button>
+            <Button
+              variant="hud"
+              className="w-full flex items-center justify-center gap-2"
+            >
+              <Download className="w-4 h-4" />
+              View Resume
+            </Button>
+          </a>
         </div>
       </div>
     </nav>
