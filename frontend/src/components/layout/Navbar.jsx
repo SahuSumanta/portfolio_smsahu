@@ -21,7 +21,6 @@ export const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
       
-      // Update active section based on scroll position
       const sections = navLinks.map(link => link.href.replace('#', ''));
       for (const section of sections.reverse()) {
         const element = document.getElementById(section);
@@ -52,7 +51,7 @@ export const Navbar = () => {
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
         isScrolled
-          ? 'glass-card border-b border-primary/20 py-3'
+          ? 'glass-card border-b border-primary/10 py-3'
           : 'bg-transparent py-5'
       )}
     >
@@ -65,11 +64,11 @@ export const Navbar = () => {
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
             <div className="relative w-10 h-10 flex items-center justify-center">
-              <div className="absolute inset-0 bg-primary/20 rounded-lg rotate-45 group-hover:rotate-90 transition-transform duration-500"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-accent/30 rounded-lg rotate-45 group-hover:rotate-[135deg] transition-transform duration-700"></div>
               <Zap className="w-5 h-5 text-primary relative z-10" />
             </div>
-            <span className="font-orbitron text-lg font-bold text-foreground">
-              <span className="text-primary">S</span>UMANTA
+            <span className="font-orbitron text-lg font-bold text-foreground tracking-wide">
+              <span className="text-gradient-cyber">S</span>UMANTA
             </span>
           </a>
 
@@ -89,7 +88,7 @@ export const Navbar = () => {
                 {link.name}
                 <span
                   className={cn(
-                    'absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-primary transition-all duration-300',
+                    'absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-gradient-to-r from-primary to-accent transition-all duration-300 rounded-full',
                     activeSection === link.href.replace('#', '')
                       ? 'w-full'
                       : 'w-0 group-hover:w-1/2'
@@ -108,9 +107,9 @@ export const Navbar = () => {
               className="hidden sm:flex"
             >
               <Button
-                variant="hud"
+                variant="outline"
                 size="sm"
-                className="flex items-center gap-2"
+                className="flex items-center gap-2 border-primary/30 text-foreground hover:bg-primary/10 hover:border-primary/60"
               >
                 <Download className="w-4 h-4" />
                 Resume
@@ -137,7 +136,7 @@ export const Navbar = () => {
       {/* Mobile Menu */}
       <div
         className={cn(
-          'lg:hidden absolute top-full left-0 right-0 glass-card border-b border-primary/20 overflow-hidden transition-all duration-500',
+          'lg:hidden absolute top-full left-0 right-0 glass-card border-b border-primary/10 overflow-hidden transition-all duration-500',
           isMobileMenuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
         )}
       >
@@ -147,10 +146,10 @@ export const Navbar = () => {
               key={link.name}
               onClick={() => handleNavClick(link.href)}
               className={cn(
-                'block w-full text-left px-4 py-3 rounded-lg transition-all duration-300',
+                'block w-full text-left px-4 py-3 rounded-lg transition-all duration-300 font-medium',
                 activeSection === link.href.replace('#', '')
-                  ? 'bg-primary/20 text-primary'
-                  : 'text-muted-foreground hover:bg-primary/10 hover:text-foreground'
+                  ? 'bg-primary/10 text-primary'
+                  : 'text-muted-foreground hover:bg-primary/5 hover:text-foreground'
               )}
               style={{ animationDelay: `${index * 50}ms` }}
             >
@@ -164,8 +163,8 @@ export const Navbar = () => {
             className="block w-full mt-4"
           >
             <Button
-              variant="hud"
-              className="w-full flex items-center justify-center gap-2"
+              variant="outline"
+              className="w-full flex items-center justify-center gap-2 border-primary/30 text-foreground hover:bg-primary/10"
             >
               <Download className="w-4 h-4" />
               View Resume
