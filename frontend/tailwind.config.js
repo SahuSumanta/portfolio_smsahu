@@ -9,8 +9,9 @@ module.exports = {
         extend: {
             fontFamily: {
                 orbitron: ['Orbitron', 'monospace'],
+                space: ['Space Grotesk', 'sans-serif'],
+                mono: ['JetBrains Mono', 'monospace'],
                 exo: ['Exo 2', 'sans-serif'],
-                fira: ['Fira Code', 'monospace'],
             },
             borderRadius: {
                 lg: 'var(--radius)',
@@ -31,7 +32,6 @@ module.exports = {
                 primary: {
                     DEFAULT: 'hsl(var(--primary))',
                     foreground: 'hsl(var(--primary-foreground))',
-                    glow: 'hsl(var(--primary-glow))'
                 },
                 secondary: {
                     DEFAULT: 'hsl(var(--secondary))',
@@ -54,13 +54,13 @@ module.exports = {
                 border: 'hsl(var(--border))',
                 input: 'hsl(var(--input))',
                 ring: 'hsl(var(--ring))',
-                hud: {
-                    blue: 'hsl(var(--hud-blue))',
-                    cyan: 'hsl(var(--hud-cyan))',
-                    gold: 'hsl(var(--hud-gold))',
-                    red: 'hsl(var(--hud-red))',
+                layer: {
+                    interface: 'hsl(var(--layer-interface))',
+                    state: 'hsl(var(--layer-state))',
+                    logic: 'hsl(var(--layer-logic))',
+                    data: 'hsl(var(--layer-data))',
+                    devops: 'hsl(var(--layer-devops))',
                 },
-                arc: 'hsl(var(--arc-reactor))',
                 chart: {
                     '1': 'hsl(var(--chart-1))',
                     '2': 'hsl(var(--chart-2))',
@@ -78,14 +78,6 @@ module.exports = {
                     from: { height: 'var(--radix-accordion-content-height)' },
                     to: { height: '0' }
                 },
-                'pulse-glow': {
-                    '0%, 100%': { 
-                        boxShadow: '0 0 20px hsl(var(--primary) / 0.4), 0 0 40px hsl(var(--primary) / 0.2)'
-                    },
-                    '50%': { 
-                        boxShadow: '0 0 30px hsl(var(--primary) / 0.6), 0 0 60px hsl(var(--primary) / 0.3)'
-                    }
-                },
                 'float': {
                     '0%, 100%': { transform: 'translateY(0)' },
                     '50%': { transform: 'translateY(-10px)' }
@@ -94,54 +86,40 @@ module.exports = {
                     from: { opacity: '0', transform: 'translateY(30px)' },
                     to: { opacity: '1', transform: 'translateY(0)' }
                 },
-                'slide-in-left': {
-                    from: { opacity: '0', transform: 'translateX(-50px)' },
-                    to: { opacity: '1', transform: 'translateX(0)' }
-                },
-                'slide-in-right': {
-                    from: { opacity: '0', transform: 'translateX(50px)' },
-                    to: { opacity: '1', transform: 'translateX(0)' }
-                },
-                'scale-in': {
-                    from: { opacity: '0', transform: 'scale(0.9)' },
-                    to: { opacity: '1', transform: 'scale(1)' }
+                'pulse-glow': {
+                    '0%, 100%': { 
+                        boxShadow: '0 0 20px hsl(var(--primary) / 0.3)'
+                    },
+                    '50%': { 
+                        boxShadow: '0 0 40px hsl(var(--primary) / 0.5)'
+                    }
                 },
                 'spin-slow': {
                     from: { transform: 'rotate(0deg)' },
                     to: { transform: 'rotate(360deg)' }
                 },
-                'border-flow': {
-                    '0%': { backgroundPosition: '0% 50%' },
-                    '50%': { backgroundPosition: '100% 50%' },
-                    '100%': { backgroundPosition: '0% 50%' }
-                }
+                'typing': {
+                    from: { width: '0' },
+                    to: { width: '100%' }
+                },
             },
             animation: {
                 'accordion-down': 'accordion-down 0.2s ease-out',
                 'accordion-up': 'accordion-up 0.2s ease-out',
-                'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
                 'float': 'float 6s ease-in-out infinite',
                 'fade-in-up': 'fade-in-up 0.8s ease-out forwards',
-                'slide-in-left': 'slide-in-left 0.6s ease-out forwards',
-                'slide-in-right': 'slide-in-right 0.6s ease-out forwards',
-                'scale-in': 'scale-in 0.5s ease-out forwards',
+                'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
                 'spin-slow': 'spin-slow 20s linear infinite',
-                'border-flow': 'border-flow 3s ease infinite'
             },
             backgroundImage: {
-                'gradient-hud': 'linear-gradient(135deg, hsl(var(--primary) / 0.2), hsl(var(--accent) / 0.1))',
-                'gradient-glass': 'linear-gradient(135deg, hsl(var(--primary) / 0.08), hsl(var(--secondary) / 0.6))',
                 'gradient-radial': 'radial-gradient(ellipse at center, var(--tw-gradient-stops))',
+                'gradient-cyber': 'linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)))',
             },
             boxShadow: {
-                'hud': '0 0 30px hsl(var(--primary) / 0.3), 0 0 60px hsl(var(--primary) / 0.15)',
-                'glass': '0 8px 32px hsl(225 30% 0% / 0.4), inset 0 1px 0 hsl(var(--primary) / 0.1)',
-                'glow': '0 0 20px hsl(var(--primary) / 0.4)',
-                'glow-lg': '0 0 40px hsl(var(--primary) / 0.5)',
+                'glow': '0 0 30px hsl(var(--primary) / 0.3)',
+                'glow-lg': '0 0 50px hsl(var(--primary) / 0.4)',
+                'glass': '0 8px 32px hsl(0 0% 0% / 0.5), inset 0 1px 0 hsl(0 0% 100% / 0.05)',
             },
-            backdropBlur: {
-                'glass': '20px',
-            }
         }
     },
     plugins: [require("tailwindcss-animate")],
