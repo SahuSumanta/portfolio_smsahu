@@ -301,10 +301,14 @@ metadata:
 
 test_plan:
   current_focus:
+    - "Terminal Preloader Animation"
+    - "Skills Section - The Engine Room Architecture Layers"
+    - "Projects Section - The Blueprints"
+    - "Contact Section - Establish Uplink"
+    - "Iron Man/Cyber Theme Implementation"
     - "Navigation Links Functionality"
     - "Hero Section Typing Animation"
     - "Resume Button Functionality"
-    - "Skills Section Category Tabs"
     - "Contact Form Validation"
     - "Social Links External Navigation"
     - "Mobile Responsiveness"
