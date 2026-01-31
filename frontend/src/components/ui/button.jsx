@@ -5,7 +5,7 @@ import { cva } from "class-variance-authority";
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 font-exo",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 font-space",
   {
     variants: {
       variant: {
@@ -13,16 +13,14 @@ const buttonVariants = cva(
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
-          "border border-primary/50 bg-transparent text-primary hover:bg-primary/10 hover:border-primary hover:shadow-glow",
+          "border border-border bg-transparent text-foreground hover:bg-primary/10 hover:border-primary/50",
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-primary/10 hover:text-primary text-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        // Custom HUD variants
-        hud: "bg-primary/10 border border-primary/30 text-primary hover:bg-primary/20 hover:border-primary/60 hover:shadow-glow backdrop-blur-sm",
-        hudGlow: "bg-gradient-to-r from-primary/20 to-accent/20 border border-primary/40 text-foreground hover:from-primary/30 hover:to-accent/30 hover:shadow-hud backdrop-blur-sm",
-        arc: "bg-gradient-to-r from-primary to-accent text-primary-foreground hover:shadow-hud font-semibold",
-        glass: "glass-card text-foreground hover:border-primary/40 hover:shadow-glow",
+        // Custom variants
+        cyber: "bg-gradient-to-r from-primary to-accent text-primary-foreground hover:shadow-glow-lg font-semibold",
+        glass: "glass-card text-foreground hover:border-primary/40",
       },
       size: {
         default: "h-10 px-6 py-2",
