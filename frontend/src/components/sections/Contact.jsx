@@ -78,7 +78,7 @@ export const Contact = () => {
             Establish <span className="text-gradient-hud">Connection</span>
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
-            I'm open to corporate roles and exciting opportunities. Feel free to reach out!
+            I&apos;m open to corporate roles and exciting opportunities. Feel free to reach out!
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full mt-4"></div>
         </div>
