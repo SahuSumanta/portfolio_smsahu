@@ -58,7 +58,7 @@
      LAYER 2: SEMANTIC TOKENS (Purpose Aliases & Theme Mapping)
      ========================================================================== */
   
-  /* Canvas & Surface Mapping */
+  /* Canvas & Surface Mapping (Dark Theme Default) */
   --bg-primary: var(--color-black-pure);
   --bg-secondary: var(--color-zinc-950);
   --surface: var(--color-zinc-950);
@@ -77,7 +77,6 @@
   --text-inverse: var(--color-black-pure);
 
   /* Brand Accents & Highlights */
-  /* Using white/light grey as the primary accent for a strictly minimal look */
   --accent: var(--color-white);
   --accent-hover: var(--color-zinc-200);
   --accent-light: var(--color-zinc-300);
@@ -87,7 +86,7 @@
   --warning: #F59E0B;
   --error: #EF4444;
 
-  /* Glassmorphism - Greatly subdued */
+  /* Glassmorphism */
   --glass-bg: rgba(0, 0, 0, 0.6);
   --glass-bg-hover: rgba(9, 9, 11, 0.7);
   --glass-border: rgba(255, 255, 255, 0.05);
@@ -95,10 +94,49 @@
   --glass-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
   --glass-backdrop: blur(12px);
 
-  /* Elevation Shadows (Removed heavy glowing styles) */
+  /* Elevation Shadows */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.6);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.7);
   --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+}
+
+.light-theme {
+  /* Canvas & Surface Mapping (Light Theme) */
+  --bg-primary: var(--color-zinc-50);
+  --bg-secondary: var(--color-zinc-100);
+  --surface: var(--color-white);
+  --surface-hover: var(--color-zinc-100);
+  --surface-active: var(--color-zinc-200);
+  
+  /* Border & Divider Mapping */
+  --border: var(--color-zinc-200);
+  --border-hover: var(--color-zinc-300);
+  --border-subtle: rgba(0, 0, 0, 0.05);
+
+  /* Typography Mapping */
+  --text-primary: var(--color-zinc-950);
+  --text-secondary: var(--color-zinc-600);
+  --text-tertiary: var(--color-zinc-500);
+  --text-inverse: var(--color-white);
+
+  /* Brand Accents & Highlights */
+  --accent: var(--color-zinc-900);
+  --accent-hover: var(--color-zinc-700);
+  --accent-light: var(--color-zinc-600);
+
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-bg-hover: rgba(244, 244, 245, 0.7);
+  --glass-border: rgba(0, 0, 0, 0.05);
+  --glass-border-hover: rgba(0, 0, 0, 0.1);
+  --glass-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+
+  /* Elevation Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
 }

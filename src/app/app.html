@@ -1,4 +1,4 @@
-<div class="min-h-screen flex flex-col bg-[var(--bg-primary)] text-white font-['Inter'] selection:bg-white selection:text-black">
+<div class="min-h-screen flex flex-col bg-[var(--bg-primary)] text-[var(--text-primary)] font-['Inter'] selection:bg-white selection:text-black">
   <app-navbar />
   <main class="flex-1 overflow-hidden" [@routeAnimations]="prepareRoute(outlet)">
     <router-outlet #outlet="outlet" />

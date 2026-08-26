@@ -7,7 +7,7 @@ import { Component, input } from '@angular/core';
       <div class="p-6 bg-[#1C1C21]/60 flex items-center justify-between">
         <div class="flex items-center gap-3">
           <span class="w-3 h-3 rounded-full bg-[#3B82F6]"></span>
-          <h3 class="font-['Space_Grotesk'] font-bold text-lg text-white">System Architecture & Component Layers</h3>
+          <h3 class="font-['Space_Grotesk'] font-bold text-lg text-[var(--text-primary)]">System Architecture & Component Layers</h3>
         </div>
         <span class="text-xs font-mono text-[#A1A1AA] bg-[#0B0B0C] px-3 py-1 rounded-full border border-[#242428]">
           Production Blueprint
@@ -74,7 +74,7 @@ import { Component, input } from '@angular/core';
         <div class="p-6 bg-[#0B0B0C]/40 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div class="space-y-1">
             <span class="text-xs font-mono text-[#A1A1AA] uppercase tracking-wider">Deployment Topology</span>
-            <p class="text-sm text-white font-medium">{{ specs().deployment }}</p>
+            <p class="text-sm text-[var(--text-primary)] font-medium">{{ specs().deployment }}</p>
           </div>
           <div class="flex items-center gap-2">
             <span class="w-2 h-2 rounded-full bg-[#22C55E]"></span>

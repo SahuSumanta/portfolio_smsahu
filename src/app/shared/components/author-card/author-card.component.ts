@@ -15,7 +15,7 @@ import { AuthorProfile } from '../../../core/models/portfolio.models';
           <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded bg-[#3B82F6]/10 text-[#3B82F6] text-[11px] font-mono font-bold mb-1">
             Author Profile
           </div>
-          <h3 class="text-xl font-['Space_Grotesk'] font-bold text-white">{{ author().name }}</h3>
+          <h3 class="text-xl font-['Space_Grotesk'] font-bold text-[var(--text-primary)]">{{ author().name }}</h3>
           <p class="text-xs font-mono text-[#A1A1AA]">{{ author().title }}</p>
         </div>
       </div>
@@ -39,7 +39,7 @@ import { AuthorProfile } from '../../../core/models/portfolio.models';
 
       <div class="pt-4 border-t border-[#242428] flex flex-wrap items-center gap-4 text-xs font-mono text-[#A1A1AA]">
         @if (author().githubUrl) {
-          <a [href]="author().githubUrl" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
+          <a [href]="author().githubUrl" target="_blank" rel="noopener noreferrer" class="hover:text-[var(--text-primary)] transition-colors">
             GitHub ↗
           </a>
         }
@@ -49,7 +49,7 @@ import { AuthorProfile } from '../../../core/models/portfolio.models';
           </a>
         }
         @if (author().twitterUrl) {
-          <a [href]="author().twitterUrl" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
+          <a [href]="author().twitterUrl" target="_blank" rel="noopener noreferrer" class="hover:text-[var(--text-primary)] transition-colors">
             Twitter/X ↗
           </a>
         }

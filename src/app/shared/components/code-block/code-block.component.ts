@@ -16,7 +16,7 @@ import { Component, input, signal } from '@angular/core';
         <button
           type="button"
           (click)="copyCode()"
-          class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#1C1C21] hover:bg-[#242428] text-[#A1A1AA] hover:text-white transition-all duration-200 cursor-pointer"
+          class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#1C1C21] hover:bg-[#242428] text-[#A1A1AA] hover:text-[var(--text-primary)] transition-all duration-200 cursor-pointer"
         >
           @if (copied()) {
             <span class="text-[#22C55E] font-bold">✓ Copied to Clipboard</span>

@@ -15,14 +15,14 @@ import { Component, input, output } from '@angular/core';
         [value]="value()"
         [placeholder]="placeholder()"
         (input)="onInput($event)"
-        class="w-full pl-11 pr-10 py-2.5 rounded-xl bg-[#131316] border border-[#242428] text-sm text-white placeholder-[#A1A1AA] focus:outline-none focus:border-[#3B82F6] transition-all duration-200"
+        class="w-full pl-11 pr-10 py-2.5 rounded-xl bg-[#131316] border border-[#242428] text-sm text-[var(--text-primary)] placeholder-[#A1A1AA] focus:outline-none focus:border-[#3B82F6] transition-all duration-200"
       />
 
       @if (value()) {
         <button
           type="button"
           (click)="clearSearch()"
-          class="absolute inset-y-0 right-0 pr-3 flex items-center text-[#A1A1AA] hover:text-white cursor-pointer"
+          class="absolute inset-y-0 right-0 pr-3 flex items-center text-[#A1A1AA] hover:text-[var(--text-primary)] cursor-pointer"
           aria-label="Clear search"
         >
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

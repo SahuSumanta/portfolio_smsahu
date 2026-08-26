@@ -23,9 +23,9 @@ export interface ComparisonRow {
         <tbody class="divide-y divide-[#242428]/80 text-xs sm:text-sm font-mono">
           @for (row of rows(); track row.metric) {
             <tr class="hover:bg-[#1C1C21]/60 transition-colors">
-              <td class="p-4 sm:p-5 font-bold text-white">{{ row.metric }}</td>
+              <td class="p-4 sm:p-5 font-bold text-[var(--text-primary)]">{{ row.metric }}</td>
               <td class="p-4 sm:p-5 text-[#A1A1AA]">{{ row.legacy }}</td>
-              <td class="p-4 sm:p-5 text-white font-medium">{{ row.modern }}</td>
+              <td class="p-4 sm:p-5 text-[var(--text-primary)] font-medium">{{ row.modern }}</td>
               <td class="p-4 sm:p-5 text-[#22C55E] font-bold">{{ row.improvement }}</td>
             </tr>
           }

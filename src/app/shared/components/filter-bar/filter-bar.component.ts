@@ -24,7 +24,7 @@ export type ProjectSortOption = 'featured' | 'newest' | 'oldest' | 'alphabetical
           <select
             [value]="selectedSort()"
             (change)="onSortChange($event)"
-            class="bg-[#0B0B0C] border border-[#242428] rounded-xl px-3.5 py-2 text-sm text-white focus:outline-none focus:border-[#3B82F6] cursor-pointer"
+            class="bg-[#0B0B0C] border border-[#242428] rounded-xl px-3.5 py-2 text-sm text-[var(--text-primary)] focus:outline-none focus:border-[#3B82F6] cursor-pointer"
           >
             <option value="featured">Featured First</option>
             <option value="newest">Newest (2025 → 2024)</option>
@@ -109,8 +109,8 @@ export class FilterBarComponent {
   getTechChipClass(tech: string): string {
     const base = 'px-2.5 py-1 rounded-lg text-xs font-mono transition-all duration-200 cursor-pointer border';
     if (this.selectedTech() === tech) {
-      return `${base} bg-[#3B82F6] text-white border-[#3B82F6]`;
+      return `${base} bg-[#3B82F6] text-[var(--text-primary)] border-[#3B82F6]`;
     }
-    return `${base} bg-[#0B0B0C] hover:bg-[#1C1C21] text-[#A1A1AA] hover:text-white border-[#242428]`;
+    return `${base} bg-[#0B0B0C] hover:bg-[#1C1C21] text-[#A1A1AA] hover:text-[var(--text-primary)] border-[#242428]`;
   }
 }

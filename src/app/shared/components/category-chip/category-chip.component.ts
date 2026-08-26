@@ -30,15 +30,15 @@ export class CategoryChipComponent {
   getClasses(): string {
     const base = 'inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 cursor-pointer select-none border';
     if (this.active()) {
-      return `${base} bg-[#3B82F6] text-white border-[#3B82F6] shadow-sm`;
+      return `${base} bg-[#3B82F6] text-[var(--text-primary)] border-[#3B82F6] shadow-sm`;
     }
-    return `${base} bg-[#131316] hover:bg-[#1C1C21] text-[#A1A1AA] hover:text-white border-[#242428]`;
+    return `${base} bg-[#131316] hover:bg-[#1C1C21] text-[#A1A1AA] hover:text-[var(--text-primary)] border-[#242428]`;
   }
 
   getCountClasses(): string {
     const base = 'px-1.5 py-0.2 rounded-full text-[11px] font-mono font-bold';
     if (this.active()) {
-      return `${base} bg-white/20 text-white`;
+      return `${base} bg-[var(--text-primary)]/20 text-[var(--text-primary)]`;
     }
     return `${base} bg-[#1C1C21] text-[#A1A1AA]`;
   }

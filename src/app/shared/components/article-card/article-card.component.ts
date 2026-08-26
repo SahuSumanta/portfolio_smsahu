@@ -23,26 +23,26 @@ import { BlogArticle } from '../../../core/models/portfolio.models';
       <div class="flex flex-col flex-1 justify-between">
         <div class="space-y-4">
           <div class="flex items-center justify-between gap-4">
-            <div class="flex items-center gap-2 text-xs font-sans text-white/40 uppercase tracking-widest">
+            <div class="flex items-center gap-2 text-xs font-sans text-[var(--text-primary)]/40 uppercase tracking-widest">
               <span>{{ article().categories[0] }}</span>
               <span class="opacity-50">•</span>
               <span>{{ article().publishedAt }}</span>
             </div>
           </div>
 
-          <h3 class="text-xl md:text-2xl font-display font-medium text-white group-hover:opacity-70 transition-opacity">
+          <h3 class="text-xl md:text-2xl font-display font-medium text-[var(--text-primary)] group-hover:opacity-70 transition-opacity">
             {{ article().title }}
           </h3>
 
-          <p class="text-sm text-white/60 font-sans font-light leading-relaxed line-clamp-3">
+          <p class="text-sm text-[var(--text-primary)]/60 font-sans font-light leading-relaxed line-clamp-3">
             {{ article().summary }}
           </p>
         </div>
 
         <!-- Footer Info -->
-        <div class="pt-6 mt-6 border-t border-[var(--border)] flex items-center justify-between text-xs font-sans text-white/40 uppercase tracking-widest">
+        <div class="pt-6 mt-6 border-t border-[var(--border)] flex items-center justify-between text-xs font-sans text-[var(--text-primary)]/40 uppercase tracking-widest">
           <span>{{ article().readingTimeMin }} min read</span>
-          <span class="group-hover:text-white transition-colors">Read ↗</span>
+          <span class="group-hover:text-[var(--text-primary)] transition-colors">Read ↗</span>
         </div>
       </div>
     </a>

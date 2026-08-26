@@ -12,11 +12,11 @@ import { ScrollRevealDirective } from '../../shared/directives/scroll-reveal/scr
     <div class="min-h-screen max-w-7xl mx-auto px-6 lg:px-8 pt-32 pb-24 space-y-24 overflow-x-hidden">
       <!-- Minimal Header -->
       <header class="space-y-6 max-w-4xl border-b border-[var(--border)] pb-16">
-        <h1 class="text-4xl sm:text-6xl md:text-7xl font-display font-medium text-white tracking-tighter leading-[1.1]">
+        <h1 class="text-4xl sm:text-6xl md:text-7xl font-display font-medium text-[var(--text-primary)] tracking-tighter leading-[1.1]">
           Skills & Mastery
         </h1>
 
-        <p class="text-lg md:text-2xl text-white/60 font-sans font-light leading-relaxed max-w-3xl">
+        <p class="text-lg md:text-2xl text-[var(--text-primary)]/60 font-sans font-light leading-relaxed max-w-3xl">
           An interactive map of core architectural domains, mapped directly to production case studies and real-world system architecture.
         </p>
       </header>
@@ -60,7 +60,7 @@ import { ScrollRevealDirective } from '../../shared/directives/scroll-reveal/scr
             <div class="space-y-12">
               <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[var(--border)] pb-6">
                 <h2 class="text-3xl md:text-5xl font-display font-medium tracking-tighter">{{ group.name }}</h2>
-                <span class="text-sm font-sans text-white/40 uppercase tracking-widest">{{ group.skills.length }} Skills</span>
+                <span class="text-sm font-sans text-[var(--text-primary)]/40 uppercase tracking-widest">{{ group.skills.length }} Skills</span>
               </div>
 
               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
@@ -77,15 +77,15 @@ import { ScrollRevealDirective } from '../../shared/directives/scroll-reveal/scr
       <section appScrollReveal direction="up" class="space-y-12 border-t border-[var(--border)] pt-16">
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[var(--border)] pb-6">
           <h2 class="text-3xl md:text-5xl font-display font-medium tracking-tighter">Currently Learning</h2>
-          <span class="text-sm font-sans text-white/40 uppercase tracking-widest">Active R&D Topics</span>
+          <span class="text-sm font-sans text-[var(--text-primary)]/40 uppercase tracking-widest">Active R&D Topics</span>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
           @for (learn of currentlyLearning(); track learn.name) {
             <div class="space-y-4">
-              <span class="text-xs font-sans text-white/40 uppercase tracking-widest border-b border-[var(--border)] pb-4 block">{{ learn.progress }}</span>
-              <h4 class="text-lg font-medium text-white font-display">{{ learn.name }}</h4>
-              <p class="text-sm text-white/60 font-sans font-light leading-relaxed">{{ learn.focusArea }}</p>
+              <span class="text-xs font-sans text-[var(--text-primary)]/40 uppercase tracking-widest border-b border-[var(--border)] pb-4 block">{{ learn.progress }}</span>
+              <h4 class="text-lg font-medium text-[var(--text-primary)] font-display">{{ learn.name }}</h4>
+              <p class="text-sm text-[var(--text-primary)]/60 font-sans font-light leading-relaxed">{{ learn.focusArea }}</p>
             </div>
           }
         </div>
@@ -95,7 +95,7 @@ import { ScrollRevealDirective } from '../../shared/directives/scroll-reveal/scr
       <section appScrollReveal direction="up" class="space-y-12 border-t border-[var(--border)] pt-16">
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[var(--border)] pb-6">
           <h2 class="text-3xl md:text-5xl font-display font-medium tracking-tighter">Credentials</h2>
-          <span class="text-sm font-sans text-white/40 uppercase tracking-widest">Verified Certifications</span>
+          <span class="text-sm font-sans text-[var(--text-primary)]/40 uppercase tracking-widest">Verified Certifications</span>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-12">
@@ -150,8 +150,8 @@ export class SkillsComponent {
   getCategoryBtnClass(cat: string): string {
     const base = 'px-4 py-2 text-xs font-sans uppercase tracking-widest transition-colors cursor-pointer';
     if (this.selectedCategory() === cat) {
-      return `${base} text-white border-b border-white`;
+      return `${base} text-[var(--text-primary)] border-b border-white`;
     }
-    return `${base} text-white/40 hover:text-white border-b border-transparent hover:border-white/40`;
+    return `${base} text-[var(--text-primary)]/40 hover:text-[var(--text-primary)] border-b border-transparent hover:border-[var(--border)]`;
   }
 }

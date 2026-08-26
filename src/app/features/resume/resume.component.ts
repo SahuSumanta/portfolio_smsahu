@@ -11,16 +11,16 @@ import { ScrollRevealDirective } from '../../shared/directives/scroll-reveal/scr
       <!-- Header / Action Bar -->
       <header appScrollReveal direction="up" class="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-[var(--border)] pb-12">
         <div>
-          <h1 class="text-4xl sm:text-5xl font-display font-medium text-white tracking-tighter">
+          <h1 class="text-4xl sm:text-5xl font-display font-medium text-[var(--text-primary)] tracking-tighter">
             Resume
           </h1>
-          <p class="text-lg text-white/60 font-sans font-light mt-4">
+          <p class="text-lg text-[var(--text-primary)]/60 font-sans font-light mt-4">
             {{ profile().version }}
           </p>
         </div>
         
         <div class="flex items-center gap-4">
-          <a [href]="profile().pdfUrl" download="Sumanta_Sahu_Resume.pdf" class="px-6 py-3 bg-white text-black font-medium tracking-wide text-sm hover:bg-white/90 transition-colors flex items-center gap-2">
+          <a [href]="profile().pdfUrl" download="Sumanta_Sahu_Resume.pdf" class="px-6 py-3 bg-white text-black font-medium tracking-wide text-sm hover:bg-[var(--text-primary)]/90 transition-colors flex items-center gap-2">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
             </svg>

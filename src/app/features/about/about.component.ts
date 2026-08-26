@@ -19,11 +19,11 @@ import { ScrollRevealDirective } from '../../shared/directives/scroll-reveal/scr
       
       <!-- Minimalist Bio -->
       <section class="max-w-4xl space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-1000">
-        <h1 class="text-4xl sm:text-6xl md:text-7xl font-display font-medium text-white tracking-tighter leading-[1.1]">
+        <h1 class="text-4xl sm:text-6xl md:text-7xl font-display font-medium text-[var(--text-primary)] tracking-tighter leading-[1.1]">
           Engineering with Scalability & Craftsmanship.
         </h1>
 
-        <p class="text-lg md:text-2xl text-white/60 font-sans font-light leading-relaxed">
+        <p class="text-lg md:text-2xl text-[var(--text-primary)]/60 font-sans font-light leading-relaxed">
           I am Sumanta Sahu — an engineering professional with 4+ years bridging scalable backend systems with declarative, token-driven web and mobile architectures (Angular / Ionic). Based in Pune, India.
         </p>
       </section>
@@ -32,7 +32,7 @@ import { ScrollRevealDirective } from '../../shared/directives/scroll-reveal/scr
       <section appScrollReveal direction="up" class="space-y-12 border-t border-[var(--border)] pt-16">
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
           <h2 class="text-3xl md:text-5xl font-display font-medium tracking-tighter">Career Timeline</h2>
-          <span class="text-sm font-sans text-white/40 uppercase tracking-widest">4+ Years of Systems Evolution</span>
+          <span class="text-sm font-sans text-[var(--text-primary)]/40 uppercase tracking-widest">4+ Years of Systems Evolution</span>
         </div>
         <app-journey-timeline [milestones]="milestones()" />
       </section>
@@ -41,30 +41,30 @@ import { ScrollRevealDirective } from '../../shared/directives/scroll-reveal/scr
       <section appScrollReveal direction="up" class="space-y-12 border-t border-[var(--border)] pt-16">
         <div class="max-w-3xl space-y-6">
           <h2 class="text-3xl md:text-5xl font-display font-medium tracking-tighter">Engineering Philosophy</h2>
-          <p class="text-lg text-white/60 font-sans font-light leading-relaxed">
+          <p class="text-lg text-[var(--text-primary)]/60 font-sans font-light leading-relaxed">
             How I approach complex technical ambiguity, architectural boundaries, distributed consensus, and product execution.
           </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12 pt-8">
           <div class="space-y-4">
-            <div class="text-xs font-sans text-white/40 uppercase tracking-widest border-b border-[var(--border)] pb-4">01 / First Principles</div>
-            <h3 class="text-xl font-display font-medium text-white">First-Principles Problem Solving</h3>
-            <p class="text-sm text-white/60 font-sans font-light leading-relaxed">
+            <div class="text-xs font-sans text-[var(--text-primary)]/40 uppercase tracking-widest border-b border-[var(--border)] pb-4">01 / First Principles</div>
+            <h3 class="text-xl font-display font-medium text-[var(--text-primary)]">First-Principles Problem Solving</h3>
+            <p class="text-sm text-[var(--text-primary)]/60 font-sans font-light leading-relaxed">
               I believe in understanding the core constraints of a problem before writing code. Whether it's optimizing a slow API query or refining a complex UI flow, I start with the foundation.
             </p>
           </div>
           <div class="space-y-4">
-            <div class="text-xs font-sans text-white/40 uppercase tracking-widest border-b border-[var(--border)] pb-4">02 / State Discipline</div>
-            <h3 class="text-xl font-display font-medium text-white">Declarative & Reactive State</h3>
-            <p class="text-sm text-white/60 font-sans font-light leading-relaxed">
+            <div class="text-xs font-sans text-[var(--text-primary)]/40 uppercase tracking-widest border-b border-[var(--border)] pb-4">02 / State Discipline</div>
+            <h3 class="text-xl font-display font-medium text-[var(--text-primary)]">Declarative & Reactive State</h3>
+            <p class="text-sm text-[var(--text-primary)]/60 font-sans font-light leading-relaxed">
               Using reactive programming patterns (like RxJS and NgRx), I ensure that complex frontend applications remain predictable, maintainable, and free of race conditions.
             </p>
           </div>
           <div class="space-y-4">
-            <div class="text-xs font-sans text-white/40 uppercase tracking-widest border-b border-[var(--border)] pb-4">03 / Product Velocity</div>
-            <h3 class="text-xl font-display font-medium text-white">Product-Minded Engineering</h3>
-            <p class="text-sm text-white/60 font-sans font-light leading-relaxed">
+            <div class="text-xs font-sans text-[var(--text-primary)]/40 uppercase tracking-widest border-b border-[var(--border)] pb-4">03 / Product Velocity</div>
+            <h3 class="text-xl font-display font-medium text-[var(--text-primary)]">Product-Minded Engineering</h3>
+            <p class="text-sm text-[var(--text-primary)]/60 font-sans font-light leading-relaxed">
               Code is a means to an end. My ultimate goal is to deliver software that solves real user problems, improves business metrics, and scales gracefully with demand.
             </p>
           </div>
@@ -79,24 +79,24 @@ import { ScrollRevealDirective } from '../../shared/directives/scroll-reveal/scr
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pt-8">
           <div class="space-y-4">
-            <div class="text-xs font-sans text-white/40 uppercase tracking-widest border-b border-[var(--border)] pb-4">01 / Communication</div>
-            <h4 class="text-lg font-medium text-white font-display">Asynchronous & RFC-Driven</h4>
-            <p class="text-sm text-white/60 font-sans font-light leading-relaxed">I prioritize written design documents and architectural RFCs over unnecessary synchronous meetings.</p>
+            <div class="text-xs font-sans text-[var(--text-primary)]/40 uppercase tracking-widest border-b border-[var(--border)] pb-4">01 / Communication</div>
+            <h4 class="text-lg font-medium text-[var(--text-primary)] font-display">Asynchronous & RFC-Driven</h4>
+            <p class="text-sm text-[var(--text-primary)]/60 font-sans font-light leading-relaxed">I prioritize written design documents and architectural RFCs over unnecessary synchronous meetings.</p>
           </div>
           <div class="space-y-4">
-            <div class="text-xs font-sans text-white/40 uppercase tracking-widest border-b border-[var(--border)] pb-4">02 / Code Reviews</div>
-            <h4 class="text-lg font-medium text-white font-display">Empathy & Rigor</h4>
-            <p class="text-sm text-white/60 font-sans font-light leading-relaxed">Reviews focus on architectural boundaries, security, and test coverage, never subjective stylistic trivia.</p>
+            <div class="text-xs font-sans text-[var(--text-primary)]/40 uppercase tracking-widest border-b border-[var(--border)] pb-4">02 / Code Reviews</div>
+            <h4 class="text-lg font-medium text-[var(--text-primary)] font-display">Empathy & Rigor</h4>
+            <p class="text-sm text-[var(--text-primary)]/60 font-sans font-light leading-relaxed">Reviews focus on architectural boundaries, security, and test coverage, never subjective stylistic trivia.</p>
           </div>
           <div class="space-y-4">
-            <div class="text-xs font-sans text-white/40 uppercase tracking-widest border-b border-[var(--border)] pb-4">03 / Accessibility</div>
-            <h4 class="text-lg font-medium text-white font-display">Inclusive Day One</h4>
-            <p class="text-sm text-white/60 font-sans font-light leading-relaxed">Accessibility is not a post-release patch. ARIA attributes, keyboard traps, and contrast are automated in CI.</p>
+            <div class="text-xs font-sans text-[var(--text-primary)]/40 uppercase tracking-widest border-b border-[var(--border)] pb-4">03 / Accessibility</div>
+            <h4 class="text-lg font-medium text-[var(--text-primary)] font-display">Inclusive Day One</h4>
+            <p class="text-sm text-[var(--text-primary)]/60 font-sans font-light leading-relaxed">Accessibility is not a post-release patch. ARIA attributes, keyboard traps, and contrast are automated in CI.</p>
           </div>
           <div class="space-y-4">
-            <div class="text-xs font-sans text-white/40 uppercase tracking-widest border-b border-[var(--border)] pb-4">04 / Ownership</div>
-            <h4 class="text-lg font-medium text-white font-display">End-to-End Accountability</h4>
-            <p class="text-sm text-white/60 font-sans font-light leading-relaxed">From local development container setup to production pager alerts, I own the lifecycle of my code.</p>
+            <div class="text-xs font-sans text-[var(--text-primary)]/40 uppercase tracking-widest border-b border-[var(--border)] pb-4">04 / Ownership</div>
+            <h4 class="text-lg font-medium text-[var(--text-primary)] font-display">End-to-End Accountability</h4>
+            <p class="text-sm text-[var(--text-primary)]/60 font-sans font-light leading-relaxed">From local development container setup to production pager alerts, I own the lifecycle of my code.</p>
           </div>
         </div>
       </section>
@@ -127,9 +127,9 @@ import { ScrollRevealDirective } from '../../shared/directives/scroll-reveal/scr
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
           @for (bc of beyondCode(); track bc.id) {
             <div class="space-y-4">
-              <span class="text-xs font-sans text-white/40 uppercase tracking-widest border-b border-[var(--border)] pb-4 block">{{ bc.tag }}</span>
-              <h4 class="text-lg font-medium text-white font-display">{{ bc.title }}</h4>
-              <p class="text-sm text-white/60 font-sans font-light leading-relaxed">{{ bc.description }}</p>
+              <span class="text-xs font-sans text-[var(--text-primary)]/40 uppercase tracking-widest border-b border-[var(--border)] pb-4 block">{{ bc.tag }}</span>
+              <h4 class="text-lg font-medium text-[var(--text-primary)] font-display">{{ bc.title }}</h4>
+              <p class="text-sm text-[var(--text-primary)]/60 font-sans font-light leading-relaxed">{{ bc.description }}</p>
             </div>
           }
         </div>

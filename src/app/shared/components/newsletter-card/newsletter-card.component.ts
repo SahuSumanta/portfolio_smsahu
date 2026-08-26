@@ -8,7 +8,7 @@ import { Component, signal } from '@angular/core';
         <span>📬 Antigravity Dispatch</span>
       </div>
 
-      <h3 class="text-3xl sm:text-4xl font-['Space_Grotesk'] font-bold text-white tracking-tight">
+      <h3 class="text-3xl sm:text-4xl font-['Space_Grotesk'] font-bold text-[var(--text-primary)] tracking-tight">
         Join 14,000+ Engineers Reading Deep Architectural Insights
       </h3>
 
@@ -28,11 +28,11 @@ import { Component, signal } from '@angular/core';
             (input)="onEmailChange($event)"
             placeholder="enter.your@email.dev"
             required
-            class="w-full px-5 py-3 rounded-xl bg-[#0B0B0C] border border-[#242428] text-sm text-white placeholder-[#A1A1AA] focus:outline-none focus:border-[#3B82F6] font-mono"
+            class="w-full px-5 py-3 rounded-xl bg-[#0B0B0C] border border-[#242428] text-sm text-[var(--text-primary)] placeholder-[#A1A1AA] focus:outline-none focus:border-[#3B82F6] font-mono"
           />
           <button
             type="submit"
-            class="w-full sm:w-auto px-6 py-3 rounded-xl bg-[#3B82F6] hover:bg-[#2563EB] text-white text-sm font-bold font-mono transition-all duration-200 shrink-0 cursor-pointer shadow-lg"
+            class="w-full sm:w-auto px-6 py-3 rounded-xl bg-[#3B82F6] hover:bg-[#2563EB] text-[var(--text-primary)] text-sm font-bold font-mono transition-all duration-200 shrink-0 cursor-pointer shadow-lg"
           >
             Subscribe Free
           </button>

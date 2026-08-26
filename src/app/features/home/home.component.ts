@@ -16,16 +16,16 @@ import { ScrollRevealDirective } from '../../shared/directives/scroll-reveal/scr
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           <!-- Text Content -->
           <div class="lg:col-span-8 space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-1000">
-            <p class="text-sm font-sans text-white/40 uppercase tracking-widest">Sumanta Sahu</p>
-            <h1 class="text-5xl sm:text-7xl md:text-8xl lg:text-[7rem] font-display font-medium text-white tracking-tighter leading-[1.05]">
+            <p class="text-sm font-sans text-[var(--text-primary)]/40 uppercase tracking-widest">Sumanta Sahu</p>
+            <h1 class="text-5xl sm:text-7xl md:text-8xl lg:text-[7rem] font-display font-medium text-[var(--text-primary)] tracking-tighter leading-[1.05]">
               Full Stack<br />
               Software Engineer.
             </h1>
-            <p class="text-lg md:text-2xl text-white/60 max-w-2xl font-sans font-light leading-relaxed pt-6">
+            <p class="text-lg md:text-2xl text-[var(--text-primary)]/60 max-w-2xl font-sans font-light leading-relaxed pt-6">
               Building scalable platforms and refined user interfaces from Pune, India.
             </p>
 
-          <div class="flex items-center gap-6 pt-6 text-white/40">
+          <div class="flex items-center gap-6 pt-6 text-[var(--text-primary)]/40">
             <!-- Web Icon -->
             <div class="flex items-center gap-2" title="Web Development">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -50,16 +50,16 @@ import { ScrollRevealDirective } from '../../shared/directives/scroll-reveal/scr
           </div>
           
           <div class="pt-12 flex flex-wrap gap-6 items-center">
-            <a routerLink="/projects" class="text-white hover:opacity-70 transition-opacity font-medium tracking-wide">
+            <a routerLink="/projects" class="text-[var(--text-primary)] hover:opacity-70 transition-opacity font-medium tracking-wide">
               Selected Work ↗
             </a>
-            <a routerLink="/about" class="text-white/60 hover:text-white transition-colors tracking-wide">
+            <a routerLink="/about" class="text-[var(--text-primary)]/60 hover:text-[var(--text-primary)] transition-colors tracking-wide">
               About Me ↗
             </a>
-            <a routerLink="/resume" class="text-white/60 hover:text-white transition-colors tracking-wide border-l border-white/10 pl-6">
+            <a routerLink="/resume" class="text-[var(--text-primary)]/60 hover:text-[var(--text-primary)] transition-colors tracking-wide border-l border-[var(--border)] pl-6">
               View Resume ↗
             </a>
-            <a href="assets/resume.pdf" download="Sumanta_Sahu_Resume.pdf" class="text-white/60 hover:text-white transition-colors tracking-wide">
+            <a href="assets/resume.pdf" download="Sumanta_Sahu_Resume.pdf" class="text-[var(--text-primary)]/60 hover:text-[var(--text-primary)] transition-colors tracking-wide">
               Download Resume ↓
             </a>
           </div>
@@ -83,7 +83,7 @@ import { ScrollRevealDirective } from '../../shared/directives/scroll-reveal/scr
       <section appScrollReveal direction="up" class="max-w-7xl mx-auto px-6 lg:px-8 py-32 border-t border-[var(--border)]">
         <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 pb-16">
           <h2 class="text-3xl md:text-5xl font-display font-medium tracking-tighter">Selected Work</h2>
-          <a routerLink="/projects" class="text-sm font-sans text-white/60 hover:text-white transition-colors uppercase tracking-widest">
+          <a routerLink="/projects" class="text-sm font-sans text-[var(--text-primary)]/60 hover:text-[var(--text-primary)] transition-colors uppercase tracking-widest">
             View All Projects
           </a>
         </div>
@@ -101,9 +101,9 @@ import { ScrollRevealDirective } from '../../shared/directives/scroll-reveal/scr
               <div class="flex justify-between items-start">
                 <div>
                   <h3 class="text-xl font-display font-medium mb-2">{{ project.title }}</h3>
-                  <p class="text-white/40 text-sm font-sans line-clamp-2 max-w-sm">{{ project.tagline }}</p>
+                  <p class="text-[var(--text-primary)]/40 text-sm font-sans line-clamp-2 max-w-sm">{{ project.tagline }}</p>
                 </div>
-                <span class="text-white/20 font-sans text-sm">{{ project.completionYear }}</span>
+                <span class="text-[var(--text-primary)]/20 font-sans text-sm">{{ project.completionYear }}</span>
               </div>
             </div>
           }
@@ -114,14 +114,14 @@ import { ScrollRevealDirective } from '../../shared/directives/scroll-reveal/scr
       <section appScrollReveal direction="up" class="max-w-7xl mx-auto px-6 lg:px-8 py-32 border-t border-[var(--border)]">
         <div class="flex flex-col items-start space-y-6">
           <h2 class="text-4xl md:text-6xl font-display font-medium tracking-tighter">Let's work together.</h2>
-          <p class="text-white/60 font-sans text-lg md:text-xl max-w-xl font-light">
+          <p class="text-[var(--text-primary)]/60 font-sans text-lg md:text-xl max-w-xl font-light">
             Available for new opportunities and consulting.
           </p>
           <div class="pt-8 flex flex-wrap gap-6 items-center">
-            <a href="mailto:sumantasahu.sm@gmail.com" class="text-white text-lg hover:opacity-70 transition-opacity border-b border-white pb-1">
+            <a href="mailto:sumantasahu.sm@gmail.com" class="text-[var(--text-primary)] text-lg hover:opacity-70 transition-opacity border-b border-white pb-1">
               sumantasahu.sm&#64;gmail.com
             </a>
-            <a routerLink="/contact" class="text-white/60 hover:text-white transition-colors text-lg border-b border-transparent hover:border-white/60 pb-1">
+            <a routerLink="/contact" class="text-[var(--text-primary)]/60 hover:text-[var(--text-primary)] transition-colors text-lg border-b border-transparent hover:border-[var(--border)] pb-1">
               Contact Form ↗
             </a>
           </div>

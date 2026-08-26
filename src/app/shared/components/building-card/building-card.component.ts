@@ -15,7 +15,7 @@ import { CurrentlyBuildingItem } from '../../../core/models/portfolio.models';
           <span class="text-xs font-mono text-[#A1A1AA]">Updated: {{ item().lastUpdated }}</span>
         </div>
 
-        <h3 class="text-2xl font-['Space_Grotesk'] font-bold text-white">
+        <h3 class="text-2xl font-['Space_Grotesk'] font-bold text-[var(--text-primary)]">
           {{ item().name }}
         </h3>
 
@@ -26,7 +26,7 @@ import { CurrentlyBuildingItem } from '../../../core/models/portfolio.models';
         <!-- Current Milestone Box -->
         <div class="p-3.5 rounded-xl bg-[#0B0B0C] border border-[#242428] space-y-1">
           <div class="text-[11px] font-mono uppercase tracking-wider text-[#3B82F6]">Current Active Milestone</div>
-          <div class="text-sm font-medium text-white">{{ item().currentMilestone }}</div>
+          <div class="text-sm font-medium text-[var(--text-primary)]">{{ item().currentMilestone }}</div>
         </div>
 
         <!-- Tech Stack -->

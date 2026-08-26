@@ -18,7 +18,7 @@ import { TableOfContentsItem } from '../../../core/models/portfolio.models';
             class="block text-xs sm:text-sm text-[#A1A1AA] hover:text-[#3B82F6] transition-colors py-1 leading-snug"
             [class.pl-4]="item.level === 3"
             [class.font-medium]="activeId() === item.id"
-            [class.text-white]="activeId() === item.id"
+            [class.text-[var(--text-primary)]]="activeId() === item.id"
           >
             {{ item.title }}
           </a>

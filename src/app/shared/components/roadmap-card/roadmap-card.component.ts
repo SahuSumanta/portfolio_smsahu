@@ -22,7 +22,7 @@ import { RoadmapItem } from '../../../core/models/portfolio.models';
           Category: {{ item().category }}
         </div>
 
-        <h3 class="text-xl sm:text-2xl font-['Space_Grotesk'] font-bold text-white">
+        <h3 class="text-xl sm:text-2xl font-['Space_Grotesk'] font-bold text-[var(--text-primary)]">
           {{ item().title }}
         </h3>
 

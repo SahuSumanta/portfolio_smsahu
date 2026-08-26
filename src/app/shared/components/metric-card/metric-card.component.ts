@@ -13,7 +13,7 @@ import { Component, input } from '@angular/core';
         }
       </div>
 
-      <div class="text-2xl sm:text-3xl font-['Space_Grotesk'] font-bold text-white my-1">
+      <div class="text-2xl sm:text-3xl font-['Space_Grotesk'] font-bold text-[var(--text-primary)] my-1">
         {{ value() }}
       </div>
 

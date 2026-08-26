@@ -44,16 +44,16 @@ export class ButtonComponent {
     let variantClasses = '';
     switch (this.variant()) {
       case 'primary':
-        variantClasses = 'bg-[#3B82F6] hover:bg-[#2563EB] text-white shadow-sm';
+        variantClasses = 'bg-[#3B82F6] hover:bg-[#2563EB] text-[var(--text-primary)] shadow-sm';
         break;
       case 'secondary':
-        variantClasses = 'bg-[#1C1C21] hover:bg-[#242428] text-white border border-[#242428]';
+        variantClasses = 'bg-[#1C1C21] hover:bg-[#242428] text-[var(--text-primary)] border border-[#242428]';
         break;
       case 'outline':
-        variantClasses = 'bg-transparent hover:bg-[#1C1C21] text-white border border-[#242428]';
+        variantClasses = 'bg-transparent hover:bg-[#1C1C21] text-[var(--text-primary)] border border-[#242428]';
         break;
       case 'ghost':
-        variantClasses = 'bg-transparent hover:bg-[#1C1C21] text-[#A1A1AA] hover:text-white';
+        variantClasses = 'bg-transparent hover:bg-[#1C1C21] text-[#A1A1AA] hover:text-[var(--text-primary)]';
         break;
     }
 

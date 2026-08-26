@@ -7,7 +7,7 @@ import { Component, input, output } from '@angular/core';
       type="button"
       (click)="tagClick.emit(tag())"
       class="px-3 py-1.5 rounded-xl font-mono text-xs transition-all duration-200 cursor-pointer border flex items-center gap-1.5"
-      [class]="active() ? 'bg-[#3B82F6] text-white border-[#3B82F6] shadow-md scale-105' : 'bg-[#0B0B0C] hover:bg-[#1C1C21] text-[#A1A1AA] hover:text-white border-[#242428]'"
+      [class]="active() ? 'bg-[#3B82F6] text-[var(--text-primary)] border-[#3B82F6] shadow-md scale-105' : 'bg-[#0B0B0C] hover:bg-[#1C1C21] text-[#A1A1AA] hover:text-[var(--text-primary)] border-[#242428]'"
     >
       <span>{{ tag() }}</span>
       @if (count() !== undefined) {

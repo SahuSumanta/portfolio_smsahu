@@ -13,14 +13,14 @@ import { ButtonComponent } from '../button/button.component';
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#3B82F6]/10 text-[#3B82F6] border border-[#3B82F6]/30 text-xs font-mono font-bold">
             <span>{{ profile().version }}</span>
           </div>
-          <h2 class="text-3xl font-['Space_Grotesk'] font-bold text-white">Verified Engineering Curriculum Vitae</h2>
+          <h2 class="text-3xl font-['Space_Grotesk'] font-bold text-[var(--text-primary)]">Verified Engineering Curriculum Vitae</h2>
           <p class="text-sm text-[#A1A1AA] max-w-2xl">
             {{ profile().previewText }}
           </p>
         </div>
 
         <div class="text-left md:text-right font-mono text-xs text-[#A1A1AA]">
-          <div>Last Updated: <span class="text-white">{{ profile().lastUpdated }}</span></div>
+          <div>Last Updated: <span class="text-[var(--text-primary)]">{{ profile().lastUpdated }}</span></div>
           <div class="text-[#22C55E] mt-1">✓ Cryptographically Signed PDF</div>
         </div>
       </div>
