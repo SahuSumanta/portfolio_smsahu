@@ -1,0 +1,104 @@
+/* ==========================================================================
+   PORTFOLIO V2 — DESIGN SYSTEM TOKENS (MINIMAL, PREMIUM)
+   Primitive → Semantic → Component
+   ========================================================================== */
+
+:root {
+  /* ==========================================================================
+     LAYER 1: PRIMITIVE TOKENS (Raw Values & Color Scales)
+     ========================================================================== */
+  
+  /* Pure Minimal Dark Canvas */
+  --color-black-pure: #000000;
+  --color-zinc-950: #09090B;
+  --color-zinc-900: #18181B;
+  --color-zinc-800: #27272A;
+  --color-zinc-700: #3F3F46;
+  --color-zinc-600: #52525B;
+  --color-zinc-500: #71717A;
+  --color-zinc-400: #A1A1AA;
+  --color-zinc-300: #D4D4D8;
+  --color-zinc-200: #E4E4E7;
+  --color-zinc-100: #F4F4F5;
+  --color-white: #FFFFFF;
+
+  /* Spacing Grid (4dp / 8dp Base) */
+  --space-0: 0px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
+  --space-40: 160px;
+
+  /* Border Radii */
+  --radius-none: 0px;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-3xl: 24px;
+  --radius-full: 9999px;
+
+  /* Typography Scale */
+  --font-sans: 'Inter', 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Space Grotesk', 'Outfit', sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Geist Mono', monospace;
+
+  /* ==========================================================================
+     LAYER 2: SEMANTIC TOKENS (Purpose Aliases & Theme Mapping)
+     ========================================================================== */
+  
+  /* Canvas & Surface Mapping */
+  --bg-primary: var(--color-black-pure);
+  --bg-secondary: var(--color-zinc-950);
+  --surface: var(--color-zinc-950);
+  --surface-hover: var(--color-zinc-900);
+  --surface-active: var(--color-zinc-800);
+  
+  /* Border & Divider Mapping */
+  --border: var(--color-zinc-800);
+  --border-hover: var(--color-zinc-700);
+  --border-subtle: rgba(255, 255, 255, 0.05);
+
+  /* Typography Mapping */
+  --text-primary: var(--color-white);
+  --text-secondary: var(--color-zinc-400);
+  --text-tertiary: var(--color-zinc-500);
+  --text-inverse: var(--color-black-pure);
+
+  /* Brand Accents & Highlights */
+  /* Using white/light grey as the primary accent for a strictly minimal look */
+  --accent: var(--color-white);
+  --accent-hover: var(--color-zinc-200);
+  --accent-light: var(--color-zinc-300);
+
+  /* Status Indicators */
+  --success: #10B981;
+  --warning: #F59E0B;
+  --error: #EF4444;
+
+  /* Glassmorphism - Greatly subdued */
+  --glass-bg: rgba(0, 0, 0, 0.6);
+  --glass-bg-hover: rgba(9, 9, 11, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.05);
+  --glass-border-hover: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+  --glass-backdrop: blur(12px);
+
+  /* Elevation Shadows (Removed heavy glowing styles) */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.6);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.7);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+}

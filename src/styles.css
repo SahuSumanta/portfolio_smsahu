@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap');
+@import '../assets/design-tokens.css';
+@import "tailwindcss";
+
+/* ==========================================================================
+   PORTFOLIO V2 — GLOBAL STYLES & MODERN WEB GUIDANCE UTILITIES
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+/* Custom Luxury Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Accessible Focus Ring */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+/* ==========================================================================
+   GLASSMORPHISM UTILITIES (Restricted & Disciplined)
+   ========================================================================== */
+.glass-panel {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.glass-panel-hover {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-panel-hover:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-hover);
+  box-shadow: var(--shadow-2xl);
+}
+
+.glass-hud {
+  background: rgba(9, 9, 11, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* ==========================================================================
+   MODERN WEB GUIDANCE: SCROLL-DRIVEN ENTRY & EXIT REVEALS
+   ========================================================================== */
+@media (prefers-reduced-motion: no-preference) {
+  /* 1. Progressive Enhancement: IntersectionObserver Fallback Base Classes */
+  .scroll-reveal-base {
+    opacity: 0;
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+  }
+  .reveal-up { transform: translate3d(0, 40px, 0); }
+  .reveal-down { transform: translate3d(0, -40px, 0); }
+  .reveal-left { transform: translate3d(40px, 0, 0); }
+  .reveal-right { transform: translate3d(-40px, 0, 0); }
+  .reveal-scale { transform: scale3d(0.94, 0.94, 1); }
+
+  .scroll-reveal-base.is-revealed {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+  }
+
+  /* 2. Native CSS Scroll Timelines (For supported browsers: Chrome/Edge/Safari 18+) */
+  @supports ((animation-timeline: view()) and (animation-range: entry)) {
+    @keyframes scroll-reveal-up {
+      from {
+        opacity: 0;
+        transform: translateY(36px) scale(0.98);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .scroll-reveal {
+      animation: scroll-reveal-up linear backwards;
+      animation-timeline: view(block);
+      animation-range: entry 5% entry 35%;
+    }
+  }
+}
+
+/* ==========================================================================
+   MODERN WEB GUIDANCE: PERFORMANCE & CONTENT VISIBILITY
+   ========================================================================== */
+.content-visibility-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 600px;
+}
+
+/* View Transitions Support */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.35s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
