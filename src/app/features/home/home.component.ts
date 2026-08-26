@@ -13,15 +13,17 @@ import { ScrollRevealDirective } from '../../shared/directives/scroll-reveal/scr
       
       <!-- Minimalist Typographic Hero Section -->
       <section class="max-w-7xl mx-auto px-6 lg:px-8 py-24 md:py-40">
-        <div appScrollReveal direction="up" class="max-w-5xl space-y-8">
-          <p class="text-sm font-sans text-white/40 uppercase tracking-widest">Sumanta Sahu</p>
-          <h1 class="text-5xl sm:text-7xl md:text-8xl lg:text-[7rem] font-display font-medium text-white tracking-tighter leading-[1.05]">
-            Full Stack<br />
-            Software Engineer.
-          </h1>
-          <p class="text-lg md:text-2xl text-white/60 max-w-2xl font-sans font-light leading-relaxed pt-6">
-            Building scalable platforms and refined user interfaces from Pune, India.
-          </p>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+          <!-- Text Content -->
+          <div class="lg:col-span-8 space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-1000">
+            <p class="text-sm font-sans text-white/40 uppercase tracking-widest">Sumanta Sahu</p>
+            <h1 class="text-5xl sm:text-7xl md:text-8xl lg:text-[7rem] font-display font-medium text-white tracking-tighter leading-[1.05]">
+              Full Stack<br />
+              Software Engineer.
+            </h1>
+            <p class="text-lg md:text-2xl text-white/60 max-w-2xl font-sans font-light leading-relaxed pt-6">
+              Building scalable platforms and refined user interfaces from Pune, India.
+            </p>
 
           <div class="flex items-center gap-6 pt-6 text-white/40">
             <!-- Web Icon -->
@@ -60,6 +62,19 @@ import { ScrollRevealDirective } from '../../shared/directives/scroll-reveal/scr
             <a href="assets/resume.pdf" download="Sumanta_Sahu_Resume.pdf" class="text-white/60 hover:text-white transition-colors tracking-wide">
               Download Resume ↓
             </a>
+          </div>
+          </div>
+          
+          <!-- Image Content -->
+          <div class="lg:col-span-4 hidden lg:block animate-in fade-in slide-in-from-right-8 duration-1000 delay-200">
+            <div class="relative w-full aspect-[3/4] rounded-2xl overflow-hidden border border-[var(--border)]">
+              <div class="absolute inset-0 bg-gradient-to-t from-[#131316] via-transparent to-transparent z-10"></div>
+              <img 
+                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800" 
+                alt="Sumanta Sahu" 
+                class="w-full h-full object-cover grayscale opacity-90 hover:grayscale-0 transition-all duration-700 hover:scale-105"
+              />
+            </div>
           </div>
         </div>
       </section>

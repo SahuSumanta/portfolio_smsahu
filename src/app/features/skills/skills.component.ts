@@ -11,7 +11,7 @@ import { ScrollRevealDirective } from '../../shared/directives/scroll-reveal/scr
   template: `
     <div class="min-h-screen max-w-7xl mx-auto px-6 lg:px-8 pt-32 pb-24 space-y-24 overflow-x-hidden">
       <!-- Minimal Header -->
-      <header appScrollReveal direction="up" class="space-y-6 max-w-4xl border-b border-[var(--border)] pb-16">
+      <header class="space-y-6 max-w-4xl border-b border-[var(--border)] pb-16">
         <h1 class="text-4xl sm:text-6xl md:text-7xl font-display font-medium text-white tracking-tighter leading-[1.1]">
           Skills & Mastery
         </h1>
@@ -22,7 +22,7 @@ import { ScrollRevealDirective } from '../../shared/directives/scroll-reveal/scr
       </header>
 
       <!-- Interactive Search & Filter HUD -->
-      <section appScrollReveal direction="up" class="space-y-8">
+      <section class="space-y-8">
         <div class="flex flex-col md:flex-row gap-6 items-center justify-between">
           <div class="w-full md:max-w-md">
             <app-search-box

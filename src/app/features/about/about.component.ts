@@ -18,7 +18,7 @@ import { ScrollRevealDirective } from '../../shared/directives/scroll-reveal/scr
     <div class="min-h-screen max-w-7xl mx-auto px-6 lg:px-8 pt-32 pb-24 space-y-32 overflow-x-hidden">
       
       <!-- Minimalist Bio -->
-      <section appScrollReveal direction="up" class="max-w-4xl space-y-12">
+      <section class="max-w-4xl space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-1000">
         <h1 class="text-4xl sm:text-6xl md:text-7xl font-display font-medium text-white tracking-tighter leading-[1.1]">
           Engineering with Scalability & Craftsmanship.
         </h1>
