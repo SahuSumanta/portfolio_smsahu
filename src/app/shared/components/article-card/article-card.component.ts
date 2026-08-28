@@ -30,7 +30,7 @@ import { BlogArticle } from '../../../core/models/portfolio.models';
             </div>
           </div>
 
-          <h3 class="text-xl md:text-2xl font-display font-medium text-[var(--text-primary)] group-hover:opacity-70 transition-opacity">
+          <h3 class="text-xl md:text-2xl font-display font-medium text-[var(--accent)] group-hover:opacity-70 transition-opacity">
             {{ article().title }}
           </h3>
 

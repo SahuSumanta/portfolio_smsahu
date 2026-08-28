@@ -15,7 +15,7 @@ import { CurrentlyBuildingItem } from '../../../core/models/portfolio.models';
           <span class="text-xs font-mono text-[#A1A1AA]">Updated: {{ item().lastUpdated }}</span>
         </div>
 
-        <h3 class="text-2xl font-['Space_Grotesk'] font-bold text-[var(--text-primary)]">
+        <h3 class="text-2xl font-['Space_Grotesk'] font-bold text-[var(--accent)]">
           {{ item().name }}
         </h3>
 

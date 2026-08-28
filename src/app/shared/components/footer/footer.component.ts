@@ -18,7 +18,7 @@ import { RouterLink } from '@angular/router';
           </div>
 
           <div>
-            <h3 class="text-xs uppercase tracking-widest text-[var(--text-primary)]/40 font-medium mb-6">Connect</h3>
+            <h3 class="text-xs uppercase tracking-widest text-[var(--accent)]/40 font-medium mb-6">Connect</h3>
             <ul class="space-y-4 text-sm font-sans">
               <li><a href="https://linkedin.com/in/sahusumanta" target="_blank" rel="noopener noreferrer" class="text-[var(--text-primary)]/80 hover:text-[var(--text-primary)] transition-colors">LinkedIn</a></li>
               <li><a href="https://github.com/SahuSumanta" target="_blank" rel="noopener noreferrer" class="text-[var(--text-primary)]/80 hover:text-[var(--text-primary)] transition-colors">GitHub</a></li>
@@ -27,7 +27,7 @@ import { RouterLink } from '@angular/router';
           </div>
 
           <div>
-            <h3 class="text-xs uppercase tracking-widest text-[var(--text-primary)]/40 font-medium mb-6">Navigation</h3>
+            <h3 class="text-xs uppercase tracking-widest text-[var(--accent)]/40 font-medium mb-6">Navigation</h3>
             <ul class="space-y-4 text-sm font-sans">
               <li><a routerLink="/projects" class="text-[var(--text-primary)]/80 hover:text-[var(--text-primary)] transition-colors">Projects</a></li>
               <li><a routerLink="/experience" class="text-[var(--text-primary)]/80 hover:text-[var(--text-primary)] transition-colors">Experience</a></li>

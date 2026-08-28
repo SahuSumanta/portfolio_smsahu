@@ -17,268 +17,313 @@ export class BlogService {
     topics: ['Angular 20', 'Go', 'Rust', 'Distributed Systems', 'Signals', 'TailwindCSS', 'System Design']
   });
 
-  private readonly articlesSignal = signal<BlogArticle[]>([
-    {
-      id: 'art-1',
-      slug: 'angular-20-signals-architecture',
-      title: 'Architecting Reactive Enterprise SPAs with Angular 20 Signals & Zone-Less Execution',
-      summary: 'A deep architectural guide on migrating monolithic enterprise applications from Zone.js dirty-checking to declarative fine-grained Signals, reducing CPU runtime overhead by 68%.',
-      author: this.authorProfile(),
-      publishedAt: '2026-06-18',
-      readingTimeMin: 12,
-      difficulty: 'Advanced',
-      categories: ['Angular', 'Frontend', 'Performance', 'Architecture'],
-      tags: ['#Angular', '#Signals', '#RxJS', '#Performance', '#TypeScript'],
-      thumbnailUrl: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80',
-      coverUrl: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1600&q=80',
-      featured: true,
-      viewCount: 14200,
-      likesCount: 890,
-      tableOfContents: [
-        { id: 'introduction', title: '1. The Cost of Zone.js in Enterprise Scale', level: 2 },
-        { id: 'signal-primitives', title: '2. Anatomy of Writable & Computed Signals', level: 2 },
-        { id: 'zoneless-migration', title: '3. Step-by-Step Zone-Less Migration Strategy', level: 2 },
-        { id: 'benchmarks', title: '4. Production Telemetry & Benchmarks', level: 2 },
-        { id: 'conclusion', title: '5. Architectural Verdict', level: 2 }
-      ],
-      contentMarkdown: `
-## 1. The Cost of Zone.js in Enterprise Scale
+  private readonly articlesSignal = signal<BlogArticle[]>(
+    [
+      {
+        id: "art-1",
+        slug: "ionic-angular-60fps-performance",
+        title: "Achieving 60fps Native Performance in Hybrid Ionic & Angular Apps",
+        summary: "Practical optimization techniques for handling complex DOM trees, heavy animation frames, and real-time state updates across iOS and Android low-end hardware.",
+        author: {
+          name: "Sumanta Sahu",
+          role: "Software Engineer & AI Systems Builder",
+          avatarUrl: "https://avatars.githubusercontent.com/u/10000000?v=4"
+        },
+        publishedAt: "2026-07-12",
+        readingTimeMin: 11,
+        difficulty: "Advanced",
+        categories: [
+          "Ionic",
+          "Angular",
+          "Mobile",
+          "Performance"
+        ],
+        tags: [
+          "#Ionic",
+          "#Angular",
+          "#MobileDev",
+          "#Performance",
+          "#TypeScript"
+        ],
+        thumbnailUrl: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80",
+        coverUrl: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1600&q=80",
+        featured: true,
+        viewCount: 16400,
+        likesCount: 1120,
+        tableOfContents: [
+          {
+            id: "webview-bottlenecks",
+            title: "1. Diagnosing Mobile WebView Frame Drops",
+            level: 2
+          },
+          {
+            id: "hardware-acceleration",
+            title: "2. Hardware-Accelerated Layouts & CSS Will-Change",
+            level: 2
+          },
+          {
+            id: "zoneless-mobile",
+            title: "3. Going Zoneless on Capacitor/Cordova Bridges",
+            level: 2
+          },
+          {
+            id: "benchmark-results",
+            title: "4. Real-Device Benchmarks (iOS vs Android)",
+            level: 2
+          }
+        ],
+        contentMarkdown: `## 1. Diagnosing Mobile WebView Frame Drops
 
-For nearly a decade, Angular applications relied on **Zone.js** to monkey-patch native browser APIs (` + '`setTimeout`' + `, DOM listeners, Promises) and trigger global application change detection cycles. While convenient for beginners, top-down tree traversals scale O(N) with DOM node complexity.
-
-In enterprise dashboards with 10,000+ real-time financial telemetry rows, ` + '`ngDoCheck`' + ` execution storms can easily drop frame rates below 24fps.
+When running Angular inside an Ionic iOS WKWebView or Android WebView, standard dirty-checking overhead hits hardware limits fast. Frame drops under 30fps usually happen during rapid swipe gestures or heavy lists.
 
 \`\`\`typescript
-// Legacy Zone.js pattern triggering top-down checks
+// Anti-Pattern: Triggering angular change detection during scroll events
 @Component({
-  selector: 'app-legacy-ticker',
-  template: '<div>Last Price: {{ price }}</div>'
+  selector: 'app-heavy-list',
+  template: \`<ion-content (ionScroll)="onScroll($event)">...</ion-content>\`
 })
-export class LegacyTickerComponent {
-  price = 100.45;
-  
-  ngOnInit() {
-    // Every WebSocket message triggers a full component tree re-evaluation
-    this.ws.onMessage(data => this.price = data.price);
+export class HeavyListComponent {
+  onScroll(ev: CustomEvent) {
+    // Every scroll tick fires global Angular zone dirty-checking
+    this.calculateHeaderParallax(ev.detail.scrollTop);
   }
 }
 \`\`\`
 
 ---
 
-## 2. Anatomy of Writable & Computed Signals
+## 2. Hardware-Accelerated Layouts & CSS Will-Change
 
-Angular 20 introduces **declarative reactive primitives** via fine-grained Signals. When a signal value changes, only templates directly reading that signal receive localized dirty notifications.
+Leveraging native GPU composition layers prevents main-thread layout thrashing during page transitions.
+
+\`\`\`css
+/* Force GPU composite layer for dynamic shade position sliders */
+.shade-control-card {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+\`\`\`
+
+---
+
+## 3. Going Zoneless on Capacitor/Cordova Bridges
+
+By decoupling native plugin event listeners (Bluetooth BLE events, push notifications) from \`Zone.js\`, bridge serialization bottlenecks disappear completely.`
+      },
+      {
+        id: "art-2",
+        slug: "ngrx-signal-store-hybrid-architecture",
+        title: "Architecting Hybrid State: NgRx SignalStore Meets RxJS Event Streams",
+        summary: "Why replacing all RxJS with Signals is an anti-pattern: building a scalable pattern that pairs NgRx SignalStore for UI state with RxJS for complex async WebSocket telemetry.",
+        author: {
+          name: "Sumanta Sahu",
+          role: "Software Engineer & AI Systems Builder",
+          avatarUrl: "https://avatars.githubusercontent.com/u/10000000?v=4"
+        },
+        publishedAt: "2026-05-18",
+        readingTimeMin: 14,
+        difficulty: "Advanced",
+        categories: [
+          "Angular",
+          "State Management",
+          "Architecture",
+          "RxJS"
+        ],
+        tags: [
+          "#Angular",
+          "#NgRx",
+          "#Signals",
+          "#RxJS",
+          "#Architecture"
+        ],
+        thumbnailUrl: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
+        coverUrl: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1600&q=80",
+        featured: true,
+        viewCount: 12800,
+        likesCount: 940,
+        tableOfContents: [
+          {
+            id: "the-hybrid-model",
+            title: "1. The Right Boundaries: Signals vs RxJS",
+            level: 2
+          },
+          {
+            id: "signal-store-implementation",
+            title: "2. Building Route-Scoped NgRx SignalStores",
+            level: 2
+          },
+          {
+            id: "bridge-async-streams",
+            title: "3. Bridging RxJS Pipelines into Signal Sinks",
+            level: 2
+          }
+        ],
+        contentMarkdown: `## 1. The Right Boundaries: Signals vs RxJS
+
+A common mistake in modern Angular codebases is attempting to replace all RxJS streams with Signals. Signals excel at local UI reactivity and derived synchronous state, but **RxJS remains indispensable** for backpressure, cancellation (\`switchMap\`), and real-time event orchestration.
+
+---
+
+## 2. Building Route-Scoped NgRx SignalStores
 
 \`\`\`typescript
-import { Component, signal, computed, effect } from '@angular/core';
+import { signalStore, withState, withMethods, patchState } from '@ngrx/signals';
+import { inject } from '@angular/core';
 
-@Component({
-  selector: 'app-reactive-ticker',
-  template: \`
-    <div class="p-4 bg-[#131316] rounded-xl border border-[#242428]">
-      <span class="text-sm font-mono text-[#A1A1AA]">Live Price:</span>
-      <span class="text-2xl font-bold text-[#22C55E]">{{\$formattedPrice()}}</span>
-    </div>
-  \`
-})
-export class ReactiveTickerComponent {
-  readonly rawPrice = signal<number>(100.45);
-  
-  // Memoized computed signal — evaluates only when rawPrice mutates
-  readonly formattedPrice = computed(() => \`$\${this.rawPrice().toFixed(2)}\`);
-
-  updatePrice(newVal: number) {
-    this.rawPrice.set(newVal);
-  }
+export interface DeviceTelemetryState {
+  devices: Device[];
+  selectedZone: string | null;
+  isConnecting: boolean;
 }
+
+const initialState: DeviceTelemetryState = {
+  devices: [],
+  selectedZone: null,
+  isConnecting: false,
+};
+
+export const DeviceStore = signalStore(
+  { providedIn: 'root' },
+  withState(initialState),
+  withMethods((store) => ({
+    setZone(zoneId: string) {
+      patchState(store, { selectedZone: zoneId });
+    },
+    updateDeviceStatus(deviceId: string, active: boolean) {
+      patchState(store, (state) => ({
+        devices: state.devices.map(d => d.id === deviceId ? { ...d, active } : d)
+      }));
+    }
+  }))
+);
 \`\`\`
 
 > [!TIP]
-> Never mutate signal arrays or objects directly using ` + '`.push()`' + `. Always use ` + '`.update(arr => [...arr, item])`' + ` or ` + '`.set()`' + ` to ensure immutable reference changes trigger downstream computed memos.
+> Always keep writable signals and \`patchState\` operations encapsulated inside store methods. Never expose mutable signals directly to template components.`
+      },
+      {
+        id: "art-3",
+        slug: "real-time-iot-websocket-angular-ionic",
+        title: "Building Real-Time Industrial IoT Dashboards with Angular & WebSockets",
+        summary: "Lessons learned handling high-frequency telemetry data streams, offline sync queues, and BLE fallback reconnection algorithms in commercial building automation.",
+        author: {
+          name: "Sumanta Sahu",
+          role: "Software Engineer & AI Systems Builder",
+          avatarUrl: "https://avatars.githubusercontent.com/u/10000000?v=4"
+        },
+        publishedAt: "2026-03-30",
+        readingTimeMin: 15,
+        difficulty: "Expert",
+        categories: [
+          "IoT",
+          "Angular",
+          "Mobile",
+          "WebSockets"
+        ],
+        tags: [
+          "#IoT",
+          "#WebSockets",
+          "#Angular",
+          "#Ionic",
+          "#RxJS"
+        ],
+        thumbnailUrl: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+        coverUrl: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80",
+        featured: false,
+        viewCount: 9200,
+        likesCount: 680,
+        tableOfContents: [
+          {
+            id: "telemetry-backpressure",
+            title: "1. Managing Telemetry Backpressure with RxJS",
+            level: 2
+          },
+          {
+            id: "offline-reconciliation",
+            title: "2. Offline Signal Queuing & Sync",
+            level: 2
+          }
+        ],
+        contentMarkdown: `## 1. Managing Telemetry Backpressure with RxJS
 
----
-
-## 3. Step-by-Step Zone-Less Migration Strategy
-
-To eliminate ` + '`zone.js`' + ` entirely in Angular 20, configure ` + '`provideExperimentalZonelessChangeDetection()`' + ` inside your application bootstrap.
+When building industrial BMS dashboards monitoring thousands of motorized window shades or environmental sensors, receiving unthrottled WebSocket bursts will crash mobile WebViews.
 
 \`\`\`typescript
-import { bootstrapApplication } from '@angular/platform-browser';
-import { provideExperimentalZonelessChangeDetection } from '@angular/core';
-import { AppComponent } from './app/app.component';
+// Throttling high-frequency MQTT/WebSocket data streams
+this.websocketService.stream$
+  .pipe(
+    filter(msg => msg.type === 'TELEMETRY_UPDATE'),
+    bufferTime(250), // Batch UI updates into 250ms windows
+    filter(batch => batch.length > 0),
+    takeUntilDestroyed(this.destroyRef)
+  )
+  .subscribe(batch => this.processTelemetryBatch(batch));
+\`\`\``
+      },
+      {
+        id: "art-4",
+        slug: "cross-platform-design-systems-ionic",
+        title: "Cross-Platform UI Consistency: Custom Tokens in Ionic & Tailwind CSS",
+        summary: "Decoupling component logic from platform styles to build a unified design system that renders natively across iOS Human Interface Guidelines and Android Material 3.",
+        author: {
+          name: "Sumanta Sahu",
+          role: "Software Engineer & AI Systems Builder",
+          avatarUrl: "https://avatars.githubusercontent.com/u/10000000?v=4"
+        },
+        publishedAt: "2026-02-14",
+        readingTimeMin: 9,
+        difficulty: "Intermediate",
+        categories: [
+          "Design",
+          "Ionic",
+          "Frontend",
+          "Mobile"
+        ],
+        tags: [
+          "#DesignSystem",
+          "#Ionic",
+          "#TailwindCSS",
+          "#Angular",
+          "#UIUX"
+        ],
+        thumbnailUrl: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80",
+        coverUrl: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1600&q=80",
+        featured: false,
+        viewCount: 10400,
+        likesCount: 590,
+        tableOfContents: [
+          {
+            id: "theme-variables",
+            title: "1. Overriding Ionic CSS Custom Properties",
+            level: 2
+          },
+          {
+            id: "tailwind-integration",
+            title: "2. Integrating Tailwind CSS with Ionic Shadow DOM",
+            level: 2
+          }
+        ],
+        contentMarkdown: `## 1. Overriding Ionic CSS Custom Properties
 
-bootstrapApplication(AppComponent, {
-  providers: [
-    provideExperimentalZonelessChangeDetection()
-  ]
-}).catch(err => console.error(err));
-\`\`\`
-
----
-
-## 4. Production Telemetry & Benchmarks
-
-Migrating our core real-time observability console yielded immediate improvements across all Core Web Vitals:
-
-| Metric | Zone.js Architecture | Angular 20 Signals | Improvement |
-| :--- | :--- | :--- | :--- |
-| **Interaction to Next Paint (INP)** | 145 ms | 18 ms | **-87%** |
-| **Main Thread CPU Blocking** | 380 ms | 42 ms | **-88%** |
-| **Bundle Size (Gzipped)** | 84 kB | 61 kB | **-27%** |
-
----
-
-## 5. Architectural Verdict
-
-Signal-first architecture is not just a syntax update—it represents a paradigm shift toward deterministic, reactive software design that guarantees 60fps rendering under heavy data load.
-      `
-    },
-    {
-      id: 'art-2',
-      slug: 'distributed-raft-consensus-go',
-      title: 'Anatomy of a Zero-Allocation Raft Consensus Engine in Go 1.23',
-      summary: 'Exploring low-level memory pooling, ring buffer network handlers, and lock-free log replication strategies to achieve 185,000 QPS in distributed storage.',
-      author: this.authorProfile(),
-      publishedAt: '2026-05-24',
-      readingTimeMin: 16,
-      difficulty: 'Expert',
-      categories: ['Backend', 'System Design', 'Architecture', 'Programming'],
-      tags: ['#Go', '#Raft', '#SystemDesign', '#Performance', '#Backend'],
-      thumbnailUrl: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80',
-      coverUrl: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1600&q=80',
-      featured: false,
-      viewCount: 9800,
-      likesCount: 710,
-      tableOfContents: [
-        { id: 'problem-statement', title: '1. The Garbage Collection Bottleneck', level: 2 },
-        { id: 'memory-pooling', title: '2. Zero-Allocation gRPC Buffers via sync.Pool', level: 2 },
-        { id: 'wal-compaction', title: '3. Asynchronous WAL Compaction', level: 2 }
-      ],
-      contentMarkdown: `
-## 1. The Garbage Collection Bottleneck
-
-In high-throughput Raft state machines, allocating heap memory for every AppendEntries RPC byte buffer forces the Go runtime into continuous mark-and-sweep GC pauses.
-
-\`\`\`go
-// High-allocation anti-pattern
-func (s *RaftServer) AppendEntries(req *AppendReq) (*AppendResp, error) {
-    // Creating a slice on heap for every single incoming log request
-    buffer := make([]byte, len(req.Payload))
-    copy(buffer, req.Payload)
-    return s.stateMachine.Apply(buffer)
-}
-\`\`\`
-
----
-
-## 2. Zero-Allocation gRPC Buffers via sync.Pool
-
-By reusing byte slices from a thread-safe object pool, heap escapes drop to zero during steady-state quorum replication.
-
-\`\`\`go
-var bufferPool = sync.Pool{
-    New: func() interface{} {
-        b := make([]byte, 0, 4096)
-        return &b
-    },
-}
-
-func (s *RaftServer) AppendEntriesFast(req *AppendReq) (*AppendResp, error) {
-    bufPtr := bufferPool.Get().(*[]byte)
-    *bufPtr = (*bufPtr)[:0]
-    *bufPtr = append(*bufPtr, req.Payload...)
-    
-    defer bufferPool.Put(bufPtr)
-    return s.stateMachine.ApplyFast(*bufPtr)
-}
-\`\`\`
-
-> [!IMPORTANT]
-> Always reset the slice length ` + '`(*bufPtr)[:0]`' + ` before reusing pooled buffers to prevent reading stale memory payloads from previous requests.
-      `
-    },
-    {
-      id: 'art-3',
-      slug: 'flink-clickhouse-sub-ms-pipelines',
-      title: 'Engineering Sub-Millisecond Event Processing Pipelines with Apache Flink & ClickHouse',
-      summary: 'Architectural lessons learned scaling anomaly detection streaming engines to 1.2 million events per second with exactly-once semantic guarantees.',
-      author: this.authorProfile(),
-      publishedAt: '2026-04-10',
-      readingTimeMin: 14,
-      difficulty: 'Advanced',
-      categories: ['Data Infrastructure', 'DevOps', 'Cloud', 'Performance'],
-      tags: ['#Kafka', '#Flink', '#ClickHouse', '#Performance', '#Cloud'],
-      thumbnailUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
-      coverUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80',
-      featured: false,
-      viewCount: 7600,
-      likesCount: 520,
-      tableOfContents: [
-        { id: 'stream-ingestion', title: '1. Designing Idempotent Kafka Sinks', level: 2 },
-        { id: 'columnar-sorting', title: '2. ClickHouse Sorting Key Optimization', level: 2 }
-      ],
-      contentMarkdown: `
-## 1. Designing Idempotent Kafka Sinks
-
-When executing distributed windowed stream joins in Apache Flink, worker node failures trigger checkpoint rollbacks. Without deterministic deduplication keys, downstream ClickHouse tables accumulate duplicate records.
-
-\`\`\`sql
--- ClickHouse ReplacingMergeTree schema ensuring deterministic deduplication
-CREATE TABLE financial_events_telemetry (
-    event_id UUID,
-    account_id UInt64,
-    timestamp DateTime64(3),
-    amount Decimal(18, 4),
-    payload String
-) ENGINE = ReplacingMergeTree(timestamp)
-ORDER BY (account_id, event_id);
-\`\`\`
-
-> [!WARNING]
-> Do not rely on random UUID generation inside Flink map operators. Generate MurmurHash3 deterministic IDs from payload timestamps and sequence numbers at ingress edge proxies.
-      `
-    },
-    {
-      id: 'art-4',
-      slug: 'token-driven-design-systems',
-      title: 'Scaling Token-Driven UI Architecture Across 14 Enterprise Suites',
-      summary: 'How three-layer token hierarchies (Primitive -> Semantic -> Component) decouple visual styling from component runtime logic across web and mobile platforms.',
-      author: this.authorProfile(),
-      publishedAt: '2026-03-02',
-      readingTimeMin: 10,
-      difficulty: 'Intermediate',
-      categories: ['Design', 'Frontend', 'Accessibility', 'Architecture'],
-      tags: ['#DesignSystem', '#TailwindCSS', '#Angular', '#Accessibility', '#TypeScript'],
-      thumbnailUrl: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80',
-      coverUrl: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1600&q=80',
-      featured: false,
-      viewCount: 11500,
-      likesCount: 640,
-      tableOfContents: [
-        { id: 'token-architecture', title: '1. The Three-Layer Token Pyramid', level: 2 },
-        { id: 'css-vars', title: '2. Zero-Runtime CSS Variable Injection', level: 2 }
-      ],
-      contentMarkdown: `
-## 1. The Three-Layer Token Pyramid
-
-Design systems break down when engineers directly consume raw hexadecimal colors like ` + '`#3B82F6`' + ` inside component templates. By structuring tokens into three distinct tiers, design changes propagate seamlessly:
-
-1. **Primitive Tokens**: Immutable visual palette definitions (` + '`color-blue-500: #3B82F6`' + `).
-2. **Semantic Tokens**: Contextual meaning mapping (` + '`color-action-primary: var(--color-blue-500)`' + `).
-3. **Component Tokens**: Specific widget styling (` + '`button-primary-bg: var(--color-action-primary)`' + `).
+Ionic components leverage Web Components with Shadow DOM encapsulation. Customizing theme variables cleanly requires mapping your central Design System semantic tokens directly into Ionic's CSS variables:
 
 \`\`\`css
-/* Automated compilation generated from Figma design studio */
 :root {
-  --color-primitive-blue-500: #3B82F6;
-  --color-semantic-action: var(--color-primitive-blue-500);
-  --btn-primary-background: var(--color-semantic-action);
+  /* Brand Semantic Variables */
+  --app-color-brand-primary: #e61c24;
+  --app-color-surface-dark: #121214;
+
+  /* Ionic Core Component Overrides */
+  --ion-color-primary: var(--app-color-brand-primary);
+  --ion-background-color: var(--app-color-surface-dark);
 }
-\`\`\`
-      `
-    }
-  ]);
+\`\`\``
+      }
+    ]
+  );
+
+
 
   private readonly resourcesSignal = signal<KnowledgeResource[]>([
     {

@@ -85,8 +85,10 @@ export class PortfolioService {
       status: 'Production',
       completionYear: 2026,
       techStack: ['Angular', 'TypeScript', 'Node.js', 'RxJS', 'NgRx', 'SQL', 'MongoDB'],
-      thumbnailUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80',
-      screenshots: [],
+      thumbnailUrl: 'assets/images/projects/databyte.jpg',
+      screenshots: [
+        'assets/images/projects/databyte.jpg'
+      ],
       timeline: '2022 - 2026',
       isFlagship: true,
       flagshipDetails: {
@@ -149,9 +151,9 @@ export class PortfolioService {
       status: 'Production',
       completionYear: 2026,
       techStack: ['Angular', 'Ionic', 'TypeScript', 'Node.js', 'REST APIs'],
-      thumbnailUrl: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80',
+      thumbnailUrl: 'assets/images/projects/mechoshade.jpg',
       screenshots: [
-        'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80'
+        'assets/images/projects/mechoshade.jpg'
       ],
       githubUrl: '',
       demoUrl: '',
@@ -203,35 +205,68 @@ export class PortfolioService {
     },
     {
       id: 'proj-2',
-      slug: 'ai-hrms-platform',
-      title: 'AI-Powered HRMS Platform',
-      tagline: 'Automated candidate screening and evaluation workflows reducing manual HR effort by 90%.',
+      slug: 'talent-singularity',
+      title: 'Talent Singularity',
+      tagline: 'In-house end-to-end AI hiring platform with automated Round 4 AI interviews, real-time proctoring, online compilers, and high-concurrency evaluation.',
       featured: true,
       category: 'AI & HRTech',
       status: 'Production',
       completionYear: 2026,
-      techStack: ['Angular', 'TypeScript', 'Node.js', 'OpenAI API', 'MongoDB'],
-      thumbnailUrl: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80',
-      screenshots: [],
+      techStack: [
+        'Angular',
+        'TypeScript',
+        'RxJS',
+        'NgRx',
+        'Java',
+        'MySQL',
+        'WebSockets',
+        'OpenAI API',
+        'Groq',
+        'Whisper',
+        'TTS / STT'
+      ],
+      thumbnailUrl: 'assets/images/projects/talent-singularity.jpg',
+      screenshots: [
+        'assets/images/projects/talent-singularity.jpg'
+      ],
       githubUrl: '',
       demoUrl: '',
       timeline: '2023 - 2025',
       caseStudy: {
-        projectOverview: 'Built and owned the frontend architecture for an AI-powered HRMS platform that automated candidate screening, evaluation workflows, and hiring operations.',
-        problemStatement: 'Manual candidate screening was a massive bottleneck for HR departments, leading to slow hiring cycles and high operational costs.',
-        research: 'Investigated LLM capabilities for accurate resume parsing and automated preliminary candidate scoring.',
+        projectOverview: 'Single-handedly engineered the entire frontend architecture and complete user interface for Talent Singularity—a unified, end-to-end recruitment platform built to eliminate third-party HR tools and automate volume hiring.',
+        problemStatement: 'Third-party assessment platforms lacked customization, incurred heavy vendor costs, and could not handle mass vs. experienced candidate tracks alongside automated AI interviews and proctoring under high traffic.',
+        research: 'Researched WebSockets, WebRTC, MediaDevices API (camera/mic hardware streams), STT/TTS models (Whisper/Groq), low-latency LLM streaming, and sandboxed code/SQL compilation environments.',
         architectureSpecs: {
-          frontend: 'Scalable Angular enterprise application with complex state management.',
-          backend: 'Node.js microservices integrated with OpenAI API for intelligent processing.',
-          database: 'MongoDB for flexible document storage of candidate profiles.'
+          frontend: 'Enterprise-grade Angular application single-handedly architected with NgRx and RxJS, featuring custom camera/microphone integration, live proctoring stream management, online code compiler, and multi-track candidate management.',
+          backend: 'High-throughput Java microservices architecture backed by MySQL, utilizing WebSockets for real-time state sync, Groq LLM inferencing, Whisper STT, TTS pipelines, and OpenAI API.',
+          database: 'MySQL enterprise relational store tracking full candidate journey histories, detailed round failure/pass reasons, sharing permissions, and assessment metrics.'
         },
-        systemDesign: 'Decoupled the AI processing queue from the main application thread to ensure the HR dashboard remained highly responsive during bulk evaluations.',
-        dataFlow: 'Resume Upload -> Node.js Service -> OpenAI API -> Parsed JSON -> MongoDB -> Angular UI.',
+        systemDesign: 'Built a 4-round hiring pipeline: Round 1 (Resume Parsing) -> Round 2 (Skill Assessment) -> Round 3 (Sandboxed Code & SQL Compiler) -> Round 4 (Interactive AI Video/Voice Interview with Proctoring). Includes one-touch paper generation scheduling, mass hiring vs. experienced hiring workflow separation, candidate profile sharing among interviewers, and direct in-platform video reviews.',
+        dataFlow: 'Resume Upload -> High-Accuracy Java Parsing Engine (98% Success Rate) -> MySQL -> Candidate Track Assignment (Mass / Experienced) -> One-Touch Assessment Scheduling -> WebSockets / Media Devices (Camera/Mic Stream) -> Groq / Whisper STT & TTS Pipeline -> Real-Time Proctoring & Scorecard -> Shared Reviewer Workflow -> Final Decision.',
         folderStructure: '',
         techStackCategorized: [
-          { category: 'Backend', items: [{ name: 'OpenAI API', color: '#412991' }, { name: 'Node.js', color: '#339933' }] }
+          {
+            category: 'Frontend (Solo Ownership)',
+            items: [
+              { name: 'Angular', color: '#DD0031' },
+              { name: 'TypeScript', color: '#3178C6' },
+              { name: 'NgRx', "color": '#BA2BD2' },
+              { name: 'RxJS', color: '#B7178C' }
+            ]
+          },
+          {
+            category: 'Backend & AI Infrastructure',
+            items: [
+              { name: 'Java', color: '#007396' },
+              { name: 'MySQL', color: '#4479A1' },
+              { name: 'WebSockets', color: '#010101' },
+              { name: 'Whisper STT', color: '#00A67E' },
+              { name: 'Groq', color: '#F55036' },
+              { name: 'OpenAI API', color: '#412991' }
+            ]
+          }
         ],
-        implementationDetails: 'Engineered scalable full-stack modules to handle thousands of concurrent applicant evaluations.',
+        implementationDetails: 'Single-handedly developed the UI, audio/video device capture mechanisms, and proctoring guardrails (blocking tab switching, copy-pasting, and window blurs). Built the online multi-language code & SQL compiler interface, automated paper generators for HR, and candidate profile sharing features for colleague cross-evaluations.',
         performanceData: {
           performanceScore: 99,
           accessibilityScore: 100,
@@ -240,16 +275,25 @@ export class PortfolioService {
           loadTimeMs: 350,
           p99LatencyMs: 120,
           throughputQps: 500,
-          usersServed: 'Enterprise HR Teams',
+          concurrentCandidatesSupported: 700,
+          usersServed: 'Enterprise HR Teams, Technical Interviewers, and Mass Applicants',
           deploymentFrequency: 'Continuous'
         },
-        accessibilityAudit: 'Keyboard-navigable candidate evaluation forms and fully accessible tables.',
-        securityArchitecture: 'Strict PII masking and data encryption at rest for candidate documents.',
-        challenges: 'Eliminating race conditions in complex user workflows when evaluating candidates simultaneously.',
-        solutions: 'Refactored complex user workflows using RxJS and NgRx to ensure deterministic state updates.',
-        lessonsLearned: 'Strict state management (NgRx) is non-negotiable for enterprise-scale forms and multi-step workflows.',
-        futureImprovements: [],
-        metrics: { manualEffortReduction: '90%' }
+        accessibilityAudit: 'Accessible camera/mic selection dialogs, screen-reader compatible code and SQL editor panels, and keyboard-navigable candidate evaluation tables.',
+        securityArchitecture: 'Sandboxed multi-language code runner, WebSockets JWT token authentication, PII data masking, and strict hardware permission handling for webcam/microphone media streams.',
+        challenges: 'Managing local hardware media streams (camera and microphone) alongside bi-directional WebSocket audio state while serving over 700 concurrent candidates without UI lag or memory leaks.',
+        solutions: 'Architected custom RxJS observable pipelines for browser MediaStream lifecycle management, decoupling audio/video rendering from background state updates using NgRx store slices.',
+        lessonsLearned: 'Centralized RxJS stream management and strict state controls (NgRx) are vital when building full-featured, high-concurrency enterprise UI clients single-handedly.',
+        futureImprovements: [
+          'Add sub-100ms real-time audio-to-audio streaming interfaces.',
+          'Expand AI proctoring with automated visual eye-gaze and multi-face detection models.'
+        ],
+        metrics: {
+          manualEffortReduction: '90%',
+          thirdPartyDependency: '0%',
+          resumeParsingAccuracy: '98%',
+          maxConcurrentCandidates: '700+'
+        }
       }
     },
     {
@@ -305,38 +349,55 @@ export class PortfolioService {
   ]);
 
   // Journey milestones Signal
+  // Journey milestones Signal
   private readonly journeySignal = signal<JourneyMilestone[]>([
     {
       id: 'j-1',
-      year: '2018 - 2022',
-      title: 'Computer Science Education',
+      year: '2022',
+      title: 'Graduated in Computer Science',
       category: 'Education',
-      description: 'Earned my Bachelor of Technology in Computer Science from Biju Patnaik University of Technology / KMBB College, building a strong foundation in algorithms and software engineering.',
-      tech: ['Java', 'C++', 'Data Structures']
+      description: 'Graduated with a Bachelor of Technology in Computer Science, laying a solid foundation in software engineering, algorithms, and system design.',
+      tech: ['Java', 'C++', 'Data Structures', 'Algorithms']
     },
     {
       id: 'j-2',
       year: '2022',
-      title: 'Software Engineer at Vision Waves',
+      title: 'Joined Vision Waves as Associate Software Engineer',
       category: 'Career',
-      description: 'Joined Vision Waves as a Software Engineer, embarking on a nearly 4-year journey building scalable SaaS platforms across HRTech, Industrial IoT, and enterprise operations.',
-      tech: ['Angular', 'TypeScript', 'Node.js', 'MongoDB', 'SQL']
+      description: 'Began my professional career at Vision Waves. Early on, collaborated with DataByte to work on ETL pipelines, Change Data Capture (CDC), ProcBot, and "Talk to Your Data" AI solutions.',
+      tech: ['Angular', 'TypeScript', 'Node.js', 'ETL', 'CDC']
     },
     {
       id: 'j-3',
-      year: '2023 - 2025',
-      title: 'Architecting AI & Real-Time IoT Solutions',
+      year: '2023',
+      title: 'IoT Platform & Rule Chain Integration',
       category: 'Production',
-      description: 'Led the frontend architecture for an AI-powered HRMS reducing manual HR effort by 90%, and developed real-time industrial telemetry dashboards using advanced RxJS/NgRx patterns.',
-      tech: ['OpenAI API', 'RxJS', 'NgRx', 'AWS', 'Docker']
+      description: 'Engineered high-performance IoT modules inspired by open-source platforms like ThingsBoard/ThingsDB, integrating dynamic rule chains and real-time telemetry processing.',
+      tech: ['RxJS', 'NgRx', 'WebSockets', 'IoT', 'MQTT']
     },
     {
       id: 'j-4',
+      year: '2023 - 2025',
+      title: 'Talent Singularity & Cross-Functional Impact',
+      category: 'Production',
+      description: 'Worked directly alongside the CEO to architect Talent Singularity (an end-to-end AI hiring platform). Contributed to ongoing projects with the HUMAIN team and collaborated with cross-platform engineering teams on SingLife.',
+      tech: ['OpenAI API', 'Whisper STT', 'Groq', 'Java', 'MySQL']
+    },
+    {
+      id: 'j-5',
+      year: '2022 - 2026',
+      title: 'Leadership, Mentorship & Vision Waves Departure',
+      category: 'Career',
+      description: 'Mentored numerous junior developers throughout my 4-year tenure, guiding frontend architecture, code quality, and state management practices before concluding my impactful journey at Vision Waves in 2026.',
+      tech: ['System Design', 'Code Reviews', 'Mentorship', 'Agile']
+    },
+    {
+      id: 'j-6',
       year: '2026 - Present',
       title: 'Software Engineer at Softdel',
       category: 'Career',
-      description: 'Currently building MechoSHADE, a robust Building Management System (BMS). Focused on cross-platform mobile and web development (Angular/Ionic) and integrating real-time IoT device data.',
-      tech: ['Angular', 'Ionic', 'Node.js', 'Microservices']
+      description: 'Joined Softdel to engineer cross-platform mobile and web applications (Angular/Ionic) for MechoShade, delivering intelligent Building Management Systems (BMS) and IoT automation.',
+      tech: ['Angular', 'Ionic', 'TypeScript', 'Node.js', 'Microservices']
     }
   ]);
 
@@ -485,46 +546,82 @@ export class PortfolioService {
   private readonly skillsSignal = signal<SkillCategory[]>([
     {
       id: 'sc-1',
-      name: 'Frontend',
+      name: 'Frontend & Mobile',
+      iconSvg: 'layout',
       skills: [
-        { name: 'Angular (v15+)', category: 'Frontend', proficiency: 'Expert', yearsExp: 4, confidenceLevel: 95, projectsUsedIn: ['Softdel', 'Vision Waves'], relatedTechnologies: ['TypeScript', 'Component Architecture'] },
-        { name: 'TypeScript', category: 'Frontend', proficiency: 'Expert', yearsExp: 4, confidenceLevel: 95, projectsUsedIn: ['All Projects'], relatedTechnologies: ['ES6+', 'Static Typing'] },
-        { name: 'Ionic', category: 'Frontend', proficiency: 'Advanced', yearsExp: 2, confidenceLevel: 85, projectsUsedIn: ['MechoSHADE'], relatedTechnologies: ['Cross-platform', 'Capacitor'] },
-        { name: 'RxJS & NgRx', category: 'Frontend', proficiency: 'Expert', yearsExp: 4, confidenceLevel: 90, projectsUsedIn: ['IoT Dashboards', 'HRMS'], relatedTechnologies: ['State Management', 'Reactive Programming'] }
+        { name: 'Angular (v15+)', category: 'Frontend', proficiency: 'Expert', yearsExp: 4, confidenceLevel: 95, projectsUsedIn: ['Softdel', 'Vision Waves'], relatedTechnologies: [] },
+        { name: 'Ionic', category: 'Mobile', proficiency: 'Advanced', yearsExp: 2, confidenceLevel: 85, projectsUsedIn: ['MechoSHADE'], relatedTechnologies: [] },
+        { name: 'TypeScript', category: 'Frontend', proficiency: 'Expert', yearsExp: 4, confidenceLevel: 95, projectsUsedIn: ['All Projects'], relatedTechnologies: [] },
+        { name: 'RxJS & NgRx', category: 'Frontend', proficiency: 'Expert', yearsExp: 4, confidenceLevel: 90, projectsUsedIn: ['IoT Dashboards', 'HRMS'], relatedTechnologies: [] },
+        { name: 'Reactive Forms', category: 'Frontend', proficiency: 'Expert', yearsExp: 4, confidenceLevel: 95, projectsUsedIn: [], relatedTechnologies: [] },
+        { name: 'Angular Material', category: 'Frontend', proficiency: 'Expert', yearsExp: 4, confidenceLevel: 90, projectsUsedIn: [], relatedTechnologies: [] },
+        { name: 'Cross-Platform Dev (iOS & Android)', category: 'Mobile', proficiency: 'Advanced', yearsExp: 2, confidenceLevel: 85, projectsUsedIn: [], relatedTechnologies: [] }
       ]
     },
     {
       id: 'sc-2',
-      name: 'Backend',
+      name: 'Backend & Systems',
+      iconSvg: 'server',
       skills: [
-        { name: 'Node.js', category: 'Backend', proficiency: 'Advanced', yearsExp: 4, confidenceLevel: 88, projectsUsedIn: ['API Integration', 'Microservices'], relatedTechnologies: ['Express'] },
-        { name: 'Microservices Architecture', category: 'Architecture', proficiency: 'Advanced', yearsExp: 3, confidenceLevel: 85, projectsUsedIn: ['Enterprise SaaS'], relatedTechnologies: ['REST', 'System Design'] }
+        { name: 'Go (Golang)', category: 'Backend', proficiency: 'Advanced', yearsExp: 2, confidenceLevel: 85, projectsUsedIn: [], relatedTechnologies: [] },
+        { name: 'Node.js', category: 'Backend', proficiency: 'Advanced', yearsExp: 4, confidenceLevel: 88, projectsUsedIn: [], relatedTechnologies: [] },
+        { name: 'REST APIs & Microservices', category: 'Backend', proficiency: 'Advanced', yearsExp: 4, confidenceLevel: 90, projectsUsedIn: [], relatedTechnologies: [] },
+        { name: 'PostgreSQL & MySQL', category: 'Databases', proficiency: 'Advanced', yearsExp: 4, confidenceLevel: 85, projectsUsedIn: [], relatedTechnologies: [] },
+        { name: 'MongoDB', category: 'Databases', proficiency: 'Advanced', yearsExp: 4, confidenceLevel: 85, projectsUsedIn: [], relatedTechnologies: [] },
+        { name: 'Real-Time Data Integration', category: 'Systems', proficiency: 'Expert', yearsExp: 3, confidenceLevel: 90, projectsUsedIn: [], relatedTechnologies: [] }
       ]
     },
     {
       id: 'sc-3',
-      name: 'Databases',
+      name: 'IoT, AI & Automation',
+      iconSvg: 'cpu',
       skills: [
-        { name: 'SQL', category: 'Databases', proficiency: 'Advanced', yearsExp: 4, confidenceLevel: 85, projectsUsedIn: ['Vision Waves Data Modules'], relatedTechnologies: ['Relational Data'] },
-        { name: 'MongoDB', category: 'Databases', proficiency: 'Advanced', yearsExp: 4, confidenceLevel: 85, projectsUsedIn: ['HRMS Platform'], relatedTechnologies: ['NoSQL', 'Document Stores'] },
-        { name: 'Docker & Kubernetes', category: 'DevOps', proficiency: 'Proficient', yearsExp: 2, confidenceLevel: 75, projectsUsedIn: ['Platform Deployments'], relatedTechnologies: ['Containerization'] },
-        { name: 'AWS', category: 'Cloud', proficiency: 'Proficient', yearsExp: 2, confidenceLevel: 75, projectsUsedIn: ['Cloud Infrastructure'], relatedTechnologies: ['EC2', 'S3'] }
+        { name: 'Smart Building/BMS Applications', category: 'IoT', proficiency: 'Advanced', yearsExp: 2, confidenceLevel: 85, projectsUsedIn: [], relatedTechnologies: [] },
+        { name: 'Industrial IoT Dashboards', category: 'IoT', proficiency: 'Expert', yearsExp: 3, confidenceLevel: 90, projectsUsedIn: [], relatedTechnologies: [] },
+        { name: 'ETL/CDC Pipelines', category: 'Automation', proficiency: 'Advanced', yearsExp: 3, confidenceLevel: 85, projectsUsedIn: [], relatedTechnologies: [] },
+        { name: 'OpenAI API & Prompt Engineering', category: 'AI', proficiency: 'Advanced', yearsExp: 2, confidenceLevel: 88, projectsUsedIn: [], relatedTechnologies: [] },
+        { name: 'n8n & Apache NiFi', category: 'Automation', proficiency: 'Advanced', yearsExp: 2, confidenceLevel: 85, projectsUsedIn: [], relatedTechnologies: [] }
       ]
     },
     {
       id: 'sc-4',
-      name: 'AI',
+      name: 'Cloud & DevOps',
+      iconSvg: 'cloud',
       skills: [
-        { name: 'OpenAI API', category: 'AI', proficiency: 'Proficient', yearsExp: 2, confidenceLevel: 80, projectsUsedIn: ['AI HRMS'], relatedTechnologies: ['LLMs', 'Prompting'] },
-        { name: 'n8n Workflow Automation', category: 'AI', proficiency: 'Proficient', yearsExp: 2, confidenceLevel: 80, projectsUsedIn: ['Internal Tools'], relatedTechnologies: ['Webhooks', 'Integration'] }
+        { name: 'AWS', category: 'Cloud', proficiency: 'Advanced', yearsExp: 3, confidenceLevel: 85, projectsUsedIn: [], relatedTechnologies: [] },
+        { name: 'Docker & Kubernetes', category: 'DevOps', proficiency: 'Advanced', yearsExp: 3, confidenceLevel: 85, projectsUsedIn: [], relatedTechnologies: [] },
+        { name: 'Helm & Jenkins CI/CD', category: 'DevOps', proficiency: 'Proficient', yearsExp: 2, confidenceLevel: 80, projectsUsedIn: [], relatedTechnologies: [] },
+        { name: 'Linux', category: 'Systems', proficiency: 'Advanced', yearsExp: 4, confidenceLevel: 90, projectsUsedIn: [], relatedTechnologies: [] }
+      ]
+    },
+    {
+      id: 'sc-5',
+      name: 'AI-Assisted Tools',
+      iconSvg: 'terminal',
+      skills: [
+        { name: 'Cursor & Claude Code', category: 'Tools', proficiency: 'Expert', yearsExp: 2, confidenceLevel: 95, projectsUsedIn: [], relatedTechnologies: [] },
+        { name: 'Gemini & GitHub Copilot', category: 'Tools', proficiency: 'Expert', yearsExp: 2, confidenceLevel: 95, projectsUsedIn: [], relatedTechnologies: [] },
+        { name: 'Codex & Postman', category: 'Tools', proficiency: 'Expert', yearsExp: 3, confidenceLevel: 95, projectsUsedIn: [], relatedTechnologies: [] }
+      ]
+    },
+    {
+      id: 'sc-6',
+      name: 'Architecture & Leadership',
+      iconSvg: 'git-branch',
+      skills: [
+        { name: 'System Design (HLD/LLD)', category: 'Architecture', proficiency: 'Advanced', yearsExp: 3, confidenceLevel: 85, projectsUsedIn: [], relatedTechnologies: [] },
+        { name: 'Scalable Architecture', category: 'Architecture', proficiency: 'Advanced', yearsExp: 3, confidenceLevel: 88, projectsUsedIn: [], relatedTechnologies: [] },
+        { name: 'Agile Delivery & Code Reviews', category: 'Leadership', proficiency: 'Expert', yearsExp: 4, confidenceLevel: 90, projectsUsedIn: [], relatedTechnologies: [] },
+        { name: 'Client Collaboration', category: 'Leadership', proficiency: 'Expert', yearsExp: 4, confidenceLevel: 95, projectsUsedIn: [], relatedTechnologies: [] }
       ]
     }
   ]);
 
   // Currently Learning
   private readonly currentlyLearningSignal = signal<CurrentlyLearningItem[]>([
-    { name: 'Advanced AI Engineering', focusArea: 'Integrating complex LLM workflows into SaaS products', progress: 'In Progress' },
-    { name: 'IoT Edge Computing', focusArea: 'Processing device telemetry at the edge', progress: 'Exploring' }
+    { name: 'AI Engineering (Self-Directed)', focusArea: 'Autonomous AI Agents, RAG Pipelines, Vector Databases (Pinecone/Qdrant), LLM Orchestration (LangChain)', progress: 'In Progress' },
+    { name: 'High-Performance Systems', focusArea: 'Rust (Product Development, Memory Safety, Systems Programming)', progress: 'Active' },
+    { name: 'Modern Stack Explorations', focusArea: 'Next.js / Serverless Architectures, WebSockets/gRPC Performance Optimization', progress: 'Exploring' }
   ]);
 
   // Certifications & Achievements

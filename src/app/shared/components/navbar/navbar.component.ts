@@ -17,7 +17,7 @@ import { isPlatformBrowser } from '@angular/common';
         @for (item of navItems; track item.path) {
           <a
             [routerLink]="item.path"
-            routerLinkActive="!text-[var(--text-primary)] !opacity-100 !font-medium"
+            routerLinkActive="!text-[var(--accent)] !opacity-100 !font-medium"
             [routerLinkActiveOptions]="{ exact: item.exact }"
             class="text-sm font-sans tracking-wide text-[var(--text-primary)]/60 hover:text-[var(--text-primary)] transition-all duration-300"
           >
@@ -77,7 +77,7 @@ import { isPlatformBrowser } from '@angular/common';
             <a
               [routerLink]="item.path"
               (click)="closeMobileMenu()"
-              routerLinkActive="!text-[var(--text-primary)] !opacity-100 !font-medium"
+              routerLinkActive="!text-[var(--accent)] !opacity-100 !font-medium"
               [routerLinkActiveOptions]="{ exact: item.exact }"
               class="text-4xl font-display font-light text-[var(--text-primary)]/40 hover:text-[var(--text-primary)] transition-colors"
             >
@@ -146,31 +146,31 @@ export class NavbarComponent {
   closeMobileMenu(): void {
     this.mobileMenuOpen.set(false);
   }
-  
+
   triggerThemeToggle(event: MouseEvent): void {
     if (!isPlatformBrowser(this.platformId) || this.isPulling()) return;
-    
+
     this.isPulling.set(true);
-    
+
     // Calculate click coordinates for the circular reveal
     const x = event.clientX;
     const y = event.clientY;
-    
+
     // Let the pull-down animation run to 50% before triggering the transition (200ms)
     setTimeout(() => {
       this.executeThemeTransition(x, y);
     }, 200);
-    
+
     // Reset pulling state after animation completes
     setTimeout(() => {
       this.isPulling.set(false);
     }, 500);
   }
-  
+
   private executeThemeTransition(x: number, y: number): void {
     const documentEl = document.documentElement;
     const isDark = !documentEl.classList.contains('light-theme');
-    
+
     const applyTheme = () => {
       if (isDark) {
         documentEl.classList.add('light-theme');
@@ -178,23 +178,23 @@ export class NavbarComponent {
         documentEl.classList.remove('light-theme');
       }
     };
-    
+
     // @ts-ignore - View Transitions API might not be in the TS lib yet
     if (!document.startViewTransition) {
       applyTheme();
       return;
     }
-    
+
     // Set custom properties for the circular clip-path center
     documentEl.style.setProperty('--theme-x', `${x}px`);
     documentEl.style.setProperty('--theme-y', `${y}px`);
     documentEl.style.viewTransitionName = 'theme-toggle';
-    
+
     // @ts-ignore
     const transition = document.startViewTransition(() => {
       applyTheme();
     });
-    
+
     transition.finished.then(() => {
       documentEl.style.viewTransitionName = '';
     });

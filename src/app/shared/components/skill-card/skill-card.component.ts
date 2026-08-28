@@ -8,7 +8,7 @@ import { SkillItem } from '../../../core/models/portfolio.models';
       <!-- Header -->
       <div class="flex items-start justify-between gap-4 mb-4">
         <div>
-          <h3 class="text-xl md:text-2xl font-display font-medium text-[var(--text-primary)] flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+          <h3 class="text-xl md:text-2xl font-display font-medium text-[var(--accent)] flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
             {{ skill().name }}
             <span class="text-sm font-sans text-[var(--text-primary)]/40 uppercase tracking-widest font-normal">
               {{ skill().category }}

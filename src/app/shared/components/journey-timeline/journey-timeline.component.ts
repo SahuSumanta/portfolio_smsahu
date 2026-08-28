@@ -21,7 +21,7 @@ import { JourneyMilestone } from '../../../core/models/portfolio.models';
               </span>
             </div>
 
-            <h3 class="text-xl sm:text-2xl font-['Space_Grotesk'] font-bold text-[var(--text-primary)] group-hover:text-[#3B82F6] transition-colors">
+            <h3 class="text-xl sm:text-2xl font-['Space_Grotesk'] font-bold text-[var(--accent)] group-hover:text-[#3B82F6] transition-colors">
               {{ item.title }}
             </h3>
 

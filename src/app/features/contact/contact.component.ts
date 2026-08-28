@@ -9,7 +9,7 @@ import { ScrollRevealDirective } from '../../shared/directives/scroll-reveal/scr
     <div class="min-h-screen max-w-7xl mx-auto px-6 lg:px-8 pt-32 pb-24 space-y-32 overflow-x-hidden">
       <!-- Minimal Header -->
       <header appScrollReveal direction="up" class="space-y-6 max-w-4xl border-b border-[var(--border)] pb-16">
-        <h1 class="text-4xl sm:text-6xl md:text-7xl font-display font-medium text-[var(--text-primary)] tracking-tighter leading-[1.1]">
+        <h1 class="text-4xl sm:text-6xl md:text-7xl font-display font-medium text-[var(--accent)] tracking-tighter leading-[1.1]">
           Contact
         </h1>
 
@@ -22,10 +22,7 @@ import { ScrollRevealDirective } from '../../shared/directives/scroll-reveal/scr
             <div class="text-xs font-sans text-[var(--text-primary)]/40 uppercase tracking-widest">Email</div>
             <div class="text-base font-medium text-[var(--text-primary)]">sumantasahu.sm&#64;gmail.com</div>
           </div>
-          <div class="space-y-2">
-            <div class="text-xs font-sans text-[var(--text-primary)]/40 uppercase tracking-widest">Phone</div>
-            <div class="text-base font-medium text-[var(--text-primary)]">+91 6370133571</div>
-          </div>
+          
           <div class="space-y-2">
             <div class="text-xs font-sans text-[var(--text-primary)]/40 uppercase tracking-widest">Location</div>
             <div class="text-base font-medium text-[var(--text-primary)]">Pune, India</div>
@@ -40,7 +37,7 @@ import { ScrollRevealDirective } from '../../shared/directives/scroll-reveal/scr
       <section appScrollReveal direction="up" class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
         <!-- Direct Consultation Request Form -->
         <div class="space-y-12">
-          <h2 class="text-3xl font-display font-medium text-[var(--text-primary)]">Send a Message</h2>
+          <h2 class="text-3xl font-display font-medium text-[var(--accent)]">Send a Message</h2>
           
           <form (ngSubmit)="onFormSubmit()" class="space-y-8 relative">
             <div class="space-y-3">
@@ -97,23 +94,23 @@ import { ScrollRevealDirective } from '../../shared/directives/scroll-reveal/scr
 
         <!-- FAQ -->
         <div class="space-y-12">
-          <h2 class="text-3xl font-display font-medium text-[var(--text-primary)]">FAQ</h2>
+          <h2 class="text-3xl font-display font-medium text-[var(--accent)]">FAQ</h2>
           
           <div class="space-y-12">
             <div class="space-y-4">
-              <h4 class="text-xl font-medium text-[var(--text-primary)] font-display">What is your availability?</h4>
+              <h4 class="text-xl font-medium text-[var(--accent)] font-display">What is your availability?</h4>
               <p class="text-base text-[var(--text-primary)]/60 font-sans font-light leading-relaxed">
                 I am currently open to discussing new Full Stack Engineering opportunities.
               </p>
             </div>
             <div class="space-y-4">
-              <h4 class="text-xl font-medium text-[var(--text-primary)] font-display">Do you work remotely?</h4>
+              <h4 class="text-xl font-medium text-[var(--accent)] font-display">Do you work remotely?</h4>
               <p class="text-base text-[var(--text-primary)]/60 font-sans font-light leading-relaxed">
                 Yes, I am comfortable with remote, hybrid, or on-site arrangements in Pune, India. I communicate effectively across teams.
               </p>
             </div>
             <div class="space-y-4">
-              <h4 class="text-xl font-medium text-[var(--text-primary)] font-display">What is your core expertise?</h4>
+              <h4 class="text-xl font-medium text-[var(--accent)] font-display">What is your core expertise?</h4>
               <p class="text-base text-[var(--text-primary)]/60 font-sans font-light leading-relaxed">
                 My expertise lies in Angular, Node.js, and scaling applications across enterprise environments.
               </p>

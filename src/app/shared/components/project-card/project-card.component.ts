@@ -25,7 +25,7 @@ import { Project } from '../../../core/models/portfolio.models';
       <div class="flex flex-col flex-1 justify-between">
         <div class="space-y-2">
           <div class="flex justify-between items-start">
-            <h3 class="text-xl font-display font-medium text-[var(--text-primary)] group-hover:opacity-70 transition-opacity">
+            <h3 class="text-xl font-display font-medium text-[var(--accent)] group-hover:opacity-70 transition-opacity">
               {{ project().title }}
             </h3>
             <span class="text-[var(--text-primary)]/20 font-sans text-sm">{{ project().completionYear }}</span>

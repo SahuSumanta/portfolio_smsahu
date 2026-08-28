@@ -31,7 +31,7 @@ import { ValueCard } from '../../../core/models/portfolio.models';
         </div>
 
         <div>
-          <h3 class="text-2xl font-['Space_Grotesk'] font-bold text-[var(--text-primary)] group-hover:text-[#3B82F6] transition-colors">
+          <h3 class="text-2xl font-['Space_Grotesk'] font-bold text-[var(--accent)] group-hover:text-[#3B82F6] transition-colors">
             {{ value().title }}
           </h3>
           <div class="text-xs font-mono text-[#3B82F6] mt-1">{{ value().tagline }}</div>

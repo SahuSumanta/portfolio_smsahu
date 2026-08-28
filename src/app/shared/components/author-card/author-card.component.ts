@@ -15,7 +15,7 @@ import { AuthorProfile } from '../../../core/models/portfolio.models';
           <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded bg-[#3B82F6]/10 text-[#3B82F6] text-[11px] font-mono font-bold mb-1">
             Author Profile
           </div>
-          <h3 class="text-xl font-['Space_Grotesk'] font-bold text-[var(--text-primary)]">{{ author().name }}</h3>
+          <h3 class="text-xl font-['Space_Grotesk'] font-bold text-[var(--accent)]">{{ author().name }}</h3>
           <p class="text-xs font-mono text-[#A1A1AA]">{{ author().title }}</p>
         </div>
       </div>
@@ -24,7 +24,7 @@ import { AuthorProfile } from '../../../core/models/portfolio.models';
         {{ author().bio }}
       </p>
 
-      @if (author().topics && author().topics.length > 0) {
+      @if (author().topics && author().topics!.length > 0) {
         <div class="space-y-2 pt-2 border-t border-[#242428]/80">
           <div class="text-[11px] font-mono text-[#A1A1AA] uppercase tracking-wider">Research Focus & Topics:</div>
           <div class="flex flex-wrap gap-1.5">

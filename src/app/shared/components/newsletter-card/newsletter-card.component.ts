@@ -8,7 +8,7 @@ import { Component, signal } from '@angular/core';
         <span>📬 Antigravity Dispatch</span>
       </div>
 
-      <h3 class="text-3xl sm:text-4xl font-['Space_Grotesk'] font-bold text-[var(--text-primary)] tracking-tight">
+      <h3 class="text-3xl sm:text-4xl font-['Space_Grotesk'] font-bold text-[var(--accent)] tracking-tight">
         Join 14,000+ Engineers Reading Deep Architectural Insights
       </h3>
 

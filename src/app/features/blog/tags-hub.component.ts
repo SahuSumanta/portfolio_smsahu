@@ -17,7 +17,7 @@ import { ArticleCardComponent } from '../../shared/components/article-card/artic
 
       <header class="space-y-4 max-w-3xl">
         <span class="text-xs font-mono text-[#22C55E] uppercase tracking-wider font-bold">Index Tags & Topics</span>
-        <h1 class="text-4xl sm:text-5xl font-['Space_Grotesk'] font-bold text-[var(--text-primary)] tracking-tight">Popular Tags</h1>
+        <h1 class="text-4xl sm:text-5xl font-['Space_Grotesk'] font-bold text-[var(--accent)] tracking-tight">Popular Tags</h1>
         <p class="text-base text-[#A1A1AA]">Explore publications indexed by granular architectural concepts, frameworks, and programming languages.</p>
       </header>
 
@@ -44,7 +44,7 @@ import { ArticleCardComponent } from '../../shared/components/article-card/artic
 
       <!-- Articles Grid -->
       <section class="space-y-8">
-        <h2 class="text-2xl font-['Space_Grotesk'] font-bold text-[var(--text-primary)] border-b border-[#242428] pb-4">
+        <h2 class="text-2xl font-['Space_Grotesk'] font-bold text-[var(--accent)] border-b border-[#242428] pb-4">
           @if (activeTag()) {
             Publications Tagged <span class="text-[#3B82F6]">{{ activeTag() }}</span>
           } @else {

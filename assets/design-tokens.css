@@ -77,9 +77,9 @@
   --text-inverse: var(--color-black-pure);
 
   /* Brand Accents & Highlights */
-  --accent: var(--color-white);
-  --accent-hover: var(--color-zinc-200);
-  --accent-light: var(--color-zinc-300);
+  --accent: #FF9933;
+  --accent-hover: #FFB366;
+  --accent-light: rgba(255, 153, 51, 0.2);
 
   /* Status Indicators */
   --success: #10B981;

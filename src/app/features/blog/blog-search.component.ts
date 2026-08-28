@@ -17,7 +17,7 @@ import { ArticleCardComponent } from '../../shared/components/article-card/artic
 
       <header class="space-y-6 max-w-3xl">
         <span class="text-xs font-mono text-[#F59E0B] uppercase tracking-wider font-bold">Unified Knowledge Base & Search Engine</span>
-        <h1 class="text-4xl sm:text-5xl font-['Space_Grotesk'] font-bold text-[var(--text-primary)] tracking-tight">Search & Knowledge Hub</h1>
+        <h1 class="text-4xl sm:text-5xl font-['Space_Grotesk'] font-bold text-[var(--accent)] tracking-tight">Search & Knowledge Hub</h1>
         <p class="text-base text-[#A1A1AA]">Instantly search across all published articles, architecture notes, cheat sheets, and design patterns.</p>
 
         <div class="pt-2">
@@ -32,7 +32,7 @@ import { ArticleCardComponent } from '../../shared/components/article-card/artic
       <!-- Knowledge Resources Section -->
       <section class="space-y-8">
         <div class="flex items-center justify-between border-b border-[#242428] pb-4">
-          <h2 class="text-2xl sm:text-3xl font-['Space_Grotesk'] font-bold text-[var(--text-primary)]">Engineering Cheat Sheets & Architecture Notes</h2>
+          <h2 class="text-2xl sm:text-3xl font-['Space_Grotesk'] font-bold text-[var(--accent)]">Engineering Cheat Sheets & Architecture Notes</h2>
           <span class="text-xs font-mono text-[#22C55E]">{{ filteredResources().length }} Resources</span>
         </div>
 
@@ -44,7 +44,7 @@ import { ArticleCardComponent } from '../../shared/components/article-card/artic
                   <span class="px-2 py-0.5 rounded bg-[#F59E0B]/10 text-[#F59E0B] text-[10px] font-mono font-bold">{{ res.category }}</span>
                   <span class="text-[10px] font-mono text-[#A1A1AA]">{{ res.updatedDate }}</span>
                 </div>
-                <h4 class="text-lg font-bold text-[var(--text-primary)] font-['Space_Grotesk']">{{ res.title }}</h4>
+                <h4 class="text-lg font-bold text-[var(--accent)] font-['Space_Grotesk']">{{ res.title }}</h4>
                 <p class="text-xs text-[#A1A1AA] leading-relaxed">{{ res.summary }}</p>
               </div>
 
@@ -64,7 +64,7 @@ import { ArticleCardComponent } from '../../shared/components/article-card/artic
       <!-- Matching Articles Grid -->
       <section class="space-y-8">
         <div class="flex items-center justify-between border-b border-[#242428] pb-4">
-          <h2 class="text-2xl sm:text-3xl font-['Space_Grotesk'] font-bold text-[var(--text-primary)]">Matching Technical Essays</h2>
+          <h2 class="text-2xl sm:text-3xl font-['Space_Grotesk'] font-bold text-[var(--accent)]">Matching Technical Essays</h2>
           <span class="text-xs font-mono text-[#A1A1AA]">{{ filteredArticles().length }} Articles</span>
         </div>
 

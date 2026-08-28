@@ -44,7 +44,7 @@ export class ButtonComponent {
     let variantClasses = '';
     switch (this.variant()) {
       case 'primary':
-        variantClasses = 'bg-[#3B82F6] hover:bg-[#2563EB] text-[var(--text-primary)] shadow-sm';
+        variantClasses = 'bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white shadow-sm';
         break;
       case 'secondary':
         variantClasses = 'bg-[#1C1C21] hover:bg-[#242428] text-[var(--text-primary)] border border-[#242428]';

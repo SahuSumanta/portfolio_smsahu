@@ -51,7 +51,7 @@ import { ButtonComponent } from '../../shared/components/button/button.component
             }
           </div>
 
-          <h1 class="text-4xl sm:text-5xl md:text-6xl font-['Space_Grotesk'] font-bold text-[var(--text-primary)] tracking-tight leading-tight">
+          <h1 class="text-4xl sm:text-5xl md:text-6xl font-['Space_Grotesk'] font-bold text-[var(--accent)] tracking-tight leading-tight">
             {{ art.title }}
           </h1>
 
@@ -90,7 +90,7 @@ import { ButtonComponent } from '../../shared/components/button/button.component
           <article class="lg:col-span-8 space-y-8 text-[#E5E7EB] font-sans leading-relaxed text-base sm:text-lg">
             @if (art.slug === 'angular-20-signals-architecture') {
               <section id="introduction" class="space-y-4">
-                <h2 class="text-2xl sm:text-3xl font-['Space_Grotesk'] font-bold text-[var(--text-primary)] border-b border-[#242428] pb-3">
+                <h2 class="text-2xl sm:text-3xl font-['Space_Grotesk'] font-bold text-[var(--accent)] border-b border-[#242428] pb-3">
                   1. The Cost of Zone.js in Enterprise Scale
                 </h2>
                 <p>
@@ -106,7 +106,7 @@ import { ButtonComponent } from '../../shared/components/button/button.component
               </section>
 
               <section id="signal-primitives" class="space-y-4">
-                <h2 class="text-2xl sm:text-3xl font-['Space_Grotesk'] font-bold text-[var(--text-primary)] border-b border-[#242428] pb-3">
+                <h2 class="text-2xl sm:text-3xl font-['Space_Grotesk'] font-bold text-[var(--accent)] border-b border-[#242428] pb-3">
                   2. Anatomy of Writable & Computed Signals
                 </h2>
                 <p>
@@ -122,7 +122,7 @@ import { ButtonComponent } from '../../shared/components/button/button.component
               </section>
 
               <section id="zoneless-migration" class="space-y-4">
-                <h2 class="text-2xl sm:text-3xl font-['Space_Grotesk'] font-bold text-[var(--text-primary)] border-b border-[#242428] pb-3">
+                <h2 class="text-2xl sm:text-3xl font-['Space_Grotesk'] font-bold text-[var(--accent)] border-b border-[#242428] pb-3">
                   3. Step-by-Step Zone-Less Migration Strategy
                 </h2>
                 <p>
@@ -135,7 +135,7 @@ import { ButtonComponent } from '../../shared/components/button/button.component
               </section>
 
               <section id="benchmarks" class="space-y-4">
-                <h2 class="text-2xl sm:text-3xl font-['Space_Grotesk'] font-bold text-[var(--text-primary)] border-b border-[#242428] pb-3">
+                <h2 class="text-2xl sm:text-3xl font-['Space_Grotesk'] font-bold text-[var(--accent)] border-b border-[#242428] pb-3">
                   4. Production Telemetry & Benchmarks
                 </h2>
                 <p>
@@ -176,7 +176,7 @@ import { ButtonComponent } from '../../shared/components/button/button.component
               </section>
 
               <section id="conclusion" class="space-y-4">
-                <h2 class="text-2xl sm:text-3xl font-['Space_Grotesk'] font-bold text-[var(--text-primary)] border-b border-[#242428] pb-3">
+                <h2 class="text-2xl sm:text-3xl font-['Space_Grotesk'] font-bold text-[var(--accent)] border-b border-[#242428] pb-3">
                   5. Architectural Verdict
                 </h2>
                 <p>
@@ -258,7 +258,7 @@ import { ButtonComponent } from '../../shared/components/button/button.component
       <!-- 404 Not Found -->
       <div class="min-h-[70vh] flex flex-col items-center justify-center text-center px-4 space-y-6">
         <div class="text-5xl">📄</div>
-        <h2 class="text-3xl font-['Space_Grotesk'] font-bold text-[var(--text-primary)]">Publication Not Found</h2>
+        <h2 class="text-3xl font-['Space_Grotesk'] font-bold text-[var(--accent)]">Publication Not Found</h2>
         <p class="text-sm text-[#A1A1AA] max-w-md">The technical article you requested does not exist or has been archived.</p>
         <a routerLink="/blog">
           <app-button variant="primary">Return to Publications Hub</app-button>

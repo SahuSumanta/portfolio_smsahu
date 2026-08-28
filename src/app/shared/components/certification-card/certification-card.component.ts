@@ -12,7 +12,7 @@ import { CertificationItem } from '../../../core/models/portfolio.models';
         <span class="text-xs font-sans text-[var(--text-primary)]/40">{{ item().date }}</span>
       </div>
 
-      <h3 class="text-xl font-display font-medium text-[var(--text-primary)]">
+      <h3 class="text-xl font-display font-medium text-[var(--accent)]">
         {{ item().title }}
       </h3>
 

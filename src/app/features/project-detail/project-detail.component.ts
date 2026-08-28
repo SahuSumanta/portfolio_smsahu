@@ -34,7 +34,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
               </span>
             </div>
 
-            <h1 class="text-5xl sm:text-7xl font-display font-medium text-[var(--text-primary)] tracking-tighter leading-[1.05]">
+            <h1 class="text-5xl sm:text-7xl font-display font-medium text-[var(--accent)] tracking-tighter leading-[1.05]">
               {{ p.title }}
             </h1>
 
@@ -71,7 +71,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
           <section class="border-t border-[var(--border)] pt-16">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
               <div>
-                <h2 class="text-3xl font-display font-medium text-[var(--text-primary)] mb-6">Company Context</h2>
+                <h2 class="text-3xl font-display font-medium text-[var(--accent)] mb-6">Company Context</h2>
                 <div class="text-sm font-sans text-[var(--text-primary)]/40 uppercase tracking-widest mb-2">{{ fd.companyContext.company }}</div>
                 <div class="text-xl font-medium text-[var(--text-primary)] font-display mb-4">{{ fd.companyContext.role }}</div>
                 <div class="text-sm text-[var(--text-primary)]/60 font-sans font-light">{{ fd.companyContext.duration }}</div>
@@ -87,7 +87,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
             <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
               @if (fd.productOverview) {
                 <div>
-                  <h2 class="text-3xl font-display font-medium text-[var(--text-primary)] mb-6">Product Overview</h2>
+                  <h2 class="text-3xl font-display font-medium text-[var(--accent)] mb-6">Product Overview</h2>
                   <p class="text-lg text-[var(--text-primary)]/60 font-sans font-light leading-relaxed">
                     {{ fd.productOverview }}
                   </p>
@@ -96,7 +96,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
               
               @if (fd.productScale) {
                 <div>
-                  <h2 class="text-3xl font-display font-medium text-[var(--text-primary)] mb-6">Platform at a Glance</h2>
+                  <h2 class="text-3xl font-display font-medium text-[var(--accent)] mb-6">Platform at a Glance</h2>
                   <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
                     @for (scale of fd.productScale; track scale.metric) {
                       <div class="space-y-2">
@@ -113,13 +113,13 @@ import { PortfolioService } from '../../core/services/portfolio.service';
           <!-- Sub Products Grid -->
           @if (fd.subProducts) {
             <section class="border-t border-[var(--border)] pt-16 space-y-12">
-              <h2 class="text-3xl font-display font-medium text-[var(--text-primary)]">Product Areas</h2>
+              <h2 class="text-3xl font-display font-medium text-[var(--accent)]">Product Areas</h2>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
                 @for (sp of fd.subProducts; track sp.name) {
                   <div class="space-y-8 p-8 border border-[var(--border)] relative overflow-hidden group">
                     <div class="absolute inset-0 bg-gradient-to-b from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div>
-                      <h3 class="text-2xl font-display font-medium text-[var(--text-primary)] mb-2 relative z-10">{{ sp.name }}</h3>
+                      <h3 class="text-2xl font-display font-medium text-[var(--accent)] mb-2 relative z-10">{{ sp.name }}</h3>
                       <div class="text-xs font-sans text-[var(--text-primary)]/40 uppercase tracking-widest relative z-10">{{ sp.label }}</div>
                     </div>
                     <p class="text-lg text-[var(--text-primary)]/60 font-sans font-light leading-relaxed relative z-10">
@@ -142,7 +142,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
           <!-- Product Capabilities Grid -->
           @if (fd.capabilities) {
             <section class="border-t border-[var(--border)] pt-16 space-y-12">
-              <h2 class="text-3xl font-display font-medium text-[var(--text-primary)]">Platform Capabilities</h2>
+              <h2 class="text-3xl font-display font-medium text-[var(--accent)]">Platform Capabilities</h2>
               <div class="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-12">
                 @for (cap of fd.capabilities; track cap.name) {
                   <div class="border-b border-[var(--border)] pb-4">
@@ -156,7 +156,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
           <!-- Career Story Timeline -->
           @if (fd.visionWavesTimeline) {
             <section class="border-t border-[var(--border)] pt-16 space-y-12">
-              <h2 class="text-3xl font-display font-medium text-[var(--text-primary)]">VisionWaves Career Progression</h2>
+              <h2 class="text-3xl font-display font-medium text-[var(--accent)]">VisionWaves Career Progression</h2>
               <div class="flex flex-col md:flex-row gap-8 md:items-start pt-8 relative">
                 <!-- Visual Connection Line -->
                 <div class="hidden md:block absolute top-12 left-0 right-0 h-px bg-[var(--border)] -z-10"></div>
@@ -165,7 +165,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
                   <div class="flex-1 space-y-4">
                     <div class="w-2 h-2 rounded-full bg-white hidden md:block"></div>
                     <div class="space-y-1">
-                      <h3 class="text-lg font-medium text-[var(--text-primary)] font-display">{{ item.title }}</h3>
+                      <h3 class="text-lg font-medium text-[var(--accent)] font-display">{{ item.title }}</h3>
                       <div class="text-xs font-sans text-[var(--text-primary)]/60 uppercase tracking-widest">{{ item.subtitle }}</div>
                     </div>
                   </div>
@@ -178,7 +178,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
           <section class="border-t border-[var(--border)] pt-16 grid grid-cols-1 lg:grid-cols-2 gap-16">
             @if (fd.engineeringJourney) {
               <div class="space-y-12">
-                <h2 class="text-3xl font-display font-medium text-[var(--text-primary)]">Engineering Journey</h2>
+                <h2 class="text-3xl font-display font-medium text-[var(--accent)]">Engineering Journey</h2>
                 <div class="space-y-8">
                   <p class="text-lg text-[var(--text-primary)]/60 font-sans font-light leading-relaxed">
                     {{ fd.engineeringJourney.narrative }}
@@ -199,7 +199,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
             }
 
             <div class="space-y-12">
-              <h2 class="text-3xl font-display font-medium text-[var(--text-primary)]">My Contribution</h2>
+              <h2 class="text-3xl font-display font-medium text-[var(--accent)]">My Contribution</h2>
               <ul class="space-y-6">
                 @for (contrib of fd.personalContribution; track contrib) {
                   <li class="flex items-start gap-4 text-base text-[var(--text-primary)]/60 font-sans font-light leading-relaxed">
@@ -214,7 +214,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
           <!-- Tech Stack & Real World Domains -->
           <section class="border-t border-[var(--border)] pt-16 grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div class="space-y-12">
-              <h2 class="text-3xl font-display font-medium text-[var(--text-primary)]">Technology Stack</h2>
+              <h2 class="text-3xl font-display font-medium text-[var(--accent)]">Technology Stack</h2>
               <div class="flex flex-wrap gap-4">
                 @for (tech of p.techStack; track tech) {
                   <span class="px-4 py-2 border border-[var(--border)] rounded text-xs font-sans text-[var(--text-primary)]/60 uppercase tracking-widest">
@@ -226,7 +226,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
 
             @if (fd.realWorldAreas) {
               <div class="space-y-12">
-                <h2 class="text-3xl font-display font-medium text-[var(--text-primary)]">Enterprise Domains</h2>
+                <h2 class="text-3xl font-display font-medium text-[var(--accent)]">Enterprise Domains</h2>
                 <div class="flex flex-wrap gap-4">
                   @for (area of fd.realWorldAreas; track area) {
                     <span class="px-4 py-2 bg-[var(--text-primary)]/5 border border-[var(--border)] rounded text-xs font-sans text-[var(--text-primary)]/80 uppercase tracking-widest">
@@ -244,7 +244,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
 
           <!-- 2. Benchmark Metric Cards Grid -->
           <section class="border-t border-[var(--border)] pt-16 space-y-12">
-            <h2 class="text-3xl font-display font-medium text-[var(--text-primary)]">Metrics</h2>
+            <h2 class="text-3xl font-display font-medium text-[var(--accent)]">Metrics</h2>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
               
@@ -278,23 +278,23 @@ import { PortfolioService } from '../../core/services/portfolio.service';
           <!-- 3. Project Overview & Problem Statement -->
           <section class="border-t border-[var(--border)] pt-16 grid grid-cols-1 md:grid-cols-2 gap-16">
             <div class="space-y-6">
-              <h3 class="text-2xl font-display font-medium text-[var(--text-primary)]">Overview</h3>
+              <h3 class="text-2xl font-display font-medium text-[var(--accent)]">Overview</h3>
               <p class="text-base text-[var(--text-primary)]/60 font-sans font-light leading-relaxed">{{ cs.projectOverview }}</p>
             </div>
 
             <div class="space-y-6">
-              <h3 class="text-2xl font-display font-medium text-[var(--text-primary)]">The Challenge</h3>
+              <h3 class="text-2xl font-display font-medium text-[var(--accent)]">The Challenge</h3>
               <p class="text-base text-[var(--text-primary)]/60 font-sans font-light leading-relaxed">{{ cs.problemStatement }}</p>
             </div>
           </section>
 
           <!-- 4. Categorized Tech Stack -->
           <section class="border-t border-[var(--border)] pt-16 space-y-12">
-            <h2 class="text-3xl font-display font-medium text-[var(--text-primary)]">Tech Stack</h2>
+            <h2 class="text-3xl font-display font-medium text-[var(--accent)]">Tech Stack</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
               @for (cat of cs.techStackCategorized; track cat.category) {
                 <div class="space-y-6">
-                  <h3 class="text-xs font-sans text-[var(--text-primary)]/40 uppercase tracking-widest border-b border-[var(--border)] pb-4">{{ cat.category }}</h3>
+                  <h3 class="text-xs font-sans text-[var(--accent)]/40 uppercase tracking-widest border-b border-[var(--border)] pb-4">{{ cat.category }}</h3>
                   <div class="flex flex-wrap gap-4">
                     @for (item of cat.items; track item.name) {
                       <span class="text-sm font-sans text-[var(--text-primary)]/80">{{ item.name }}</span>
@@ -329,7 +329,7 @@ import { PortfolioService } from '../../core/services/portfolio.service';
     } @else {
       <!-- 404 Project Not Found -->
       <div class="min-h-[70vh] flex flex-col items-center justify-center text-center px-6 space-y-8">
-        <h2 class="text-6xl font-display font-medium text-[var(--text-primary)]">404</h2>
+        <h2 class="text-6xl font-display font-medium text-[var(--accent)]">404</h2>
         <p class="text-lg text-[var(--text-primary)]/60 font-sans max-w-md">The project you requested does not exist.</p>
         <a routerLink="/projects" class="text-[var(--text-primary)] hover:opacity-70 transition-opacity font-medium tracking-wide border-b border-white pb-1">
           Return to Projects

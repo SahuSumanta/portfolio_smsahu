@@ -14,7 +14,7 @@ import { ExperienceItem } from '../../../core/models/portfolio.models';
             </div>
           }
           <div>
-            <h3 class="text-xl md:text-2xl font-display font-medium text-[var(--text-primary)] flex flex-wrap items-center gap-3">
+            <h3 class="text-xl md:text-2xl font-display font-medium text-[var(--accent)] flex flex-wrap items-center gap-3">
               {{ item().roleTitle }}
               @if (item().current) {
                 <span class="px-2 py-0.5 rounded text-[10px] font-sans text-[var(--text-primary)]/40 border border-[var(--border)] uppercase tracking-widest">
@@ -50,26 +50,6 @@ import { ExperienceItem } from '../../../core/models/portfolio.models';
         }
       </div>
 
-      <!-- Project Timeline -->
-      @if (item().projectTimeline) {
-        <div class="mt-8 pt-8 border-t border-[var(--border)] pl-0 md:pl-16">
-          <h4 class="text-sm font-sans text-[var(--text-primary)]/40 uppercase tracking-widest mb-6">Major Projects Progression</h4>
-          <div class="flex flex-col md:flex-row gap-6 md:items-start relative">
-            <!-- Visual Connection Line -->
-            <div class="hidden md:block absolute top-6 left-0 right-0 h-px bg-[var(--border)] -z-10"></div>
-            
-            @for (proj of item().projectTimeline; track proj.name) {
-              <div class="flex-1 space-y-3">
-                <div class="w-2 h-2 rounded-full bg-white hidden md:block mt-5"></div>
-                <div class="space-y-1">
-                  <h5 class="text-base font-medium text-[var(--text-primary)] font-display">{{ proj.name }}</h5>
-                  <div class="text-xs font-sans text-[var(--text-primary)]/60 font-light leading-relaxed">{{ proj.subtitle }}</div>
-                </div>
-              </div>
-            }
-          </div>
-        </div>
-      }
     </div>
   `
 })

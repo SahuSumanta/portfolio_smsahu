@@ -10,7 +10,7 @@ import { ArticleCardComponent } from '../../shared/components/article-card/artic
     <div class="min-h-screen max-w-7xl mx-auto px-6 lg:px-8 pt-32 pb-24 space-y-24 overflow-x-hidden">
       <!-- Header -->
       <header class="space-y-6 max-w-4xl border-b border-[var(--border)] pb-16">
-        <h1 class="text-4xl sm:text-6xl md:text-7xl font-display font-medium text-[var(--text-primary)] tracking-tighter leading-[1.1]">
+        <h1 class="text-4xl sm:text-6xl md:text-7xl font-display font-medium text-[var(--accent)] tracking-tighter leading-[1.1]">
           Blog
         </h1>
         <p class="text-lg md:text-2xl text-[var(--text-primary)]/60 font-sans font-light leading-relaxed max-w-3xl">
@@ -40,7 +40,7 @@ import { ArticleCardComponent } from '../../shared/components/article-card/artic
                 <span class="px-2">•</span>
                 <span>{{ feat.publishedAt }}</span>
               </div>
-              <h3 class="text-3xl sm:text-5xl font-display font-medium text-[var(--text-primary)] group-hover:opacity-70 transition-opacity">
+              <h3 class="text-3xl sm:text-5xl font-display font-medium text-[var(--accent)] group-hover:opacity-70 transition-opacity">
                 {{ feat.title }}
               </h3>
               <p class="text-lg text-[var(--text-primary)]/60 font-sans font-light leading-relaxed max-w-lg">

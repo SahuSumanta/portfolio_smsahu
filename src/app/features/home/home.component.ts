@@ -17,8 +17,8 @@ import { ScrollRevealDirective } from '../../shared/directives/scroll-reveal/scr
           <!-- Text Content -->
           <div class="lg:col-span-8 space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-1000">
             <p class="text-sm font-sans text-[var(--text-primary)]/40 uppercase tracking-widest">Sumanta Sahu</p>
-            <h1 class="text-5xl sm:text-7xl md:text-8xl lg:text-[7rem] font-display font-medium text-[var(--text-primary)] tracking-tighter leading-[1.05]">
-              Full Stack<br />
+            <h1 class="text-5xl sm:text-7xl md:text-8xl lg:text-[7rem] font-display font-medium text-[var(--accent)] tracking-tighter leading-[1.05]">
+              Full-Stack <span class="relative inline-flex items-center align-baseline text-transparent bg-clip-text bg-gradient-to-r from-[#4285F4] via-[#9B72CB] to-[#D96570]">AI<svg class="absolute -top-4 -right-8 md:-top-8 md:-right-12 w-8 h-8 md:w-12 md:h-12 text-[#9B72CB] animate-pulse drop-shadow-md" viewBox="0 0 24 24" fill="url(#ai-gradient)" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ai-gradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#4285F4" /><stop offset="50%" stop-color="#9B72CB" /><stop offset="100%" stop-color="#D96570" /></linearGradient></defs><path d="M12 22C12 22 12 14 4 12C12 10 12 2 12 2C12 2 12 10 20 12C12 14 12 22 12 22Z" /></svg></span><br />
               Software Engineer.
             </h1>
             <p class="text-lg md:text-2xl text-[var(--text-primary)]/60 max-w-2xl font-sans font-light leading-relaxed pt-6">
@@ -70,7 +70,7 @@ import { ScrollRevealDirective } from '../../shared/directives/scroll-reveal/scr
             <div class="relative w-full aspect-[3/4] rounded-2xl overflow-hidden border border-[var(--border)]">
               <div class="absolute inset-0 bg-gradient-to-t from-[#131316] via-transparent to-transparent z-10"></div>
               <img 
-                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800" 
+                src="assets/profile-picture.png" 
                 alt="Sumanta Sahu" 
                 class="w-full h-full object-cover grayscale opacity-90 hover:grayscale-0 transition-all duration-700 hover:scale-105"
               />
@@ -90,7 +90,7 @@ import { ScrollRevealDirective } from '../../shared/directives/scroll-reveal/scr
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16">
           @for (project of featuredProjects(); track project.id) {
-            <div class="group cursor-pointer" [routerLink]="['/projects', project.id]">
+            <div class="group cursor-pointer" [routerLink]="['/projects', project.slug]">
               <div class="aspect-[4/3] bg-[var(--border)] mb-6 overflow-hidden rounded-sm relative">
                 @if (project.thumbnailUrl) {
                   <img [src]="project.thumbnailUrl" [alt]="project.title" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />

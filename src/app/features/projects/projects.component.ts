@@ -12,7 +12,7 @@ import { ScrollRevealDirective } from '../../shared/directives/scroll-reveal/scr
     <div class="min-h-screen max-w-7xl mx-auto px-6 lg:px-8 pt-32 pb-24 space-y-24 overflow-x-hidden">
       <!-- Minimal Header -->
       <header appScrollReveal direction="up" class="space-y-6 max-w-4xl border-b border-[var(--border)] pb-16">
-        <h1 class="text-4xl sm:text-6xl md:text-7xl font-display font-medium text-[var(--text-primary)] tracking-tighter leading-[1.1]">
+        <h1 class="text-4xl sm:text-6xl md:text-7xl font-display font-medium text-[var(--accent)] tracking-tighter leading-[1.1]">
           Projects
         </h1>
 

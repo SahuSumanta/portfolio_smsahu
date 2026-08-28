@@ -11,7 +11,7 @@ import { ScrollRevealDirective } from '../../shared/directives/scroll-reveal/scr
       <!-- Header / Action Bar -->
       <header appScrollReveal direction="up" class="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-[var(--border)] pb-12">
         <div>
-          <h1 class="text-4xl sm:text-5xl font-display font-medium text-[var(--text-primary)] tracking-tighter">
+          <h1 class="text-4xl sm:text-5xl font-display font-medium text-[var(--accent)] tracking-tighter">
             Resume
           </h1>
           <p class="text-lg text-[var(--text-primary)]/60 font-sans font-light mt-4">

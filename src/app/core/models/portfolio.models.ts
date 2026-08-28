@@ -5,7 +5,7 @@ export interface TechBadgeItem {
 }
 
 export interface CategorizedTechStack {
-  category: 'Frontend' | 'Backend' | 'Database' | 'Cloud' | 'DevOps' | 'Testing';
+  category: string;
   items: TechBadgeItem[];
 }
 
@@ -19,6 +19,7 @@ export interface BenchmarkMetrics {
   throughputQps: number;
   usersServed: string;
   deploymentFrequency: string;
+  concurrentCandidatesSupported?: number;
 }
 
 export interface CaseStudy {
@@ -168,18 +169,7 @@ export interface ExperienceItem {
   companyLogo?: string;
 }
 
-export type SkillCategoryType =
-  | 'Frontend'
-  | 'Backend'
-  | 'Android'
-  | 'Cloud'
-  | 'DevOps'
-  | 'Databases'
-  | 'Testing'
-  | 'UI/UX'
-  | 'Architecture'
-  | 'AI'
-  | 'Developer Tools';
+export type SkillCategoryType = string;
 
 export interface SkillItem {
   name: string;
@@ -194,6 +184,7 @@ export interface SkillItem {
 export interface SkillCategory {
   id: string;
   name: SkillCategoryType;
+  iconSvg?: string;
   skills: SkillItem[];
 }
 
@@ -222,14 +213,15 @@ export interface ResumeProfile {
 
 export interface AuthorProfile {
   name: string;
-  title: string;
-  bio: string;
+  title?: string;
+  role?: string;
+  bio?: string;
   avatarUrl: string;
   githubUrl?: string;
   linkedinUrl?: string;
   twitterUrl?: string;
   websiteUrl?: string;
-  topics: string[];
+  topics?: string[];
 }
 
 export interface TableOfContentsItem {

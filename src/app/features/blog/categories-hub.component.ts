@@ -16,7 +16,7 @@ import { ArticleCardComponent } from '../../shared/components/article-card/artic
 
       <header class="space-y-4 max-w-3xl">
         <span class="text-xs font-mono text-[#3B82F6] uppercase tracking-wider font-bold">Taxonomy & Domains</span>
-        <h1 class="text-4xl sm:text-5xl font-['Space_Grotesk'] font-bold text-[var(--text-primary)] tracking-tight">Engineering Categories</h1>
+        <h1 class="text-4xl sm:text-5xl font-['Space_Grotesk'] font-bold text-[var(--accent)] tracking-tight">Engineering Categories</h1>
         <p class="text-base text-[#A1A1AA]">Browse verified technical publications categorized by core engineering domains.</p>
       </header>
 
@@ -42,7 +42,7 @@ import { ArticleCardComponent } from '../../shared/components/article-card/artic
 
       <!-- Articles Grid -->
       <section class="space-y-8">
-        <h2 class="text-2xl font-['Space_Grotesk'] font-bold text-[var(--text-primary)] border-b border-[#242428] pb-4">
+        <h2 class="text-2xl font-['Space_Grotesk'] font-bold text-[var(--accent)] border-b border-[#242428] pb-4">
           Publications in <span class="text-[#3B82F6]">{{ activeCategory() }}</span>
         </h2>
 
