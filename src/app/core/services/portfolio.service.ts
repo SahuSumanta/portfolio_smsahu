@@ -471,7 +471,8 @@ export class PortfolioService {
   // Beyond Code Interests
   private readonly beyondCodeSignal = signal<BeyondCodeInterest[]>([
     { id: 'bc-1', title: 'Tech Community Mentorship', description: 'Mentoring junior developers and improving code review standards.', tag: 'Community' },
-    { id: 'bc-2', title: 'Emerging AI Technologies', description: 'Exploring automation pipelines and new LLM capabilities.', tag: 'AI Research' }
+    { id: 'bc-2', title: 'Emerging AI Technologies', description: 'Exploring automation pipelines and new LLM capabilities.', tag: 'AI Research' },
+    { id: 'bc-3', title: 'Vocal for Local Ventures', description: 'Active champion of friend-led homegrown Indian brands: Sevenfold (streetwear) and Srivaya (handcrafted jewellery).', tag: 'Vocal for Local' }
   ]);
 
   // Experience Signal
