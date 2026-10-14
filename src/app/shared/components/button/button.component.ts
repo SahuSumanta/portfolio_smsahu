@@ -39,7 +39,7 @@ export class ButtonComponent {
   }
 
   getButtonClasses(): string {
-    const base = 'inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B82F6] cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed select-none';
+    const base = 'inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed select-none';
     
     let variantClasses = '';
     switch (this.variant()) {
@@ -47,13 +47,13 @@ export class ButtonComponent {
         variantClasses = 'bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white shadow-sm';
         break;
       case 'secondary':
-        variantClasses = 'bg-[#1C1C21] hover:bg-[#242428] text-[var(--text-primary)] border border-[#242428]';
+        variantClasses = 'bg-[var(--surface-hover)] hover:bg-[var(--border)] text-[var(--text-primary)] border border-[var(--border)]';
         break;
       case 'outline':
-        variantClasses = 'bg-transparent hover:bg-[#1C1C21] text-[var(--text-primary)] border border-[#242428]';
+        variantClasses = 'bg-transparent hover:bg-[var(--surface-hover)] text-[var(--text-primary)] border border-[var(--border)]';
         break;
       case 'ghost':
-        variantClasses = 'bg-transparent hover:bg-[#1C1C21] text-[#A1A1AA] hover:text-[var(--text-primary)]';
+        variantClasses = 'bg-transparent hover:bg-[var(--surface-hover)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]';
         break;
     }
 

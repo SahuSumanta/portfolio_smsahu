@@ -7,17 +7,17 @@ import { ArticleCardComponent } from '../../shared/components/article-card/artic
   selector: 'app-categories-hub',
   imports: [RouterLink, ArticleCardComponent],
   template: `
-    <div class="min-h-screen max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-20">
-      <nav class="flex items-center justify-between border-b border-[#242428] pb-6">
-        <a routerLink="/blog" class="inline-flex items-center gap-2 text-sm font-mono text-[#A1A1AA] hover:text-[var(--text-primary)] transition-colors">
+    <div class="min-h-screen max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-36 pb-16 space-y-20">
+      <nav class="flex items-center justify-between border-b border-[var(--border)] pb-6">
+        <a routerLink="/blog" class="inline-flex items-center gap-2 text-sm font-mono text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">
           <span>← Back to Publications Hub</span>
         </a>
       </nav>
 
       <header class="space-y-4 max-w-3xl">
-        <span class="text-xs font-mono text-[#3B82F6] uppercase tracking-wider font-bold">Taxonomy & Domains</span>
-        <h1 class="text-4xl sm:text-5xl font-['Space_Grotesk'] font-bold text-[var(--accent)] tracking-tight">Engineering Categories</h1>
-        <p class="text-base text-[#A1A1AA]">Browse verified technical publications categorized by core engineering domains.</p>
+        <span class="text-xs font-mono text-[var(--accent)] uppercase tracking-wider font-bold">Taxonomy & Domains</span>
+        <h1 class="text-4xl sm:text-5xl font-display font-bold text-[var(--text-primary)] tracking-tight">Engineering Categories</h1>
+        <p class="text-base text-[var(--text-secondary)]">Browse verified technical publications categorized by core engineering domains.</p>
       </header>
 
       <!-- Category Selector Pills -->
@@ -42,11 +42,11 @@ import { ArticleCardComponent } from '../../shared/components/article-card/artic
 
       <!-- Articles Grid -->
       <section class="space-y-8">
-        <h2 class="text-2xl font-['Space_Grotesk'] font-bold text-[var(--accent)] border-b border-[#242428] pb-4">
-          Publications in <span class="text-[#3B82F6]">{{ activeCategory() }}</span>
+        <h2 class="text-2xl font-display font-bold text-[var(--text-primary)] border-b border-[var(--border)] pb-4">
+          Publications in <span class="text-[var(--accent)]">{{ activeCategory() }}</span>
         </h2>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           @for (art of filteredArticles(); track art.id) {
             <app-article-card [article]="art" />
           }
@@ -79,8 +79,8 @@ export class CategoriesHubComponent {
   getBtnClass(cat: string): string {
     const base = 'px-4 py-2 rounded-xl text-xs font-mono transition-all duration-200 cursor-pointer border';
     if (this.activeCategory() === cat) {
-      return `${base} bg-[#3B82F6] text-[var(--text-primary)] border-[#3B82F6] shadow-md`;
+      return `${base} bg-[var(--accent)] text-[var(--text-primary)] border-[var(--accent)] shadow-md`;
     }
-    return `${base} bg-[#131316] hover:bg-[#1C1C21] text-[#A1A1AA] hover:text-[var(--text-primary)] border-[#242428]`;
+    return `${base} bg-[var(--surface)] hover:bg-[var(--surface-hover)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border-[var(--border)]`;
   }
 }

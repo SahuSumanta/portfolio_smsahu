@@ -37,7 +37,7 @@ export class CardComponent {
   readonly customClasses = input<string>('');
 
   getCardClasses(): string {
-    const base = 'bg-[#131316] border border-[#242428] rounded-3xl transition-all duration-500 relative overflow-hidden shadow-xl';
+    const base = 'bg-[var(--surface)] border border-[var(--border)] rounded-xl transition-all duration-500 relative overflow-hidden shadow-xl';
     const hover = this.hoverEffect()
       ? 'hover:bg-[#18181B] hover:border-[#2563EB]/50 hover:shadow-2xl hover:shadow-[#2563EB]/15 hover:-translate-y-1'
       : '';

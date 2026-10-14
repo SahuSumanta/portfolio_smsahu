@@ -8,9 +8,9 @@ import { Component, input } from '@angular/core';
       [title]="tooltip() || name()"
       [style.border-color]="color() + '40'"
       [style.background-color]="color() + '15'"
-      [style.color]="color() || '#A1A1AA'"
+      [style.color]="color() || 'var(--text-secondary)'"
     >
-      <span class="w-1.5 h-1.5 rounded-full" [style.background-color]="color() || '#3B82F6'"></span>
+      <span class="w-1.5 h-1.5 rounded-full" [style.background-color]="color() || 'var(--accent)'"></span>
       <span>{{ name() }}</span>
     </span>
   `,
@@ -20,7 +20,7 @@ import { Component, input } from '@angular/core';
 })
 export class TechBadgeComponent {
   readonly name = input.required<string>();
-  readonly color = input<string>('#3B82F6');
+  readonly color = input<string>('var(--accent)');
   readonly tooltip = input<string>('');
   readonly size = input<'sm' | 'md'>('sm');
 

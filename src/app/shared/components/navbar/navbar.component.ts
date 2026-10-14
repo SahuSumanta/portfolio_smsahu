@@ -1,202 +1,175 @@
-import { Component, signal, HostListener, inject, PLATFORM_ID } from '@angular/core';
-import { RouterLink, RouterLinkActive, Router } from '@angular/router';
+import { Component, signal, inject, PLATFORM_ID, HostListener, effect } from '@angular/core';
+import { RouterLink, RouterLinkActive, Router, NavigationEnd } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
   imports: [RouterLink, RouterLinkActive],
   template: `
-    <header class="fixed top-0 left-0 right-0 z-50 px-6 py-6 flex items-center justify-between transition-all duration-300 bg-transparent mix-blend-difference">
-      <!-- Left: Minimal Typography Logo -->
-      <a routerLink="/" class="text-[var(--text-primary)] font-display font-bold text-lg tracking-tighter hover:opacity-70 transition-opacity">
-        Sumanta Sahu
-      </a>
-
-      <!-- Center/Right: Desktop Navigation & Charm -->
-      <nav class="hidden md:flex items-center gap-8">
-        @for (item of navItems; track item.path) {
-          <a
-            [routerLink]="item.path"
-            routerLinkActive="!text-[var(--accent)] !opacity-100 !font-medium"
-            [routerLinkActiveOptions]="{ exact: item.exact }"
-            class="text-sm font-sans tracking-wide text-[var(--text-primary)]/60 hover:text-[var(--text-primary)] transition-all duration-300"
-          >
-            {{ item.label }}
-          </a>
-        }
-        <a
-          routerLink="/contact"
-          class="text-sm font-sans tracking-wide text-[var(--text-primary)] hover:opacity-70 transition-all duration-300 ml-4"
-        >
-          Contact
+    <header class="fixed top-4 inset-x-0 z-50 flex justify-center px-4 pointer-events-none">
+      <nav
+        aria-label="Primary"
+        class="pill pointer-events-auto flex items-center gap-1 pl-4 pr-2 py-2 rounded-full border transition-all duration-500"
+        [class.pill-scrolled]="scrolled()"
+      >
+        <a routerLink="/" class="flex items-center gap-2 pr-3 mr-1 md:border-r md:border-[var(--border)]" aria-label="Sumanta Sahu — home" (click)="closeMenu()">
+          <span class="logo-mark" aria-hidden="true">S</span>
+          <span class="hidden sm:inline font-display font-medium text-[15px] tracking-tight">Sumanta Sahu</span>
         </a>
-        
-        <!-- Nimbu Mirchi Charm -->
+
+        <ul class="hidden md:flex items-center gap-0.5">
+          @for (item of navItems; track item.path) {
+            <li>
+              <a
+                [routerLink]="item.path"
+                routerLinkActive="is-active"
+                [routerLinkActiveOptions]="{ exact: false }"
+                class="nav-link"
+              >{{ item.label }}</a>
+            </li>
+          }
+        </ul>
+
+        <a routerLink="/contact" class="hidden md:inline-flex nav-cta ml-2" routerLinkActive="is-active">
+          Contact <span aria-hidden="true">↗</span>
+        </a>
+
+        <!-- Mobile toggle -->
         <button
-          class="nimbu-mirchi origin-top transition-all cursor-pointer ml-4 relative outline-none hover:brightness-110"
-          [class.pulling]="isPulling()"
-          (click)="triggerThemeToggle($event)"
-          title="Toggle Theme"
-          aria-label="Toggle Theme"
+          type="button"
+          class="md:hidden ml-auto w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/5 cursor-pointer"
+          (click)="toggleMenu()"
+          [attr.aria-expanded]="menuOpen()"
+          aria-controls="mobile-menu"
+          aria-label="Toggle navigation menu"
         >
-          <svg width="24" height="60" viewBox="0 0 24 60" fill="none" xmlns="http://www.w3.org/2000/svg" class="overflow-visible">
-            <!-- Thread -->
-            <path d="M12 -10 L12 20" stroke="#FF9933" stroke-width="1.5" stroke-dasharray="2 2" opacity="0.9" />
-            <!-- Nimbu (Lemon) -->
-            <circle cx="12" cy="26" r="5" stroke="#E5DA47" stroke-width="1" fill="#FFF44F" />
-            <!-- Mirchi (Chilies) -->
-            <path d="M12 31 Q 8 40 10 46" stroke="#366744" stroke-width="2" stroke-linecap="round" />
-            <path d="M12 31 Q 16 42 14 48" stroke="#366744" stroke-width="2" stroke-linecap="round" />
-            <path d="M12 31 Q 12 44 12 50" stroke="#366744" stroke-width="2" stroke-linecap="round" />
-          </svg>
+          <span class="burger" [class.open]="menuOpen()"><i></i><i></i></span>
         </button>
       </nav>
-
-      <!-- Mobile Toggle -->
-      <button
-        type="button"
-        (click)="toggleMobileMenu()"
-        class="md:hidden text-[var(--text-primary)]/80 hover:text-[var(--text-primary)] cursor-pointer"
-        aria-label="Toggle navigation menu"
-      >
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-          @if (!mobileMenuOpen()) {
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3 12h18M3 6h18M3 18h18" />
-          } @else {
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-          }
-        </svg>
-      </button>
     </header>
 
-    <!-- Mobile Fullscreen Menu -->
-    @if (mobileMenuOpen()) {
-      <div class="fixed inset-0 z-40 bg-[var(--bg-primary)] pt-32 px-8 pb-12 flex flex-col animate-fadeIn">
-        <div class="space-y-6 flex flex-col">
-          @for (item of navItems; track item.path) {
-            <a
-              [routerLink]="item.path"
-              (click)="closeMobileMenu()"
-              routerLinkActive="!text-[var(--accent)] !opacity-100 !font-medium"
-              [routerLinkActiveOptions]="{ exact: item.exact }"
-              class="text-4xl font-display font-light text-[var(--text-primary)]/40 hover:text-[var(--text-primary)] transition-colors"
-            >
-              {{ item.label }}
-            </a>
+    @if (menuOpen()) {
+      <div id="mobile-menu" class="mobile-panel fixed inset-0 z-40 px-6 pt-28 pb-10 flex flex-col" role="dialog" aria-modal="true" aria-label="Menu">
+        <div class="glow drift-a" style="width:60vw;height:60vw;right:-20vw;top:10vh;background:var(--accent-deep);opacity:.55"></div>
+        <ul class="relative flex flex-col gap-1">
+          @for (item of mobileItems; track item.path; let i = $index) {
+            <li class="mobile-item" [style.animation-delay.ms]="60 + i * 55">
+              <a
+                [routerLink]="item.path"
+                routerLinkActive="is-active"
+                [routerLinkActiveOptions]="{ exact: item.path === '/' }"
+                (click)="closeMenu()"
+                class="mobile-link"
+              >
+                <span class="font-mono text-[11px] text-[var(--text-tertiary)] w-8">0{{ i + 1 }}</span>
+                {{ item.label }}
+              </a>
+            </li>
           }
-          <a
-            routerLink="/contact"
-            (click)="closeMobileMenu()"
-            class="text-4xl font-display font-medium text-[var(--text-primary)] pt-8 mt-8 border-t border-[var(--border)] hover:opacity-70 transition-opacity"
-          >
-            Contact
-          </a>
+        </ul>
+        <div class="relative mt-auto flex flex-col gap-3">
+          <a routerLink="/contact" (click)="closeMenu()" class="btn btn-primary w-full">Get in touch <span class="arrow">→</span></a>
+          <a href="https://github.com/SahuSumanta" target="_blank" rel="noopener noreferrer" class="btn btn-ghost w-full">GitHub ↗</a>
         </div>
       </div>
     }
   `,
   styles: [`
-    .nimbu-mirchi {
-      animation: sway 6s ease-in-out infinite alternate;
+    .pill {
+      background: rgba(18, 16, 18, 0.55);
+      border-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(16px) saturate(140%);
+      -webkit-backdrop-filter: blur(16px) saturate(140%);
+      box-shadow: 0 10px 40px -12px rgba(0,0,0,.7), inset 0 1px 0 rgba(255,255,255,.06);
+      width: min(100%, 44rem);
     }
-    
-    .nimbu-mirchi:hover {
-      animation: sway-hover 2s ease-in-out infinite alternate;
+    @media (min-width: 768px) { .pill { width: auto; } }
+    .pill-scrolled { background: rgba(10, 9, 10, 0.82); border-color: rgba(255,255,255,.14); }
+    .logo-mark {
+      width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center;
+      font-family: var(--font-serif); font-style: italic; font-size: 17px; line-height: 1;
+      background: radial-gradient(circle at 30% 25%, var(--accent-hover), var(--accent) 55%, var(--accent-deep));
+      color: #fff; box-shadow: 0 0 18px -2px rgba(244,38,80,.7);
     }
-    
-    .nimbu-mirchi.pulling {
-      animation: pull-down 400ms cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    .nav-link {
+      display: inline-block; padding: .5rem .9rem; border-radius: 999px; font-size: .85rem;
+      color: var(--text-secondary); transition: color .2s, background .2s;
     }
-    
-    @keyframes sway {
-      0% { transform: rotate(-4deg); }
-      100% { transform: rotate(4deg); }
+    .nav-link:hover { color: var(--text-primary); background: rgba(255,255,255,.06); }
+    .nav-link.is-active { color: var(--text-primary); background: rgba(255,255,255,.09); }
+    .nav-cta {
+      align-items: center; gap: .35rem; padding: .5rem 1.05rem; border-radius: 999px; font-size: .85rem; font-weight: 500;
+      background: var(--accent); color: #fff; transition: background .2s, transform .3s var(--ease-out);
     }
-    
-    @keyframes sway-hover {
-      0% { transform: rotate(-8deg); }
-      100% { transform: rotate(8deg); }
-    }
-    
-    @keyframes pull-down {
-      0% { transform: scaleY(1) translateY(0); }
-      50% { transform: scaleY(1.3) translateY(10px); }
-      100% { transform: scaleY(1) translateY(0); }
-    }
+    .nav-cta:hover { background: var(--accent-hover); transform: translateY(-1px); }
+    .nav-cta.is-active { box-shadow: 0 0 0 2px rgba(255,255,255,.25); }
+    .burger { position: relative; width: 18px; height: 10px; display: block; }
+    .burger i { position: absolute; left: 0; right: 0; height: 1.5px; background: var(--text-primary); transition: transform .35s var(--ease-out), top .35s var(--ease-out); }
+    .burger i:first-child { top: 0; } .burger i:last-child { top: 8.5px; }
+    .burger.open i:first-child { top: 4.25px; transform: rotate(45deg); }
+    .burger.open i:last-child { top: 4.25px; transform: rotate(-45deg); }
+    .mobile-panel { background: rgba(8,8,8,.97); overflow: hidden; animation: panel-in .35s var(--ease-out); }
+    @keyframes panel-in { from { opacity: 0; } to { opacity: 1; } }
+    .mobile-link { display: flex; align-items: baseline; padding: .7rem 0; font-family: var(--font-display); font-size: clamp(2rem, 9vw, 3rem); letter-spacing: -.03em; color: var(--text-secondary); border-bottom: 1px solid var(--border-subtle); transition: color .2s; }
+    .mobile-link:hover, .mobile-link.is-active { color: var(--text-primary); }
+    .mobile-link.is-active { color: var(--accent); }
+    .mobile-item { opacity: 0; transform: translateY(14px); animation: item-in .6s var(--ease-out) forwards; }
+    @keyframes item-in { to { opacity: 1; transform: none; } }
+    @media (prefers-reduced-motion: reduce) { .mobile-item { opacity: 1; transform: none; animation: none; } }
   `]
 })
 export class NavbarComponent {
   private readonly platformId = inject(PLATFORM_ID);
-  readonly mobileMenuOpen = signal<boolean>(false);
-  readonly isPulling = signal<boolean>(false);
+  private readonly router = inject(Router);
+
+  readonly menuOpen = signal(false);
+  readonly scrolled = signal(false);
 
   readonly navItems = [
-    { label: 'Home', path: '/', exact: true },
-    { label: 'About', path: '/about', exact: false },
-    { label: 'Projects', path: '/projects', exact: false },
-    { label: 'Experience', path: '/experience', exact: false },
-    { label: 'Skills', path: '/skills', exact: false },
-    { label: 'Blog', path: '/blog', exact: false }
+    { label: 'Projects', path: '/projects' },
+    { label: 'About', path: '/about' },
+    { label: 'Experience', path: '/experience' },
+    { label: 'Skills', path: '/skills' },
+    { label: 'Writing', path: '/blog' }
   ];
 
-  toggleMobileMenu(): void {
-    this.mobileMenuOpen.update(open => !open);
-  }
+  readonly mobileItems = [
+    { label: 'Home', path: '/' },
+    ...this.navItems
+  ];
 
-  closeMobileMenu(): void {
-    this.mobileMenuOpen.set(false);
-  }
+  constructor() {
+    if (!isPlatformBrowser(this.platformId)) return;
 
-  triggerThemeToggle(event: MouseEvent): void {
-    if (!isPlatformBrowser(this.platformId) || this.isPulling()) return;
-
-    this.isPulling.set(true);
-
-    // Calculate click coordinates for the circular reveal
-    const x = event.clientX;
-    const y = event.clientY;
-
-    // Let the pull-down animation run to 50% before triggering the transition (200ms)
-    setTimeout(() => {
-      this.executeThemeTransition(x, y);
-    }, 200);
-
-    // Reset pulling state after animation completes
-    setTimeout(() => {
-      this.isPulling.set(false);
-    }, 500);
-  }
-
-  private executeThemeTransition(x: number, y: number): void {
-    const documentEl = document.documentElement;
-    const isDark = !documentEl.classList.contains('light-theme');
-
-    const applyTheme = () => {
-      if (isDark) {
-        documentEl.classList.add('light-theme');
-      } else {
-        documentEl.classList.remove('light-theme');
-      }
-    };
-
-    // @ts-ignore - View Transitions API might not be in the TS lib yet
-    if (!document.startViewTransition) {
-      applyTheme();
-      return;
-    }
-
-    // Set custom properties for the circular clip-path center
-    documentEl.style.setProperty('--theme-x', `${x}px`);
-    documentEl.style.setProperty('--theme-y', `${y}px`);
-    documentEl.style.viewTransitionName = 'theme-toggle';
-
-    // @ts-ignore
-    const transition = document.startViewTransition(() => {
-      applyTheme();
+    this.router.events.pipe(filter(e => e instanceof NavigationEnd)).subscribe(() => {
+      this.closeMenu();
+      window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
     });
 
-    transition.finished.then(() => {
-      documentEl.style.viewTransitionName = '';
+    // Lock page scroll while the mobile menu is open.
+    effect(() => {
+      document.body.style.overflow = this.menuOpen() ? 'hidden' : '';
     });
+    this.onScroll();
+  }
+
+  @HostListener('window:scroll')
+  onScroll(): void {
+    if (!isPlatformBrowser(this.platformId)) return;
+    this.scrolled.set(window.scrollY > 24);
+  }
+
+  @HostListener('document:keydown.escape')
+  onEscape(): void {
+    this.closeMenu();
+  }
+
+  toggleMenu(): void {
+    this.menuOpen.update(open => !open);
+  }
+
+  closeMenu(): void {
+    this.menuOpen.set(false);
   }
 }

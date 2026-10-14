@@ -27,17 +27,17 @@ import { ButtonComponent } from '../../shared/components/button/button.component
     <app-reading-progress-bar />
 
     @if (article(); as art) {
-      <div class="min-h-screen max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-20">
+      <div class="min-h-screen max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-36 pb-16 space-y-20">
         <!-- Back Breadcrumb & Metadata -->
-        <nav class="flex items-center justify-between border-b border-[#242428] pb-6">
-          <a routerLink="/blog" class="inline-flex items-center gap-2 text-sm font-mono text-[#A1A1AA] hover:text-[var(--text-primary)] transition-colors">
+        <nav class="flex items-center justify-between border-b border-[var(--border)] pb-6">
+          <a routerLink="/blog" class="inline-flex items-center gap-2 text-sm font-mono text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">
             <span>← Return to Publications Hub</span>
           </a>
 
-          <div class="flex items-center gap-2 text-xs font-mono text-[#A1A1AA]">
+          <div class="flex items-center gap-2 text-xs font-mono text-[var(--text-secondary)]">
             <span>Domain: {{ art.categories[0] }}</span>
             <span>•</span>
-            <span class="text-[#22C55E]">{{ art.difficulty }} Level</span>
+            <span class="text-[var(--success)]">{{ art.difficulty }} Level</span>
           </div>
         </nav>
 
@@ -45,27 +45,27 @@ import { ButtonComponent } from '../../shared/components/button/button.component
         <header class="max-w-4xl space-y-6">
           <div class="flex flex-wrap items-center gap-2">
             @for (cat of art.categories; track cat) {
-              <span class="px-3 py-1 rounded-full bg-[#3B82F6]/10 text-[#3B82F6] border border-[#3B82F6]/30 text-xs font-mono font-bold">
+              <span class="px-3 py-1 rounded-full bg-[var(--accent)]/10 text-[var(--accent)] border border-[var(--accent)]/30 text-xs font-mono font-bold">
                 {{ cat }}
               </span>
             }
           </div>
 
-          <h1 class="text-4xl sm:text-5xl md:text-6xl font-['Space_Grotesk'] font-bold text-[var(--accent)] tracking-tight leading-tight">
+          <h1 class="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-[var(--text-primary)] tracking-tight leading-tight">
             {{ art.title }}
           </h1>
 
-          <p class="text-lg sm:text-xl text-[#A1A1AA] leading-relaxed">
+          <p class="text-lg sm:text-xl text-[var(--text-secondary)] leading-relaxed">
             {{ art.summary }}
           </p>
 
           <!-- Author Byline Bar -->
-          <div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-y border-[#242428] py-4 text-xs font-mono text-[#A1A1AA]">
+          <div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-y border-[var(--border)] py-4 text-xs font-mono text-[var(--text-secondary)]">
             <div class="flex items-center gap-3">
-              <img [src]="art.author.avatarUrl" [alt]="art.author.name" class="w-10 h-10 rounded-full object-cover border border-[#242428]" />
+              <img [src]="art.author.avatarUrl" [alt]="art.author.name" class="w-10 h-10 rounded-full object-cover border border-[var(--border)]" />
               <div>
                 <div class="text-[var(--text-primary)] font-bold">{{ art.author.name }}</div>
-                <div class="text-[11px] text-[#3B82F6]">{{ art.author.title }}</div>
+                <div class="text-[11px] text-[var(--accent)]">{{ art.author.title }}</div>
               </div>
             </div>
 
@@ -80,17 +80,17 @@ import { ButtonComponent } from '../../shared/components/button/button.component
         </header>
 
         <!-- Cover Image -->
-        <div class="aspect-video w-full rounded-3xl overflow-hidden bg-[#131316] border border-[#242428] shadow-2xl">
+        <div class="aspect-video w-full rounded-xl overflow-hidden bg-[var(--surface)] border border-[var(--border)] shadow-2xl">
           <img [src]="art.coverUrl" [alt]="art.title" class="w-full h-full object-cover" />
         </div>
 
         <!-- Main Body Grid: Content + Sticky TOC -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           <!-- Article Content Body -->
-          <article class="lg:col-span-8 space-y-8 text-[#E5E7EB] font-sans leading-relaxed text-base sm:text-lg">
+          <article class="lg:col-span-8 space-y-8 text-[var(--text-primary)] font-sans leading-relaxed text-base sm:text-lg">
             @if (art.slug === 'angular-20-signals-architecture') {
               <section id="introduction" class="space-y-4">
-                <h2 class="text-2xl sm:text-3xl font-['Space_Grotesk'] font-bold text-[var(--accent)] border-b border-[#242428] pb-3">
+                <h2 class="text-2xl sm:text-3xl font-display font-bold text-[var(--text-primary)] border-b border-[var(--border)] pb-3">
                   1. The Cost of Zone.js in Enterprise Scale
                 </h2>
                 <p>
@@ -106,7 +106,7 @@ import { ButtonComponent } from '../../shared/components/button/button.component
               </section>
 
               <section id="signal-primitives" class="space-y-4">
-                <h2 class="text-2xl sm:text-3xl font-['Space_Grotesk'] font-bold text-[var(--accent)] border-b border-[#242428] pb-3">
+                <h2 class="text-2xl sm:text-3xl font-display font-bold text-[var(--text-primary)] border-b border-[var(--border)] pb-3">
                   2. Anatomy of Writable & Computed Signals
                 </h2>
                 <p>
@@ -122,7 +122,7 @@ import { ButtonComponent } from '../../shared/components/button/button.component
               </section>
 
               <section id="zoneless-migration" class="space-y-4">
-                <h2 class="text-2xl sm:text-3xl font-['Space_Grotesk'] font-bold text-[var(--accent)] border-b border-[#242428] pb-3">
+                <h2 class="text-2xl sm:text-3xl font-display font-bold text-[var(--text-primary)] border-b border-[var(--border)] pb-3">
                   3. Step-by-Step Zone-Less Migration Strategy
                 </h2>
                 <p>
@@ -135,40 +135,40 @@ import { ButtonComponent } from '../../shared/components/button/button.component
               </section>
 
               <section id="benchmarks" class="space-y-4">
-                <h2 class="text-2xl sm:text-3xl font-['Space_Grotesk'] font-bold text-[var(--accent)] border-b border-[#242428] pb-3">
+                <h2 class="text-2xl sm:text-3xl font-display font-bold text-[var(--text-primary)] border-b border-[var(--border)] pb-3">
                   4. Production Telemetry & Benchmarks
                 </h2>
                 <p>
                   Migrating our core real-time observability console yielded immediate improvements across all Core Web Vitals:
                 </p>
-                <div class="my-6 overflow-x-auto rounded-2xl border border-[#242428] bg-[#131316]">
+                <div class="my-6 overflow-x-auto rounded-lg border border-[var(--border)] bg-[var(--surface)]">
                   <table class="w-full text-left border-collapse font-mono text-xs sm:text-sm">
                     <thead>
-                      <tr class="bg-[#1C1C21] border-b border-[#242428] text-[#A1A1AA]">
+                      <tr class="bg-[var(--surface-hover)] border-b border-[var(--border)] text-[var(--text-secondary)]">
                         <th class="p-4">Metric</th>
-                        <th class="p-4 text-[#F59E0B]">Zone.js Architecture</th>
-                        <th class="p-4 text-[#3B82F6]">Angular 20 Signals</th>
-                        <th class="p-4 text-[#22C55E]">Delta Impact</th>
+                        <th class="p-4 text-[var(--accent)]">Zone.js Architecture</th>
+                        <th class="p-4 text-[var(--accent)]">Angular 20 Signals</th>
+                        <th class="p-4 text-[var(--success)]">Delta Impact</th>
                       </tr>
                     </thead>
-                    <tbody class="divide-y divide-[#242428]">
+                    <tbody class="divide-y divide-[var(--border)]">
                       <tr>
                         <td class="p-4 font-bold text-[var(--text-primary)]">Interaction to Next Paint (INP)</td>
-                        <td class="p-4 text-[#A1A1AA]">145 ms</td>
+                        <td class="p-4 text-[var(--text-secondary)]">145 ms</td>
                         <td class="p-4 text-[var(--text-primary)]">18 ms</td>
-                        <td class="p-4 text-[#22C55E] font-bold">-87%</td>
+                        <td class="p-4 text-[var(--success)] font-bold">-87%</td>
                       </tr>
                       <tr>
                         <td class="p-4 font-bold text-[var(--text-primary)]">Main Thread CPU Blocking</td>
-                        <td class="p-4 text-[#A1A1AA]">380 ms</td>
+                        <td class="p-4 text-[var(--text-secondary)]">380 ms</td>
                         <td class="p-4 text-[var(--text-primary)]">42 ms</td>
-                        <td class="p-4 text-[#22C55E] font-bold">-88%</td>
+                        <td class="p-4 text-[var(--success)] font-bold">-88%</td>
                       </tr>
                       <tr>
                         <td class="p-4 font-bold text-[var(--text-primary)]">Bundle Size (Gzipped)</td>
-                        <td class="p-4 text-[#A1A1AA]">84 kB</td>
+                        <td class="p-4 text-[var(--text-secondary)]">84 kB</td>
                         <td class="p-4 text-[var(--text-primary)]">61 kB</td>
-                        <td class="p-4 text-[#22C55E] font-bold">-27%</td>
+                        <td class="p-4 text-[var(--success)] font-bold">-27%</td>
                       </tr>
                     </tbody>
                   </table>
@@ -176,7 +176,7 @@ import { ButtonComponent } from '../../shared/components/button/button.component
               </section>
 
               <section id="conclusion" class="space-y-4">
-                <h2 class="text-2xl sm:text-3xl font-['Space_Grotesk'] font-bold text-[var(--accent)] border-b border-[#242428] pb-3">
+                <h2 class="text-2xl sm:text-3xl font-display font-bold text-[var(--text-primary)] border-b border-[var(--border)] pb-3">
                   5. Architectural Verdict
                 </h2>
                 <p>
@@ -185,24 +185,24 @@ import { ButtonComponent } from '../../shared/components/button/button.component
               </section>
             } @else {
               <!-- Standard Markdown fallback view -->
-              <div class="whitespace-pre-line font-sans text-base sm:text-lg text-[#E5E7EB] space-y-6">
+              <div class="whitespace-pre-line font-sans text-base sm:text-lg text-[var(--text-primary)] space-y-6">
                 {{ art.contentMarkdown }}
               </div>
             }
 
             <!-- Tags Row -->
-            <div class="pt-8 border-t border-[#242428] flex flex-wrap gap-2">
-              <span class="text-xs font-mono text-[#A1A1AA] mr-2">Index Tags:</span>
+            <div class="pt-8 border-t border-[var(--border)] flex flex-wrap gap-2">
+              <span class="text-xs font-mono text-[var(--text-secondary)] mr-2">Index Tags:</span>
               @for (tag of art.tags; track tag) {
-                <span class="px-3 py-1 rounded-lg bg-[#131316] border border-[#242428] text-xs font-mono text-[#3B82F6]">
+                <span class="px-3 py-1 rounded-lg bg-[var(--surface)] border border-[var(--border)] text-xs font-mono text-[var(--accent)]">
                   {{ tag }}
                 </span>
               }
             </div>
 
             <!-- Share Utilities -->
-            <div class="p-6 rounded-2xl bg-[#131316] border border-[#242428] flex flex-col sm:flex-row items-center justify-between gap-4">
-              <span class="text-sm font-bold text-[var(--text-primary)] font-['Space_Grotesk']">Found this architectural insight useful? Share it with your engineering peers:</span>
+            <div class="p-6 rounded-lg bg-[var(--surface)] border border-[var(--border)] flex flex-col sm:flex-row items-center justify-between gap-4">
+              <span class="text-sm font-bold text-[var(--text-primary)] font-display">Found this architectural insight useful? Share it with your engineering peers:</span>
               <div class="flex items-center gap-3">
                 <button type="button" (click)="onShare(art.title)" class="inline-block">
                   <app-button variant="primary" size="md">Share Article ↗</app-button>
@@ -221,30 +221,30 @@ import { ButtonComponent } from '../../shared/components/button/button.component
         </div>
 
         <!-- Author Signature Card -->
-        <section class="pt-12 border-t border-[#242428]">
-          <h3 class="text-xs font-mono uppercase tracking-wider text-[#3B82F6] font-bold mb-6">About The Author</h3>
+        <section class="pt-12 border-t border-[var(--border)]">
+          <h3 class="text-xs font-mono uppercase tracking-wider text-[var(--accent)] font-bold mb-6">About The Author</h3>
           <app-author-card [author]="art.author" />
         </section>
 
         <!-- Next / Previous Article Navigation -->
         <section class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6">
           @if (prevArticle(); as prev) {
-            <a [routerLink]="['/blog', prev.slug]" class="p-6 rounded-2xl bg-[#131316] hover:bg-[#1C1C21] border border-[#242428] flex items-center gap-4 transition-all duration-200">
-              <span class="text-2xl text-[#3B82F6]">←</span>
+            <a [routerLink]="['/blog', prev.slug]" class="p-6 rounded-lg bg-[var(--surface)] hover:bg-[var(--surface-hover)] border border-[var(--border)] flex items-center gap-4 transition-all duration-200">
+              <span class="text-2xl text-[var(--accent)]">←</span>
               <div>
-                <div class="text-xs font-mono text-[#A1A1AA]">Previous Publication</div>
+                <div class="text-xs font-mono text-[var(--text-secondary)]">Previous Publication</div>
                 <div class="text-base font-bold text-[var(--text-primary)] line-clamp-1">{{ prev.title }}</div>
               </div>
             </a>
           } @else { <div></div> }
 
           @if (nextArticle(); as next) {
-            <a [routerLink]="['/blog', next.slug]" class="p-6 rounded-2xl bg-[#131316] hover:bg-[#1C1C21] border border-[#242428] flex items-center justify-end gap-4 transition-all duration-200 text-right">
+            <a [routerLink]="['/blog', next.slug]" class="p-6 rounded-lg bg-[var(--surface)] hover:bg-[var(--surface-hover)] border border-[var(--border)] flex items-center justify-end gap-4 transition-all duration-200 text-right">
               <div>
-                <div class="text-xs font-mono text-[#A1A1AA]">Next Publication</div>
+                <div class="text-xs font-mono text-[var(--text-secondary)]">Next Publication</div>
                 <div class="text-base font-bold text-[var(--text-primary)] line-clamp-1">{{ next.title }}</div>
               </div>
-              <span class="text-2xl text-[#3B82F6]">→</span>
+              <span class="text-2xl text-[var(--accent)]">→</span>
             </a>
           }
         </section>
@@ -258,8 +258,8 @@ import { ButtonComponent } from '../../shared/components/button/button.component
       <!-- 404 Not Found -->
       <div class="min-h-[70vh] flex flex-col items-center justify-center text-center px-4 space-y-6">
         <div class="text-5xl">📄</div>
-        <h2 class="text-3xl font-['Space_Grotesk'] font-bold text-[var(--accent)]">Publication Not Found</h2>
-        <p class="text-sm text-[#A1A1AA] max-w-md">The technical article you requested does not exist or has been archived.</p>
+        <h2 class="text-3xl font-display font-bold text-[var(--text-primary)]">Publication Not Found</h2>
+        <p class="text-sm text-[var(--text-secondary)] max-w-md">The technical article you requested does not exist or has been archived.</p>
         <a routerLink="/blog">
           <app-button variant="primary">Return to Publications Hub</app-button>
         </a>
@@ -308,9 +308,9 @@ export class LegacyTickerComponent {
 @Component({
   selector: 'app-reactive-ticker',
   template: \`
-    <div class="p-4 bg-[#131316] rounded-xl border border-[#242428]">
-      <span class="text-sm font-mono text-[#A1A1AA]">Live Price:</span>
-      <span class="text-2xl font-bold text-[#22C55E]">{{\$formattedPrice()}}</span>
+    <div class="p-4 bg-[var(--surface)] rounded-xl border border-[var(--border)]">
+      <span class="text-sm font-mono text-[var(--text-secondary)]">Live Price:</span>
+      <span class="text-2xl font-bold text-[var(--success)]">{{\$formattedPrice()}}</span>
     </div>
   \`
 })

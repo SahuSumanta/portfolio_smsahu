@@ -6,51 +6,54 @@ import { Project } from '../../../core/models/portfolio.models';
   selector: 'app-project-card',
   imports: [RouterLink],
   template: `
-    <div class="group h-full flex flex-col cursor-pointer" [routerLink]="['/projects', project().slug]">
-      
-      <!-- Minimalist Thumbnail -->
-      <div class="aspect-[4/3] bg-[var(--border)] overflow-hidden rounded-sm relative mb-6">
-        @if (project().thumbnailUrl) {
+    <a
+      class="card group h-full flex flex-col rounded-lg border border-[var(--border)] bg-[var(--surface)] overflow-hidden"
+      [routerLink]="['/projects', project().slug]"
+      [attr.aria-label]="project().title + ' — read case study'"
+    >
+      <div class="relative aspect-[16/10] overflow-hidden bg-[var(--ink-850)]">
+        @if (project().thumbnailUrl && !project().thumbnailUrl.startsWith('http')) {
           <img
             [src]="project().thumbnailUrl"
-            [alt]="project().title"
-            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            [alt]="project().title + ' interface'"
+            loading="lazy" decoding="async" width="1200" height="750"
+            class="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-[1200ms] ease-[var(--ease-out)] group-hover:scale-[1.05]"
           />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
         } @else {
-          <div class="absolute inset-0 bg-[var(--surface-hover)]"></div>
+          <div class="absolute inset-0 grid place-items-center ph">
+            <span class="font-display text-2xl tracking-tight text-white/80 px-6 text-center">{{ project().title }}</span>
+          </div>
         }
       </div>
 
-      <!-- Content -->
-      <div class="flex flex-col flex-1 justify-between">
-        <div class="space-y-2">
-          <div class="flex justify-between items-start">
-            <h3 class="text-xl font-display font-medium text-[var(--accent)] group-hover:opacity-70 transition-opacity">
-              {{ project().title }}
-            </h3>
-            <span class="text-[var(--text-primary)]/20 font-sans text-sm">{{ project().completionYear }}</span>
-          </div>
-          
-          <p class="text-sm text-[var(--text-primary)]/60 font-sans font-light leading-relaxed line-clamp-2">
-            {{ project().tagline }}
-          </p>
+      <div class="flex flex-col flex-1 p-6 md:p-7">
+        <div class="flex items-center justify-between font-mono text-[10px] tracking-[0.14em] uppercase text-[var(--text-tertiary)]">
+          <span>{{ project().category }}</span>
+          <span>{{ project().completionYear }}</span>
         </div>
-
-        <div class="pt-6 mt-6 border-t border-[var(--border)] flex flex-wrap gap-2">
-          @for (tech of project().techStack.slice(0, 3); track tech) {
-            <span class="text-[10px] font-sans text-[var(--text-primary)]/40 uppercase tracking-widest">
-              {{ tech }}
-            </span>
+        <h3 class="font-display text-2xl font-medium tracking-tight mt-4 group-hover:text-[var(--accent)] transition-colors">
+          {{ project().title }}
+        </h3>
+        <p class="text-sm text-[var(--text-secondary)] leading-relaxed line-clamp-3 mt-3">
+          {{ project().tagline }}
+        </p>
+        <div class="mt-auto pt-6 flex flex-wrap items-center gap-2">
+          @for (tech of project().techStack.slice(0, 4); track tech) {
+            <span class="tag">{{ tech }}</span>
           }
-          @if (project().techStack.length > 3) {
-            <span class="text-[10px] font-sans text-[var(--text-primary)]/40 uppercase tracking-widest">
-              +{{ project().techStack.length - 3 }}
-            </span>
+          @if (project().techStack.length > 4) {
+            <span class="tag">+{{ project().techStack.length - 4 }}</span>
           }
         </div>
       </div>
-    </div>
+    </a>
   `,
+  styles: [`
+    .card { transition: border-color .4s, transform .5s var(--ease-out), box-shadow .5s; }
+    .card:hover { border-color: rgba(244,38,80,.45); transform: translateY(-4px); box-shadow: 0 30px 60px -30px rgba(244,38,80,.35); }
+    .ph { background: radial-gradient(80% 80% at 70% 0%, var(--accent-deep), var(--ink-900) 70%); }
+  `],
   host: {
     class: 'block h-full'
   }

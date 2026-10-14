@@ -1,0 +1,317 @@
+/* ==========================================================================
+   PORTFOLIO — HOME COMPONENT STYLES (NESTJS-INSPIRED VISUAL ARCHITECTURE)
+   ========================================================================== */
+
+/* ---------- Hero ---------- */
+.hero-horizon {
+  background:
+    radial-gradient(110% 70% at 50% 105%, rgba(244, 38, 80, 0.48) 0%, rgba(120, 13, 39, 0.32) 42%, transparent 75%),
+    radial-gradient(60% 45% at 85% 15%, rgba(120, 13, 39, 0.22), transparent 70%);
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--fs-hero);
+  line-height: 0.96;
+  letter-spacing: -0.035em;
+  max-width: 15ch;
+  text-wrap: balance;
+}
+.hero-title .serif-em {
+  font-size: 1.05em;
+  letter-spacing: -0.015em;
+  padding-right: 0.1em;
+}
+
+.live-dot {
+  position: relative;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: inline-block;
+  box-shadow: 0 0 10px rgba(244, 38, 80, 0.8);
+}
+.live-dot::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  opacity: 0;
+  animation: ping 2.4s var(--ease-out) infinite;
+}
+@keyframes ping {
+  0% { transform: scale(0.4); opacity: 0.9; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+/* ---------- Approach ---------- */
+.statement {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  font-size: clamp(1.85rem, 1rem + 2.8vw, 3.4rem);
+  line-height: 1.14;
+  text-wrap: pretty;
+}
+.principle {
+  display: grid;
+  gap: 0.75rem 2rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--border);
+  transition: padding-left var(--dur-base) var(--ease-out);
+}
+.principle:hover {
+  padding-left: 0.75rem;
+}
+.principle:hover > span {
+  color: var(--accent);
+}
+@media (min-width: 768px) {
+  .principle {
+    grid-template-columns: 3rem 1fr 1.1fr;
+    align-items: baseline;
+  }
+}
+
+/* ---------- Overlapping Section Panels (NestJS Layered Architectural Transitions) ---------- */
+.panel-layer {
+  position: relative;
+  border-top-left-radius: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+  border-top-right-radius: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 -30px 70px -15px rgba(0, 0, 0, 0.92), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  margin-top: calc(-1 * clamp(2.5rem, 1.5rem + 3vw, 5rem));
+}
+
+.panel-specular {
+  position: absolute;
+  top: 0;
+  left: 15%;
+  right: 15%;
+  height: 1px;
+  background: radial-gradient(ellipse at center, rgba(244, 38, 80, 0.7) 0%, rgba(244, 38, 80, 0.15) 50%, transparent 80%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ---------- Flagship Case Studies (Clean 12-Column Split, No Occlusion + 3D Hover Depth) ---------- */
+.case {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2rem;
+  align-items: center;
+}
+
+.case-visual {
+  grid-column: 1 / span 12;
+  perspective: 1200px;
+  transition: transform var(--dur-base) var(--ease-out), border-color var(--dur-base), box-shadow var(--dur-base) var(--ease-out);
+}
+.case-visual:hover {
+  border-color: rgba(244, 38, 80, 0.45);
+  box-shadow: var(--shadow-2xl), 0 25px 70px -15px rgba(244, 38, 80, 0.35);
+  transform: perspective(1200px) rotateY(-2.5deg) rotateX(1.2deg) translateY(-3px);
+}
+.case-odd .case-visual:hover {
+  transform: perspective(1200px) rotateY(2.5deg) rotateX(1.2deg) translateY(-3px);
+}
+.case-sheen {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(70% 60% at 85% 10%, rgba(244, 38, 80, 0.18), transparent 70%);
+  mix-blend-mode: screen;
+}
+.placeholder {
+  background: radial-gradient(80% 80% at 70% 0%, var(--accent-deep), var(--ink-900) 70%);
+}
+
+.case-card {
+  grid-column: 1 / span 12;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--ink-900);
+  transition: border-color var(--dur-base), box-shadow var(--dur-base);
+}
+.case-card:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+@media (min-width: 1024px) {
+  .case {
+    gap: 3rem;
+  }
+  .case-visual {
+    grid-column: 1 / span 7;
+  }
+  .case-card {
+    grid-column: 8 / span 5;
+  }
+  .case-odd .case-visual {
+    grid-column: 6 / span 7;
+  }
+  .case-odd .case-card {
+    grid-column: 1 / span 5;
+    grid-row: 1;
+  }
+}
+
+/* ---------- Engineering Depth ---------- */
+.code {
+  margin: 0;
+  padding: 1.5rem 1.25rem;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  line-height: 1.9;
+  color: var(--ink-400);
+  white-space: pre;
+  tab-size: 2;
+}
+.code .ln {
+  display: inline-block;
+  width: 2.25rem;
+  color: var(--ink-500);
+  opacity: 0.6;
+  user-select: none;
+}
+.t-k { color: #ff6b8a; }
+.t-f { color: var(--text-primary); }
+.t-s { color: #d9b98c; }
+.t-m { color: #d8a3b3; }
+.t-p { color: var(--ink-500); font-style: italic; }
+
+.note {
+  transition: border-color var(--dur-base), background var(--dur-base);
+}
+.note:hover {
+  border-color: var(--border-hover);
+  background: var(--surface-hover);
+}
+
+.flow {
+  position: relative;
+  display: grid;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 1.5rem;
+  border-left: 1px solid var(--border);
+}
+.flow-node {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.flow-dot {
+  position: absolute;
+  left: calc(-1.5rem - 4px);
+  top: 0.3rem;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 14px 2px rgba(244, 38, 80, 0.7);
+}
+@media (min-width: 768px) {
+  .flow {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+    padding: 1.75rem 0 0;
+    border-left: 0;
+    border-top: 1px solid var(--border);
+  }
+  .flow-dot {
+    left: 0;
+    top: calc(-1.75rem - 4px);
+  }
+  .flow::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -2px;
+    height: 3px;
+    pointer-events: none;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent) no-repeat;
+    background-size: 22% 100%;
+    background-position: -25% 0;
+    animation: travel 5.5s ease-in-out infinite;
+  }
+}
+@keyframes travel {
+  0% { background-position: -25% 0; }
+  100% { background-position: 125% 0; }
+}
+
+/* ---------- Experience & Writing Rows ---------- */
+.xp {
+  display: grid;
+  gap: 0.75rem 2rem;
+  padding: 2.25rem 0;
+  border-bottom: 1px solid var(--border);
+  transition: padding-left var(--dur-base) var(--ease-out);
+}
+.xp:hover {
+  padding-left: 0.5rem;
+}
+@media (min-width: 768px) {
+  .xp { grid-template-columns: 13rem 1fr; }
+}
+
+.post {
+  display: grid;
+  gap: 0.6rem 2rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--border);
+  align-items: start;
+  transition: padding-left var(--dur-base) var(--ease-out);
+}
+.post:hover {
+  padding-left: 0.5rem;
+}
+@media (min-width: 768px) {
+  .post { grid-template-columns: 9rem 1fr auto; }
+}
+.post-arrow {
+  color: var(--text-tertiary);
+  font-size: 1.25rem;
+  transition: transform var(--dur-base) var(--ease-out), color var(--dur-fast);
+  display: none;
+}
+@media (min-width: 768px) {
+  .post-arrow { display: block; }
+}
+.post:hover .post-arrow {
+  transform: translate(4px, -4px);
+  color: var(--accent);
+}
+
+/* ---------- About Portrait ---------- */
+.portrait img {
+  filter: grayscale(1) contrast(1.05) brightness(0.92);
+  transition: filter 0.9s var(--ease-out), transform 1.4s var(--ease-out);
+}
+.portrait:hover img {
+  filter: grayscale(0.2) contrast(1.02) brightness(1);
+  transform: scale(1.03);
+}
+.portrait-tint {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent 35%, rgba(120, 13, 39, 0.65));
+  mix-blend-mode: multiply;
+}
+.portrait::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+  border-radius: inherit;
+}

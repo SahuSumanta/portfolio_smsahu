@@ -8,21 +8,21 @@ import { ArticleCardComponent } from '../../shared/components/article-card/artic
   selector: 'app-tags-hub',
   imports: [RouterLink, TagChipComponent, ArticleCardComponent],
   template: `
-    <div class="min-h-screen max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-20">
-      <nav class="flex items-center justify-between border-b border-[#242428] pb-6">
-        <a routerLink="/blog" class="inline-flex items-center gap-2 text-sm font-mono text-[#A1A1AA] hover:text-[var(--text-primary)] transition-colors">
+    <div class="min-h-screen max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-36 pb-16 space-y-20">
+      <nav class="flex items-center justify-between border-b border-[var(--border)] pb-6">
+        <a routerLink="/blog" class="inline-flex items-center gap-2 text-sm font-mono text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">
           <span>← Back to Publications Hub</span>
         </a>
       </nav>
 
       <header class="space-y-4 max-w-3xl">
-        <span class="text-xs font-mono text-[#22C55E] uppercase tracking-wider font-bold">Index Tags & Topics</span>
-        <h1 class="text-4xl sm:text-5xl font-['Space_Grotesk'] font-bold text-[var(--accent)] tracking-tight">Popular Tags</h1>
-        <p class="text-base text-[#A1A1AA]">Explore publications indexed by granular architectural concepts, frameworks, and programming languages.</p>
+        <span class="text-xs font-mono text-[var(--success)] uppercase tracking-wider font-bold">Index Tags & Topics</span>
+        <h1 class="text-4xl sm:text-5xl font-display font-bold text-[var(--text-primary)] tracking-tight">Popular Tags</h1>
+        <p class="text-base text-[var(--text-secondary)]">Explore publications indexed by granular architectural concepts, frameworks, and programming languages.</p>
       </header>
 
       <!-- Tag Chips Grid -->
-      <div class="flex flex-wrap gap-2.5 p-6 rounded-2xl bg-[#131316] border border-[#242428]">
+      <div class="flex flex-wrap gap-2.5 p-6 rounded-lg bg-[var(--surface)] border border-[var(--border)]">
         @for (tag of tags(); track tag) {
           <app-tag-chip
             [tag]="tag"
@@ -35,7 +35,7 @@ import { ArticleCardComponent } from '../../shared/components/article-card/artic
           <button
             type="button"
             (click)="selectTag('')"
-            class="px-3 py-1.5 text-xs font-mono text-[#E6522C] hover:underline cursor-pointer"
+            class="px-3 py-1.5 text-xs font-mono text-[var(--accent)] hover:underline cursor-pointer"
           >
             ✕ Reset Tag Selection
           </button>
@@ -44,15 +44,15 @@ import { ArticleCardComponent } from '../../shared/components/article-card/artic
 
       <!-- Articles Grid -->
       <section class="space-y-8">
-        <h2 class="text-2xl font-['Space_Grotesk'] font-bold text-[var(--accent)] border-b border-[#242428] pb-4">
+        <h2 class="text-2xl font-display font-bold text-[var(--text-primary)] border-b border-[var(--border)] pb-4">
           @if (activeTag()) {
-            Publications Tagged <span class="text-[#3B82F6]">{{ activeTag() }}</span>
+            Publications Tagged <span class="text-[var(--accent)]">{{ activeTag() }}</span>
           } @else {
             All Publications Index
           }
         </h2>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           @for (art of filteredArticles(); track art.id) {
             <app-article-card [article]="art" />
           }

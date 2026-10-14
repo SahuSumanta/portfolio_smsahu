@@ -8,17 +8,17 @@ import { ArticleCardComponent } from '../../shared/components/article-card/artic
   selector: 'app-blog-search',
   imports: [RouterLink, SearchBoxComponent, ArticleCardComponent],
   template: `
-    <div class="min-h-screen max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-20">
-      <nav class="flex items-center justify-between border-b border-[#242428] pb-6">
-        <a routerLink="/blog" class="inline-flex items-center gap-2 text-sm font-mono text-[#A1A1AA] hover:text-[var(--text-primary)] transition-colors">
+    <div class="min-h-screen max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-36 pb-16 space-y-20">
+      <nav class="flex items-center justify-between border-b border-[var(--border)] pb-6">
+        <a routerLink="/blog" class="inline-flex items-center gap-2 text-sm font-mono text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">
           <span>← Back to Publications Hub</span>
         </a>
       </nav>
 
       <header class="space-y-6 max-w-3xl">
-        <span class="text-xs font-mono text-[#F59E0B] uppercase tracking-wider font-bold">Unified Knowledge Base & Search Engine</span>
-        <h1 class="text-4xl sm:text-5xl font-['Space_Grotesk'] font-bold text-[var(--accent)] tracking-tight">Search & Knowledge Hub</h1>
-        <p class="text-base text-[#A1A1AA]">Instantly search across all published articles, architecture notes, cheat sheets, and design patterns.</p>
+        <span class="text-xs font-mono text-[var(--accent)] uppercase tracking-wider font-bold">Unified Knowledge Base & Search Engine</span>
+        <h1 class="text-4xl sm:text-5xl font-display font-bold text-[var(--text-primary)] tracking-tight">Search & Knowledge Hub</h1>
+        <p class="text-base text-[var(--text-secondary)]">Instantly search across all published articles, architecture notes, cheat sheets, and design patterns.</p>
 
         <div class="pt-2">
           <app-search-box
@@ -31,30 +31,30 @@ import { ArticleCardComponent } from '../../shared/components/article-card/artic
 
       <!-- Knowledge Resources Section -->
       <section class="space-y-8">
-        <div class="flex items-center justify-between border-b border-[#242428] pb-4">
-          <h2 class="text-2xl sm:text-3xl font-['Space_Grotesk'] font-bold text-[var(--accent)]">Engineering Cheat Sheets & Architecture Notes</h2>
-          <span class="text-xs font-mono text-[#22C55E]">{{ filteredResources().length }} Resources</span>
+        <div class="flex items-center justify-between border-b border-[var(--border)] pb-4">
+          <h2 class="text-2xl sm:text-3xl font-display font-bold text-[var(--text-primary)]">Engineering Cheat Sheets & Architecture Notes</h2>
+          <span class="text-xs font-mono text-[var(--success)]">{{ filteredResources().length }} Resources</span>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           @for (res of filteredResources(); track res.id) {
-            <div class="p-6 rounded-2xl bg-[#131316] border border-[#242428] hover:border-[#3B82F6]/50 transition-all duration-300 flex flex-col justify-between space-y-4">
+            <div class="p-6 rounded-lg bg-[var(--surface)] border border-[var(--border)] hover:border-[var(--accent)]/50 transition-all duration-300 flex flex-col justify-between space-y-4">
               <div class="space-y-3">
                 <div class="flex items-center justify-between">
-                  <span class="px-2 py-0.5 rounded bg-[#F59E0B]/10 text-[#F59E0B] text-[10px] font-mono font-bold">{{ res.category }}</span>
-                  <span class="text-[10px] font-mono text-[#A1A1AA]">{{ res.updatedDate }}</span>
+                  <span class="px-2 py-0.5 rounded bg-[var(--accent)]/10 text-[var(--accent)] text-[10px] font-mono font-bold">{{ res.category }}</span>
+                  <span class="text-[10px] font-mono text-[var(--text-secondary)]">{{ res.updatedDate }}</span>
                 </div>
-                <h4 class="text-lg font-bold text-[var(--accent)] font-['Space_Grotesk']">{{ res.title }}</h4>
-                <p class="text-xs text-[#A1A1AA] leading-relaxed">{{ res.summary }}</p>
+                <h4 class="text-lg font-bold text-[var(--text-primary)] font-display">{{ res.title }}</h4>
+                <p class="text-xs text-[var(--text-secondary)] leading-relaxed">{{ res.summary }}</p>
               </div>
 
-              <div class="p-3 rounded-xl bg-[#0B0B0C] border border-[#242428] text-[11px] font-mono text-[#E5E7EB] leading-relaxed">
-                <span class="text-[#3B82F6] font-bold">Key Spec: </span>{{ res.contentSnippet }}
+              <div class="p-3 rounded-xl bg-[var(--bg-primary)] border border-[var(--border)] text-[11px] font-mono text-[var(--text-primary)] leading-relaxed">
+                <span class="text-[var(--accent)] font-bold">Key Spec: </span>{{ res.contentSnippet }}
               </div>
 
               <div class="pt-2 flex items-center justify-between text-xs font-mono">
-                <span class="text-[#A1A1AA]">{{ res.format }}</span>
-                <span class="text-[#22C55E] font-bold">Verified Spec ✓</span>
+                <span class="text-[var(--text-secondary)]">{{ res.format }}</span>
+                <span class="text-[var(--success)] font-bold">Verified Spec ✓</span>
               </div>
             </div>
           }
@@ -63,12 +63,12 @@ import { ArticleCardComponent } from '../../shared/components/article-card/artic
 
       <!-- Matching Articles Grid -->
       <section class="space-y-8">
-        <div class="flex items-center justify-between border-b border-[#242428] pb-4">
-          <h2 class="text-2xl sm:text-3xl font-['Space_Grotesk'] font-bold text-[var(--accent)]">Matching Technical Essays</h2>
-          <span class="text-xs font-mono text-[#A1A1AA]">{{ filteredArticles().length }} Articles</span>
+        <div class="flex items-center justify-between border-b border-[var(--border)] pb-4">
+          <h2 class="text-2xl sm:text-3xl font-display font-bold text-[var(--text-primary)]">Matching Technical Essays</h2>
+          <span class="text-xs font-mono text-[var(--text-secondary)]">{{ filteredArticles().length }} Articles</span>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           @for (art of filteredArticles(); track art.id) {
             <app-article-card [article]="art" />
           }

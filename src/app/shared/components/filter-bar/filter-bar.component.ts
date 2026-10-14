@@ -8,7 +8,7 @@ export type ProjectSortOption = 'featured' | 'newest' | 'oldest' | 'alphabetical
   selector: 'app-filter-bar',
   imports: [SearchBoxComponent, CategoryChipComponent],
   template: `
-    <div class="space-y-6 bg-[#131316]/80 border border-[#242428] rounded-2xl p-6 backdrop-blur-sm">
+    <div class="space-y-6 bg-[var(--surface)]/80 border border-[var(--border)] rounded-lg p-6 backdrop-blur-sm">
       <!-- Search and Sort Row -->
       <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
         <div class="w-full md:max-w-md">
@@ -20,11 +20,11 @@ export type ProjectSortOption = 'featured' | 'newest' | 'oldest' | 'alphabetical
         </div>
 
         <div class="flex items-center gap-3 w-full md:w-auto justify-end">
-          <span class="text-xs font-mono text-[#A1A1AA] uppercase tracking-wider">Sort by:</span>
+          <span class="text-xs font-mono text-[var(--text-secondary)] uppercase tracking-wider">Sort by:</span>
           <select
             [value]="selectedSort()"
             (change)="onSortChange($event)"
-            class="bg-[#0B0B0C] border border-[#242428] rounded-xl px-3.5 py-2 text-sm text-[var(--text-primary)] focus:outline-none focus:border-[#3B82F6] cursor-pointer"
+            class="bg-[var(--bg-primary)] border border-[var(--border)] rounded-xl px-3.5 py-2 text-sm text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent)] cursor-pointer"
           >
             <option value="featured">Featured First</option>
             <option value="newest">Newest (2025 → 2024)</option>
@@ -36,7 +36,7 @@ export type ProjectSortOption = 'featured' | 'newest' | 'oldest' | 'alphabetical
 
       <!-- Category Chips Row -->
       <div class="space-y-2">
-        <div class="text-xs font-mono text-[#A1A1AA] uppercase tracking-wider">Domain Categories</div>
+        <div class="text-xs font-mono text-[var(--text-secondary)] uppercase tracking-wider">Domain Categories</div>
         <div class="flex flex-wrap items-center gap-2">
           <app-category-chip
             label="All Domains"
@@ -57,8 +57,8 @@ export type ProjectSortOption = 'featured' | 'newest' | 'oldest' | 'alphabetical
 
       <!-- Technology Chips Row -->
       @if (availableTechs().length > 0) {
-        <div class="space-y-2 pt-2 border-t border-[#242428]">
-          <div class="text-xs font-mono text-[#A1A1AA] uppercase tracking-wider">Filter by Core Technology</div>
+        <div class="space-y-2 pt-2 border-t border-[var(--border)]">
+          <div class="text-xs font-mono text-[var(--text-secondary)] uppercase tracking-wider">Filter by Core Technology</div>
           <div class="flex flex-wrap items-center gap-1.5">
             <button
               type="button"
@@ -109,8 +109,8 @@ export class FilterBarComponent {
   getTechChipClass(tech: string): string {
     const base = 'px-2.5 py-1 rounded-lg text-xs font-mono transition-all duration-200 cursor-pointer border';
     if (this.selectedTech() === tech) {
-      return `${base} bg-[#3B82F6] text-[var(--text-primary)] border-[#3B82F6]`;
+      return `${base} bg-[var(--accent)] text-[var(--text-primary)] border-[var(--accent)]`;
     }
-    return `${base} bg-[#0B0B0C] hover:bg-[#1C1C21] text-[#A1A1AA] hover:text-[var(--text-primary)] border-[#242428]`;
+    return `${base} bg-[var(--bg-primary)] hover:bg-[var(--surface-hover)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border-[var(--border)]`;
   }
 }

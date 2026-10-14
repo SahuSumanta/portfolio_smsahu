@@ -4,7 +4,7 @@ export const routes: Routes = [
   {
     path: '',
     loadComponent: () => import('./features/home/home.component').then(m => m.HomeComponent),
-    title: 'Sumanta Sahu — Systems & Frontend Engineer',
+    title: 'Sumanta Sahu — Software Engineer',
     data: { animation: 'HomePage' }
   },
   {

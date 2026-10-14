@@ -7,7 +7,7 @@ import { BlogArticle, KnowledgeResource, AuthorProfile } from '../models/portfol
 export class BlogService {
   readonly authorProfile = signal<AuthorProfile>({
     name: 'Sumanta Sahu',
-    title: 'Principal Systems & Frontend Architect',
+    title: 'Software Engineer',
     bio: 'Software architect specialized in distributed consensus protocols (Go/Rust), ultra-low latency streaming pipelines, and declarative Angular 20 design systems.',
     avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80',
     githubUrl: 'https://github.com/SahuSumanta',

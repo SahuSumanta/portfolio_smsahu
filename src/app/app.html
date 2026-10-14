@@ -1,6 +1,7 @@
-<div class="min-h-screen flex flex-col bg-[var(--bg-primary)] text-[var(--text-primary)] font-['Inter'] selection:bg-white selection:text-black">
+<div class="min-h-screen flex flex-col bg-[var(--bg-primary)] text-[var(--text-primary)]">
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-full focus:bg-[var(--accent)] focus:text-white">Skip to content</a>
   <app-navbar />
-  <main class="flex-1 overflow-hidden" [@routeAnimations]="prepareRoute(outlet)">
+  <main id="main" class="flex-1 overflow-x-clip" [@routeAnimations]="prepareRoute(outlet)">
     <router-outlet #outlet="outlet" />
   </main>
   <app-footer />

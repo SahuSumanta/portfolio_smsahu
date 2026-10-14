@@ -1,56 +1,23 @@
 import { Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ResumeProfile } from '../../../core/models/portfolio.models';
-import { ButtonComponent } from '../button/button.component';
 
 @Component({
   selector: 'app-resume-banner',
-  imports: [ButtonComponent, RouterLink],
+  imports: [RouterLink],
   template: `
-    <div class="bg-gradient-to-r from-[#131316] via-[#1C1C21] to-[#131316] border border-[#242428] rounded-2xl p-8 sm:p-10 space-y-8 shadow-xl">
-      <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-[#242428] pb-6">
-        <div class="space-y-2">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#3B82F6]/10 text-[#3B82F6] border border-[#3B82F6]/30 text-xs font-mono font-bold">
-            <span>{{ profile().version }}</span>
-          </div>
-          <h2 class="text-3xl font-['Space_Grotesk'] font-bold text-[var(--accent)]">Verified Engineering Curriculum Vitae</h2>
-          <p class="text-sm text-[#A1A1AA] max-w-2xl">
-            {{ profile().previewText }}
-          </p>
-        </div>
-
-        <div class="text-left md:text-right font-mono text-xs text-[#A1A1AA]">
-          <div>Last Updated: <span class="text-[var(--text-primary)]">{{ profile().lastUpdated }}</span></div>
-          <div class="text-[#22C55E] mt-1">✓ Cryptographically Signed PDF</div>
-        </div>
+    <section class="relative isolate overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--surface)] p-8 sm:p-12" aria-labelledby="resume-title">
+      <div class="glow -z-10" style="width:30rem;height:30rem;right:-10rem;top:-14rem;background:var(--accent-deep);opacity:.55"></div>
+      <p class="eyebrow mb-6">Resume · {{ profile().lastUpdated }}</p>
+      <h2 id="resume-title" class="h-section max-w-[18ch]">The full record, <span class="serif-em">in one page.</span></h2>
+      <p class="text-[var(--text-secondary)] max-w-xl mt-6 leading-relaxed">{{ profile().previewText }}</p>
+      <div class="flex flex-wrap items-center gap-4 mt-10">
+        <a routerLink="/resume" class="btn btn-primary">View resume <span class="arrow">→</span></a>
+        <a [href]="profile().pdfUrl" download="Sumanta_Sahu_Resume.pdf" class="btn btn-ghost">Download PDF</a>
+        <button type="button" (click)="onPrint()" class="link-muted text-sm cursor-pointer ml-2">Print</button>
+        <button type="button" (click)="onShare()" class="link-muted text-sm cursor-pointer">Share</button>
       </div>
-
-      <!-- Action Buttons Row -->
-      <div class="flex flex-wrap items-center gap-4">
-        <a routerLink="/resume">
-          <app-button variant="primary" size="lg">
-            View Official Resume
-          </app-button>
-        </a>
-        <a [href]="profile().pdfUrl" download="Sumanta_Sahu_Resume.pdf">
-          <app-button variant="secondary" size="lg">
-            Download PDF
-          </app-button>
-        </a>
-
-        <button type="button" (click)="onPrint()" class="inline-block">
-          <app-button variant="secondary" size="lg">
-            Print Format
-          </app-button>
-        </button>
-
-        <button type="button" (click)="onShare()" class="inline-block">
-          <app-button variant="outline" size="lg">
-            Share Profile
-          </app-button>
-        </button>
-      </div>
-    </div>
+    </section>
   `
 })
 export class ResumeBannerComponent {
@@ -64,7 +31,7 @@ export class ResumeBannerComponent {
     if (navigator.share) {
       try {
         await navigator.share({
-          title: 'Sumanta Sahu — Principal Systems & Frontend Architect',
+          title: 'Sumanta Sahu — Software Engineer',
           url: window.location.origin
         });
       } catch {

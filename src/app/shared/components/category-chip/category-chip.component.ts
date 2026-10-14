@@ -30,9 +30,9 @@ export class CategoryChipComponent {
   getClasses(): string {
     const base = 'inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 cursor-pointer select-none border';
     if (this.active()) {
-      return `${base} bg-[#3B82F6] text-[var(--text-primary)] border-[#3B82F6] shadow-sm`;
+      return `${base} bg-[var(--accent)] text-[var(--text-primary)] border-[var(--accent)] shadow-sm`;
     }
-    return `${base} bg-[#131316] hover:bg-[#1C1C21] text-[#A1A1AA] hover:text-[var(--text-primary)] border-[#242428]`;
+    return `${base} bg-[var(--surface)] hover:bg-[var(--surface-hover)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border-[var(--border)]`;
   }
 
   getCountClasses(): string {
@@ -40,6 +40,6 @@ export class CategoryChipComponent {
     if (this.active()) {
       return `${base} bg-[var(--text-primary)]/20 text-[var(--text-primary)]`;
     }
-    return `${base} bg-[#1C1C21] text-[#A1A1AA]`;
+    return `${base} bg-[var(--surface-hover)] text-[var(--text-secondary)]`;
   }
 }

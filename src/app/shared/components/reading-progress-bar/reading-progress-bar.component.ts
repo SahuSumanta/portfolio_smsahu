@@ -3,9 +3,9 @@ import { Component, signal, HostListener } from '@angular/core';
 @Component({
   selector: 'app-reading-progress-bar',
   template: `
-    <div class="fixed top-0 left-0 right-0 h-1 z-50 bg-[#131316]">
+    <div class="fixed top-0 left-0 right-0 h-1 z-50 bg-[var(--surface)]">
       <div
-        class="h-full bg-gradient-to-r from-[#3B82F6] via-[#22C55E] to-[#3B82F6] transition-all duration-150"
+        class="h-full bg-gradient-to-r from-[var(--accent)] via-[var(--success)] to-[var(--accent)] transition-all duration-150"
         [style.width]="progress() + '%'"
       ></div>
     </div>

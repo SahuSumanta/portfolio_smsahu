@@ -1,142 +1,102 @@
 /* ==========================================================================
-   PORTFOLIO V2 — DESIGN SYSTEM TOKENS (MINIMAL, PREMIUM)
-   Primitive → Semantic → Component
+   PORTFOLIO V3 — DESIGN TOKENS  (near-black foundation, restrained crimson)
+   Primitive → Semantic → Component. Legacy semantic names are preserved so
+   existing components inherit the new identity automatically.
    ========================================================================== */
 
 :root {
-  /* ==========================================================================
-     LAYER 1: PRIMITIVE TOKENS (Raw Values & Color Scales)
-     ========================================================================== */
-  
-  /* Pure Minimal Dark Canvas */
-  --color-black-pure: #000000;
-  --color-zinc-950: #09090B;
-  --color-zinc-900: #18181B;
-  --color-zinc-800: #27272A;
-  --color-zinc-700: #3F3F46;
-  --color-zinc-600: #52525B;
-  --color-zinc-500: #71717A;
-  --color-zinc-400: #A1A1AA;
-  --color-zinc-300: #D4D4D8;
-  --color-zinc-200: #E4E4E7;
-  --color-zinc-100: #F4F4F5;
-  --color-white: #FFFFFF;
+  /* ---------- Primitives ---------- */
+  --ink-1000: #050505;
+  --ink-950: #080808;   /* canvas            */
+  --ink-900: #121012;   /* secondary surface */
+  --ink-850: #1b181a;   /* elevated surface  */
+  --ink-700: #2a2528;
+  --ink-500: #6f696c;
+  --ink-400: #a5a0a2;   /* secondary text    */
+  --ink-100: #f5f3f0;   /* primary text      */
 
-  /* Spacing Grid (4dp / 8dp Base) */
-  --space-0: 0px;
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-5: 20px;
-  --space-6: 24px;
-  --space-8: 32px;
-  --space-10: 40px;
-  --space-12: 48px;
-  --space-16: 64px;
-  --space-20: 80px;
-  --space-24: 96px;
-  --space-32: 128px;
-  --space-40: 160px;
+  --crimson-500: #f42650;   /* accent */
+  --crimson-400: #ff4d70;
+  --crimson-700: #780d27;   /* deep crimson */
+  --crimson-900: #3a0715;
 
-  /* Border Radii */
-  --radius-none: 0px;
-  --radius-sm: 2px;
-  --radius-md: 4px;
-  --radius-lg: 8px;
-  --radius-xl: 12px;
-  --radius-2xl: 16px;
-  --radius-3xl: 24px;
+  /* Spacing (4/8 grid) */
+  --space-1: 4px;  --space-2: 8px;  --space-3: 12px; --space-4: 16px;
+  --space-6: 24px; --space-8: 32px; --space-12: 48px; --space-16: 64px;
+  --space-24: 96px; --space-32: 128px;
+
+  /* Radii — sharp-ish surfaces, pill for controls */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 20px;
   --radius-full: 9999px;
 
-  /* Typography Scale */
-  --font-sans: 'Inter', 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-display: 'Space Grotesk', 'Outfit', sans-serif;
-  --font-mono: 'IBM Plex Mono', 'Geist Mono', monospace;
+  /* Type families */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Inter Tight', 'Inter', -apple-system, sans-serif;
+  --font-serif: 'Instrument Serif', 'Times New Roman', serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
 
-  /* ==========================================================================
-     LAYER 2: SEMANTIC TOKENS (Purpose Aliases & Theme Mapping)
-     ========================================================================== */
-  
-  /* Canvas & Surface Mapping (Dark Theme Default) */
-  --bg-primary: var(--color-black-pure);
-  --bg-secondary: var(--color-zinc-950);
-  --surface: var(--color-zinc-950);
-  --surface-hover: var(--color-zinc-900);
-  --surface-active: var(--color-zinc-800);
-  
-  /* Border & Divider Mapping */
-  --border: var(--color-zinc-800);
-  --border-hover: var(--color-zinc-700);
-  --border-subtle: rgba(255, 255, 255, 0.05);
+  /* Fluid type scale */
+  --fs-hero: clamp(2.7rem, 1rem + 6.2vw, 7rem);
+  --fs-display: clamp(2.25rem, 1.2rem + 4.2vw, 5.25rem);
+  --fs-h2: clamp(1.9rem, 1.1rem + 2.8vw, 3.5rem);
+  --fs-h3: clamp(1.25rem, 1rem + 0.9vw, 1.75rem);
+  --fs-lead: clamp(1.05rem, 0.95rem + 0.5vw, 1.375rem);
+  --fs-body: 1rem;
+  --fs-mono: 0.72rem;
 
-  /* Typography Mapping */
-  --text-primary: var(--color-white);
-  --text-secondary: var(--color-zinc-400);
-  --text-tertiary: var(--color-zinc-500);
-  --text-inverse: var(--color-black-pure);
+  /* Layout */
+  --content-max: 1280px;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --section-y: clamp(3.75rem, 2.5rem + 4vw, 6rem);
 
-  /* Brand Accents & Highlights */
-  --accent: #FF9933;
-  --accent-hover: #FFB366;
-  --accent-light: rgba(255, 153, 51, 0.2);
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 180ms;
+  --dur-base: 420ms;
+  --dur-slow: 900ms;
 
-  /* Status Indicators */
-  --success: #10B981;
-  --warning: #F59E0B;
-  --error: #EF4444;
+  /* ---------- Semantic ---------- */
+  --bg-primary: var(--ink-950);
+  --bg-secondary: var(--ink-900);
+  --surface: var(--ink-900);
+  --surface-hover: var(--ink-850);
+  --surface-active: var(--ink-700);
 
-  /* Glassmorphism */
-  --glass-bg: rgba(0, 0, 0, 0.6);
-  --glass-bg-hover: rgba(9, 9, 11, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.05);
-  --glass-border-hover: rgba(255, 255, 255, 0.1);
-  --glass-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
-  --glass-backdrop: blur(12px);
+  --border: rgba(255, 255, 255, 0.12);
+  --border-hover: rgba(255, 255, 255, 0.24);
+  --border-subtle: rgba(255, 255, 255, 0.06);
 
-  /* Elevation Shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.6);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.7);
-  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
-}
+  --text-primary: var(--ink-100);
+  --text-secondary: var(--ink-400);
+  --text-tertiary: var(--ink-500);
+  --text-inverse: var(--ink-950);
 
-.light-theme {
-  /* Canvas & Surface Mapping (Light Theme) */
-  --bg-primary: var(--color-zinc-50);
-  --bg-secondary: var(--color-zinc-100);
-  --surface: var(--color-white);
-  --surface-hover: var(--color-zinc-100);
-  --surface-active: var(--color-zinc-200);
-  
-  /* Border & Divider Mapping */
-  --border: var(--color-zinc-200);
-  --border-hover: var(--color-zinc-300);
-  --border-subtle: rgba(0, 0, 0, 0.05);
+  --accent: var(--crimson-500);
+  --accent-hover: var(--crimson-400);
+  --accent-deep: var(--crimson-700);
+  --accent-light: rgba(244, 38, 80, 0.16);
 
-  /* Typography Mapping */
-  --text-primary: var(--color-zinc-950);
-  --text-secondary: var(--color-zinc-600);
-  --text-tertiary: var(--color-zinc-500);
-  --text-inverse: var(--color-white);
+  --success: #3ecf8e;
+  --warning: #f5a524;
+  --error: #ff5d5d;
 
-  /* Brand Accents & Highlights */
-  --accent: var(--color-zinc-900);
-  --accent-hover: var(--color-zinc-700);
-  --accent-light: var(--color-zinc-600);
+  /* Glass */
+  --glass-bg: rgba(18, 16, 18, 0.62);
+  --glass-bg-hover: rgba(27, 24, 26, 0.74);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-border-hover: rgba(255, 255, 255, 0.2);
+  --glass-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.8);
+  --glass-backdrop: blur(18px) saturate(140%);
 
-  /* Glassmorphism */
-  --glass-bg: rgba(255, 255, 255, 0.6);
-  --glass-bg-hover: rgba(244, 244, 245, 0.7);
-  --glass-border: rgba(0, 0, 0, 0.05);
-  --glass-border-hover: rgba(0, 0, 0, 0.1);
-  --glass-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-
-  /* Elevation Shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  /* Elevation */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 6px 16px -4px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 16px 32px -8px rgba(0, 0, 0, 0.65);
+  --shadow-xl: 0 28px 56px -12px rgba(0, 0, 0, 0.75);
+  --shadow-2xl: 0 40px 90px -20px rgba(0, 0, 0, 0.85);
+  --shadow-glow: 0 0 80px -20px rgba(244, 38, 80, 0.45);
 }

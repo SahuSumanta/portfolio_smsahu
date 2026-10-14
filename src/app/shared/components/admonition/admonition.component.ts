@@ -3,7 +3,7 @@ import { Component, input } from '@angular/core';
 @Component({
   selector: 'app-admonition',
   template: `
-    <div class="my-6 p-5 rounded-2xl border flex items-start gap-4 transition-all duration-200"
+    <div class="my-6 p-5 rounded-lg border flex items-start gap-4 transition-all duration-200"
       [class]="getContainerClasses(type())"
     >
       <div class="text-xl shrink-0 mt-0.5">
@@ -13,7 +13,7 @@ import { Component, input } from '@angular/core';
         <div class="text-xs font-mono font-bold uppercase tracking-wider" [class]="getTitleClasses(type())">
           {{ title() || getDefaultTitle(type()) }}
         </div>
-        <div class="text-sm text-[#E5E7EB] leading-relaxed">
+        <div class="text-sm text-[var(--text-primary)] leading-relaxed">
           <ng-content />
           {{ content() }}
         </div>
@@ -29,30 +29,30 @@ export class AdmonitionComponent {
   getContainerClasses(type: string): string {
     switch (type) {
       case 'tip':
-        return 'bg-[#22C55E]/10 border-[#22C55E]/30';
+        return 'bg-[var(--success)]/10 border-[var(--success)]/30';
       case 'warning':
-        return 'bg-[#F59E0B]/10 border-[#F59E0B]/30';
+        return 'bg-[var(--accent)]/10 border-[var(--accent)]/30';
       case 'important':
         return 'bg-[#A855F7]/10 border-[#A855F7]/30';
       case 'danger':
-        return 'bg-[#E6522C]/10 border-[#E6522C]/30';
+        return 'bg-[var(--accent)]/10 border-[var(--accent)]/30';
       default:
-        return 'bg-[#3B82F6]/10 border-[#3B82F6]/30';
+        return 'bg-[var(--accent)]/10 border-[var(--accent)]/30';
     }
   }
 
   getTitleClasses(type: string): string {
     switch (type) {
       case 'tip':
-        return 'text-[#22C55E]';
+        return 'text-[var(--success)]';
       case 'warning':
-        return 'text-[#F59E0B]';
+        return 'text-[var(--accent)]';
       case 'important':
         return 'text-[#A855F7]';
       case 'danger':
-        return 'text-[#E6522C]';
+        return 'text-[var(--accent)]';
       default:
-        return 'text-[#3B82F6]';
+        return 'text-[var(--accent)]';
     }
   }
 

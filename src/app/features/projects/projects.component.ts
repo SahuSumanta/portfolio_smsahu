@@ -2,48 +2,25 @@ import { Component, inject, signal, computed } from '@angular/core';
 import { PortfolioService } from '../../core/services/portfolio.service';
 import { FilterBarComponent, ProjectSortOption } from '../../shared/components/filter-bar/filter-bar.component';
 import { ProjectGridComponent } from '../../shared/components/project-grid/project-grid.component';
-import { ProjectCardComponent } from '../../shared/components/project-card/project-card.component';
+import { PageHeaderComponent } from '../../shared/components/page-header/page-header.component';
 import { ScrollRevealDirective } from '../../shared/directives/scroll-reveal/scroll-reveal.directive';
 
 @Component({
   selector: 'app-projects',
-  imports: [FilterBarComponent, ProjectGridComponent, ProjectCardComponent, ScrollRevealDirective],
+  imports: [FilterBarComponent, ProjectGridComponent, ScrollRevealDirective, PageHeaderComponent],
   template: `
-    <div class="min-h-screen max-w-7xl mx-auto px-6 lg:px-8 pt-32 pb-24 space-y-24 overflow-x-hidden">
-      <!-- Minimal Header -->
-      <header appScrollReveal direction="up" class="space-y-6 max-w-4xl border-b border-[var(--border)] pb-16">
-        <h1 class="text-4xl sm:text-6xl md:text-7xl font-display font-medium text-[var(--accent)] tracking-tighter leading-[1.1]">
-          Projects
-        </h1>
+    <app-page-header
+      eyebrow="Projects"
+      title="Work that ships, "
+      accent="engineered carefully."
+      lead="Enterprise platforms, IoT interfaces and AI-enabled products — each with the problem it solved and the engineering behind it."
+    />
 
-        <p class="text-lg md:text-2xl text-[var(--text-primary)]/60 font-sans font-light leading-relaxed max-w-3xl">
-          Deep architectural dives into distributed systems, event processing pipelines, and structured frontend applications.
-        </p>
-      </header>
-
-      <!-- Highlighted Flagship Showcases Section -->
-      @if (featuredProjects().length > 0 && selectedCategory() === 'All' && !searchQuery() && !selectedTech()) {
-        <section appScrollReveal direction="up" class="space-y-12">
-          <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[var(--border)] pb-6">
-            <h2 class="text-3xl md:text-5xl font-display font-medium tracking-tighter">Flagship Work</h2>
-            <span class="text-sm font-sans text-[var(--text-primary)]/40 uppercase tracking-widest">Selected Showcases</span>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16">
-            @for (project of featuredProjects(); track project.id) {
-              <div class="h-full">
-                <app-project-card [project]="project" />
-              </div>
-            }
-          </div>
-        </section>
-      }
-
-      <!-- Complete Repository -->
-      <section appScrollReveal direction="up" class="space-y-12 border-t border-[var(--border)] pt-16">
+    <div class="container-x py-16 md:py-24">
+      <section appScrollReveal direction="up" class="space-y-10">
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
-          <h2 class="text-3xl md:text-5xl font-display font-medium tracking-tighter">All Engineering Projects</h2>
-          <span class="text-sm font-sans text-[var(--text-primary)]/40 uppercase tracking-widest">
+          <h2 class="h-section">All projects</h2>
+          <span class="font-mono text-[11px] tracking-[0.14em] uppercase text-[var(--text-tertiary)]">
             Showing {{ filteredProjects().length }} of {{ allProjects().length }}
           </span>
         </div>
@@ -63,7 +40,6 @@ import { ScrollRevealDirective } from '../../shared/directives/scroll-reveal/scr
           (sortChange)="onSortChange($event)"
         />
 
-        <!-- Main Projects Grid -->
         <app-project-grid
           [projects]="filteredProjects()"
           [loading]="loading()"
